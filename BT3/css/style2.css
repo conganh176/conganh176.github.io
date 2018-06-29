@@ -9,6 +9,17 @@ body{
     max-width: 1000px;
 }
 
+img{
+	max-width: 500px;
+	margin: 10px;
+}
+
+h1{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2em;
+}
+
 .header{
         text-transform: uppercase;
         font-size: 14px;
@@ -26,32 +37,14 @@ body{
                 color: gray;
 }
 
+img#logo{
+			margin: 0px;
+}
+
 #logo:hover{
             opacity: 0.25;
 }
 
 #logo:active{
             opacity: 0.5;
-}
-
-.games{
-	max-width: 300px;
-	height: 450px;
-    margin: 40px 12px;
-    border: 3px groove #696969;
-    border-radius: 5%;
-}
-
-.games:hover {
-                opacity: 0.25;
-}
-
-.games:active {
-                opacity: 0.5;
-}
-
-h1{
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 2em;
 }
