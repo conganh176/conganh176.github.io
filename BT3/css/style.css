@@ -9,6 +9,10 @@ body{
     max-width: 1000px;
 }
 
+a{
+    text-decoration: none;
+}
+
 .header{
         text-transform: uppercase;
         color: #b8b6b4;
