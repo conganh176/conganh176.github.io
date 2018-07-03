@@ -1,0 +1,21 @@
+body{
+	background-color: rgb(13, 13, 11);
+	max-width: 1000px;
+	margin: auto;
+}
+
+.header{
+		background-color: black;
+}
+
+.logo img{
+		max-width: 150px;
+}
+
+.banner img{
+			max-width: 1000px;
+}
+
+.image img{
+	max-width: 300px;
+}
