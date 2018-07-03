@@ -2,14 +2,20 @@ body{
 	background-color: rgb(13, 13, 11);
 	max-width: 1000px;
 	margin: auto;
+	background-image: url("../img/background.png");
+	font-size: 14px;
 }
 
 .header{
 		background-color: black;
+		height: 150px;
+		width: 100%;
 }
 
 .logo img{
 		max-width: 150px;
+		float: left;
+		margin-top: 20px auto;
 }
 
 .banner img{
@@ -18,4 +24,19 @@ body{
 
 .image img{
 	max-width: 300px;
+	max-height: 450px;
+	opacity: 0.1;
+}
+
+.image img:hover{
+					opacity: 1;
+}
+
+.menu a{
+		font-size: 2em;
+		text-decoration: none;
+		float: left;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		margin-left: 50px;
 }
