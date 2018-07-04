@@ -1,15 +1,38 @@
 body{
 	background-color: rgb(13, 13, 11);
-	max-width: 1000px;
 	margin: auto;
 	background-image: url("../img/background.png");
 	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.content{
+			max-width: 1000px;
+			margin: auto;
 }
 
 .header{
 		background-color: black;
 		height: 150px;
 		width: 100%;
+}
+
+.logo{
+			max-width: 1000px;
+			margin: auto;
+}
+
+.logo:hover{
+			filter: brightness(150%);
+}
+
+.logo:active{
+			filter: brightness(200%);
+}
+
+.menu {
+		max-width: 1000px;
+		margin: auto;
 }
 
 .logo img{
@@ -22,10 +45,23 @@ body{
 			max-width: 1000px;
 }
 
+.image{
+		float: left;
+		height: 600px;
+		width: 33.33%;
+		box-sizing: border-box;
+		border: 2px groove #696969;
+}
+
 .image img{
 	max-width: 300px;
 	max-height: 450px;
 	opacity: 0.1;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+	display: block;
 }
 
 .image img:hover{
@@ -39,4 +75,13 @@ body{
 		margin-top: 50px;
 		margin-bottom: 50px;
 		margin-left: 50px;
+		color: #8d020d;
+}
+
+.menu a:hover{
+			filter: brightness(150%)
+}
+
+.menu a:active{
+			filter: brightness(200%);
 }
