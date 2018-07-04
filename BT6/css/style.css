@@ -51,7 +51,7 @@ body{
 		float: left;
 		height: 600px;
 		width: 33.33%;
-		border: 3px groove #696969;
+		border: 3px solid white;
 		box-sizing: border-box;
 		margin: auto;
 		background-color: black;
@@ -71,13 +71,14 @@ body{
 	display: block;
 	vertical-align: bottom;
 	position: absolute;
-	bottom: 0;
+	bottom: 25px;
 	left: 0;
 	right: 0;
 }
 
 .image img:hover{
 					opacity: 1;
+
 }
 
 .menu a{
@@ -95,6 +96,7 @@ body{
 
 .menu a:hover{
 			filter: brightness(150%)
+
 }
 
 .menu a:active{
