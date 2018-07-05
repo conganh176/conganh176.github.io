@@ -1,18 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
 body{
-	background-color: rgb(13, 13, 11);
+	background-color: rgb(12, 12, 12);
 	margin: auto;
 	background-image: url("../img/background.png");
 	font-size: 14px;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-.content{
+#content{
 			max-width: 1000px;
 			margin: auto;
-}
+		}
 
-.header{
-		background-color: black;
+#header{
+		background-color: rgb(12, 12, 12);
 		height: 150px;
 		width: 100%;
 		background-image: url("../img/light4.png");
@@ -21,30 +25,52 @@ body{
 		background-position: center top;
 }
 
-.logo, .menu{
+#logo, #menu{
 			max-width: 1000px;
 			margin: auto;
 }
 
-.logo:hover{
+#logo:hover{
 			filter: brightness(150%);
 }
 
-.logo:active{
+#logo:active{
 			filter: brightness(200%);
 }
 
-
-
-.logo img{
+#logo img{
 		max-width: 150px;
 		float: left;
-		margin: auto;
 }
 
-.banner img{
-			max-width: 1000px;
-			margin: auto;
+#banner img{
+			max-width: 100%;
+}
+
+#menu a{
+		font-size: 2em;
+		text-decoration: none;
+		float: left;
+		margin-top: 50px;
+		margin-bottom: auto;
+		box-sizing: border-box;
+		margin-left: 50px;
+		color: rgb(242, 242, 242);
+		border: 5px solid rgb(242, 242, 242);
+		background-color: rgb(12, 12, 12);
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+}
+
+#menu a:hover{
+			filter: brightness(150%)
+
+}
+
+#menu a:active{
+			filter: brightness(200%);
 }
 
 .image{
@@ -52,9 +78,7 @@ body{
 		height: 600px;
 		width: 33.33%;
 		border: 3px solid white;
-		box-sizing: border-box;
-		margin: auto;
-		background-color: black;
+		background-color: rgb(12, 12, 12);
 		background-image: url(../img/light6.png), url(../img/background2.png);
 		background-repeat: no-repeat, no-repeat;
 		background-position: center, bottom;
@@ -65,11 +89,9 @@ body{
 .image img{
 	max-width: 300px;
 	max-height: 450px;
-	opacity: 0.1;
+	filter: brightness(10%);
 	margin-left: auto;
 	margin-right: auto;
-	display: block;
-	vertical-align: bottom;
 	position: absolute;
 	bottom: 25px;
 	left: 0;
@@ -77,28 +99,5 @@ body{
 }
 
 .image img:hover{
-					opacity: 1;
-
-}
-
-.menu a{
-		font-size: 2em;
-		text-decoration: none;
-		float: left;
-		margin-top: 50px;
-		margin-bottom: 50px;
-		margin-left: 50px;
-		color: #8d020d;
-		border: 2px groove #8d020d;
-		background-color: rgb(13, 13, 11);
-		padding: 3px;
-}
-
-.menu a:hover{
-			filter: brightness(150%)
-
-}
-
-.menu a:active{
-			filter: brightness(200%);
+					filter: brightness(100%);
 }
