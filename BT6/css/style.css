@@ -10,7 +10,7 @@ body{
 	background-color: rgb(12, 12, 12);
 	margin: 0;
 	padding: 0;
-	background-image: url("../img/background.png");
+	background-image: url("../img/background3.png"), url("../img/background.png");
 	font-size: 14px;
 	font-family: Arial, Helvetica, sans-serif;
 }
@@ -83,6 +83,9 @@ body{
 			filter: brightness(150%);
 }
 
+#menu a#active{
+	filter: brightness(150%);
+}
 .image{
 		float: left;
 		height: 600px;

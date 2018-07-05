@@ -11,7 +11,7 @@
 		<audio id="hoveraudio" src="music/hover.mp3" type="audio/mpeg"></audio>
 		<audio id="clickaudio" src="music/click.mp3" type="audio/mpeg"></audio>
 		<audio id="audio" autoplay src="music/background2.mp3" type="audio/mp3"/></audio>
-
+		
 		<script>
 			function playSound(hoveraudio) {
 				var audio1=document.getElementById(hoveraudio);
@@ -33,7 +33,7 @@
 		<div id="body">
 			<div id="menu">
 			<a href="index.html" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">Home</a>
-			<a href="about.html" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">About</a>
+			<a href="about.html" id="active" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">About</a>
 			<a id="playpause" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">♫</a>
 			<script>
 				document.getElementById("playpause").onclick = function() {
@@ -42,6 +42,9 @@
 					else audio.pause();
 				};
 			</script>
+			</div>
+			<div id="content">
+				<p>Why are you here?</p>
 			</div>
 		</div>
 			</div>
