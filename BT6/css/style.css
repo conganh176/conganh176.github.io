@@ -2,32 +2,38 @@
     box-sizing: border-box;
 }
 
+html{
+	border: 5px solid rgb(242, 242, 242);
+}
+
 body{
 	background-color: rgb(12, 12, 12);
-	margin: auto;
+	margin: 0;
+	padding: 0;
 	background-image: url("../img/background.png");
 	font-size: 14px;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
 #content{
-			max-width: 1000px;
+			width: 100%;
 			margin: auto;
 		}
+
+#imagecontent, #bannercontent, #logo, #menu{
+	max-width: 1000px;
+	margin: auto;
+}
 
 #header{
 		background-color: rgb(12, 12, 12);
 		height: 150px;
 		width: 100%;
-		background-image: url("../img/light4.png");
+		background-image: url("../img/light2.png");
 		background-size: auto;
 		background-repeat: no-repeat;
 		background-position: center top;
-}
-
-#logo, #menu{
-			max-width: 1000px;
-			margin: auto;
+		border: 5px solid rgb(242, 242, 242);
 }
 
 #logo:hover{
@@ -39,22 +45,25 @@ body{
 }
 
 #logo img{
-		max-width: 150px;
+		max-width: 110px;
 		float: left;
+		margin-top: 20px;
+		margin-bottom: 20px;
 }
 
 #banner img{
 			max-width: 100%;
+			float: left;
+			border: 5px solid rgb(242, 242, 242);
 }
 
 #menu a{
-		font-size: 2em;
+		font-size: 1.5em;
 		text-decoration: none;
 		float: left;
 		margin-top: 50px;
 		margin-bottom: auto;
-		box-sizing: border-box;
-		margin-left: 50px;
+		margin-left: 2vw;
 		color: rgb(242, 242, 242);
 		border: 5px solid rgb(242, 242, 242);
 		background-color: rgb(12, 12, 12);
@@ -62,24 +71,25 @@ body{
 		padding-right: 10px;
 		padding-top: 5px;
 		padding-bottom: 5px;
+		filter: brightness(100%);
 }
 
 #menu a:hover{
-			filter: brightness(150%)
+			filter: brightness(125%)
 
 }
 
 #menu a:active{
-			filter: brightness(200%);
+			filter: brightness(150%);
 }
 
 .image{
 		float: left;
 		height: 600px;
 		width: 33.33%;
-		border: 3px solid white;
+		border: 5px solid rgb(242, 242, 242);
 		background-color: rgb(12, 12, 12);
-		background-image: url(../img/light6.png), url(../img/background2.png);
+		background-image: url(../img/light1.png), url(../img/background2.png);
 		background-repeat: no-repeat, no-repeat;
 		background-position: center, bottom;
 		background-size: cover, cover;
