@@ -32,9 +32,9 @@
 		<div id="body">
 			<div id="header">
 				<div id="logo">
-					<audio id="audio" autoplay src="music/background.mp3" type="audio/mp3"/>
+					<audio autoplay loop id="audio" autoplay src="music/background.mp3" type="audio/mp3"/>
 					</audio>
-					<img onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')" src="img/logo.png" alt="logo" title="Click me to play/pause music!!!" id="playpause"/>
+					<img class="cursor" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')" src="img/logo.png" alt="logo" title="Click me to play/pause music!!!" id="playpause"/>
 					<script>
 						document.getElementById("playpause").onclick = function() {
 					    var audio = document.getElementById("audio");
@@ -46,7 +46,7 @@
 				<div id="menu">
 					<a href="index.html" id="active" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">Home</a>
 					<a href="about.html" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">About</a>
-					<a id="playpause2" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">♫</a>
+					<a class="cursor" id="playpause2" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">♫</a>
 					<script>
 						document.getElementById("playpause2").onclick = function() {
 					    var audio = document.getElementById("audio");
