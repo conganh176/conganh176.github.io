@@ -10,7 +10,7 @@
 	<body>
 		<audio id="hoveraudio" src="music/hover.mp3" type="audio/mpeg"></audio>
 		<audio id="clickaudio" src="music/click.mp3" type="audio/mpeg"></audio>
-
+		<audio autoplay loop id="audio" autoplay src="music/background.mp3" type="audio/mp3"/></audio>
 		<script>
 			function playSound(hoveraudio) {
 				var audio1=document.getElementById(hoveraudio);
@@ -30,39 +30,40 @@
 		</script>
 
 		<div id="body">
-			<div id="header">
-				<div id="logo">
-					<audio autoplay loop id="audio" autoplay src="music/background.mp3" type="audio/mp3"/>
-					</audio>
-					<img class="cursor" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')" src="img/logo.png" alt="logo" title="Click me to play/pause music!!!" id="playpause"/>
-					<script>
-						document.getElementById("playpause").onclick = function() {
-					    var audio = document.getElementById("audio");
-					    if (audio.paused) audio.play();
-					    else audio.pause();
-					};
-					</script>
-				</div>
-				<div id="menu">
-					<a href="index.html" id="active" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">Home</a>
-					<a href="about.html" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">About</a>
-					<a class="cursor" id="playpause2" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">♫</a>
-					<script>
-						document.getElementById("playpause2").onclick = function() {
-					    var audio = document.getElementById("audio");
-					    if (audio.paused) audio.play();
-					    else audio.pause();
-					};
-					</script>
+			<div id="bannercontent">
+				<div id="banner">
+					<img src="img/banner.png" alt="Banner" title="Banner">
 				</div>
 			</div>
+				
 			<div id="content">
-				<div id="bannercontent">
-					<div id="banner">
-					<img src="img/banner.jpg" alt="Banner" title="Banner">
+				<div id="menu">
+					<div id="logo">
+						<img class="cursor" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')" src="img/logo.png" alt="logo" title="Click me to play/pause music!!!" id="playpause"/>
+						<script>
+							document.getElementById("playpause").onclick = function() {
+						    var audio = document.getElementById("audio");
+						    if (audio.paused) audio.play();
+						    else audio.pause();
+						};
+						</script>
 					</div>
-				</div>
+					<div id="menucontent">
+						<a href="index.html" id="active" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">Home</a>
+						<a href="about.html" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">About</a>
+						<a class="cursor" id="playpause2" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">♫</a>
+						<script>
+							document.getElementById("playpause2").onclick = function() {
+						    var audio = document.getElementById("audio");
+						    if (audio.paused) audio.play();
+						    else audio.pause();
+						};
+						</script>
+					</div>
 
+
+				</div>
+				
 				<div id="imagecontent">
 					<div class="image">
 					<img src="img/1.png" alt="Akira" title="Akira Kurusu" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">
