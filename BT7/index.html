@@ -32,14 +32,21 @@
 		<div id="body">
 			<div id="bannercontent">
 				<div id="banner">
-					<img src="img/banner.png" alt="Banner" title="Banner">
+					<img src="img/banner.png" alt="Banner" title="Banner" class="cursor" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')" id="playpause3"/>
+					<script>
+							document.getElementById("playpause3").onclick = function() {
+						    var audio = document.getElementById("audio");
+						    if (audio.paused) audio.play();
+						    else audio.pause();
+						};
+					</script>
 				</div>
 			</div>
 				
 			<div id="content">
 				<div id="menu">
 					<div id="logo">
-						<img class="cursor" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')" src="img/logo.png" alt="logo" title="Click me to play/pause music!!!" id="playpause"/>
+						<img class="cursor" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')" src="img/logo.png" alt="logo" title="Click me toemlay/pause music!!!" id="playpause"/>
 						<script>
 							document.getElementById("playpause").onclick = function() {
 						    var audio = document.getElementById("audio");
@@ -106,6 +113,10 @@
 					</div>
 				</div>
 			</div>
+			<div id="top">
+				<a href="index.html#bannercontent">
+				<img src="img/top2.png" alt="top" title="Back to Top" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">
+				</a>
 		</div>
 	</body>
 </html>

@@ -34,12 +34,11 @@ body{
 
 #menu{
 		background-color: rgb(13, 120, 222);
-		left: 0;
 		width: 20%;
-		height: 40vh;
-		position: absolute;
+		max-width: 200px;
+		height: 300px;
+		position: fixed;
 		border: 5px solid rgb(241, 249, 250);
-		right: 0;
 }
 
 #imagecontent{
@@ -47,7 +46,6 @@ body{
 			right: 0;
 			width: 80%;
 }
-
 
 
 #logo:hover{
@@ -62,8 +60,17 @@ body{
 	position: relative;
 }
 
+#banner img:hover, #top img:hover{
+	filter: brightness(150%);
+}
+
+#banner img:active, #top img:active{
+	filter: brightness(200%);
+}
+
 #logo img{
-		max-width: 110px;
+		min-width: 100px;
+		max-width: 10vw;
 		position: absolute;
 		left: 0;
 		right: 0;
@@ -73,7 +80,7 @@ body{
 
 #menucontent{
 		position: absolute;
-		top: 110px;
+		top: 175px;
 		left: 0;
 		right: 0;
 		margin-left: auto;
@@ -85,7 +92,6 @@ body{
 		font-size: 1.5em;
 		text-decoration: none;
 		color: rgb(2, 54, 88);
-		border: 5px solid rgb(241, 249, 250);
 		background-color: rgb(13, 120, 222);
 		padding-left: 10px;
 		padding-right: 10px;
@@ -144,4 +150,11 @@ body{
 
 .cursor{
 		cursor: pointer
+}
+
+#top img{
+		max-width: 100px;
+		position: fixed;
+		bottom: 0;
+		right: 10px;
 }
