@@ -10,7 +10,7 @@
 	<body>
 		<audio id="hoveraudio" src="music/hover.mp3" type="audio/mpeg"></audio>
 		<audio id="clickaudio" src="music/click.mp3" type="audio/mpeg"></audio>
-		<audio autoplay loop  id="audio" src="music/background2.mp3" type="audio/mp3"/></audio>
+		<audio autoplay loop id="audio" src="music/background2.mp3" type="audio/mp3"/></audio>
 		
 		<script>
 			function playSound(hoveraudio) {
@@ -31,23 +31,34 @@
 		</script>
 
 		<div id="body">
-			<div id="menu">
-			<a href="index.html" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">Home</a>
-			<a href="about.html" id="active" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">About</a>
-			<a id="playpause" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">♫</a>
-			<script>
-				document.getElementById("playpause").onclick = function() {
-					var audio = document.getElementById("audio");
-					if (audio.paused) audio.play();
-					else audio.pause();
-				};
-			</script>
-			</div>
 			<div id="content">
-				<br></br>
-				<br></br>
-				<p style="opacity: 0.5">Why are you here?</p>
+				<div id="menu">
+					<div id="menucontent">
+						<a href="index.html" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">Home</a>
+						<a href="about.html" id="active" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">About</a>
+						<a id="playpause" onmouseenter="playSound('hoveraudio')" onmouseout="stopSound('hoveraudio')" onclick="play('clickaudio')">♫</a>
+						<script>
+							document.getElementById("playpause").onclick = function() {
+							var audio = document.getElementById("audio");
+							if (audio.paused) audio.play();
+							else audio.pause();
+						};
+						</script>
+					</div>
+				</div>
+				<div id="imagecontent">
+					<div class="image">
+					<img src="img/elizabeth.png" alt="Elizabeth" title="Elizabeth">
+					</div>
+				</div>
+
+				<div id="textcontent">
+					<p id="name">Elizabeth</p>
+					<p>I'm sorry. My master isn't here right now.<br/>
+						In the meantime, why don't we just relax and listen to the music.</p>
+				</div>
 			</div>
 		</div>
-			</div>
+	</body>
+</html>
 				
