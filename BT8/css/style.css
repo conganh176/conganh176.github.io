@@ -10,21 +10,20 @@ body{
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-@keyframes title {
-	0% {color: red;}
-	25% {color: black;}		
-	50% {color: blue;}
-	75% {color: black;}	
-	100% {color: red;}
+@keyframes headline {
+	0% {color: white; background-color: red;}
+	25% {color: black; background-color: black;}		
+	50% {color: white; background-color: blue;}
+	75% {color: black; background-color: black;}	
+	100% {color: white; background-color: red;}
 }
 
 h1{
-	max-width: 1000px;
 	margin: auto;
 	text-align: center;
 	text-transform: uppercase;
-	font-size: 4em;
-	animation: title 10s ease infinite;
+	font-size: 5em;
+	animation: headline 10s ease-in-out infinite;
 }
 
 
@@ -37,26 +36,45 @@ h1{
 	margin: auto;
 }
 
+.row{
+	height: 420px;
+}
+
 .image{
-	width: 200px;
-	border: 2px solid white;
+	width: 25%;
 	float: left;
-	margin: 25px 25px;
-	display: block;
+	margin-top: 50px;
+	padding: 10px;
 	position: relative;
+	overflow: hidden;
+	height: 320px;
+	transition: height 0.5s ease-in-out;
+	background-color: none;
+
+}
+
+.text{
+	position: absolute;
+
 }
 
 .image img{
 	display: block;
 	width: 100%;
 	height: 300px;
-	vertical-align: middle;
+	filter: sepia(50%);
+	border: 2px solid rgb(66, 50, 41);
 }
 
 img.unknown:hover{
-	opacity: 0.5;
+	filter: sepia(0);
 }
 
 img.dead:hover{
-	opacity: 0.1;
+	filter: sepia(0);
+	filter: grayscale(100%);
+}
+
+.image:hover{
+	height: 370px;
 }
