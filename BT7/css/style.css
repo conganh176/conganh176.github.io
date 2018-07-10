@@ -37,9 +37,8 @@ body{
 #menu{
 		background-color: rgb(13, 120, 222);
 		width: 20%;
-		max-width: 200px;
 		height: 300px;
-		position: fixed;
+		position: absolute;
 		border: 5px solid rgb(245, 245, 245);
 }
 

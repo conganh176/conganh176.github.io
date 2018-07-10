@@ -108,6 +108,8 @@ body{
 			bottom: 20%;
 			font-weight: bold;
 			padding-left: 10%;
+			padding-top: 10px;
+			padding-bottom: 10px;
 			font-size: 1.1em;
 			color: rgb(62, 74, 81);
 			border: 5px solid rgb(170, 185, 201);
