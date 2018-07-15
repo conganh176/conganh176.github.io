@@ -10,14 +10,16 @@ html{
 body{
 	margin: 0;
 	padding: 0;
-	font-size: 14px;
+	font-size: 18px;
 	font-family: Arial, Helvetica, sans-serif;
 	background: url(../img/background.jpg);
 	position: relative;
+	color: #383b3e;
 }
 
-h1{
+h2{
 	text-align: center;
+	font-size: 2em;
 }
 
 #menu{
@@ -25,6 +27,7 @@ h1{
 	background-color: #90ee90;
 	width: 100%;
 	top: 0;
+	border-bottom: solid 1px black;
 }
 
 #menucontent{
@@ -42,15 +45,11 @@ h1{
 	right: 0;
 	top: 50%;
 	transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	-moz-transform: translateY(-50%);
-	-webkit-transform: translateY(-50%);
-	-o-transform: translateY(-50%);
 }
 
 #menulist a{
-	padding-left: 13px;
-	padding-right: 13px;
+	padding: 15px;
+
 	display: inline-block;
 	font-size: 1.5em;
 	text-decoration: none;
@@ -62,32 +61,126 @@ h1{
 	text-decoration: none;
 }
 
-#menulist a:hover{
-	animation: float 0.5s linear infinite;
-}
-
-@keyframes float {
-  0%, 50%, 100%{
-  	transform: translate(0, 0px);
-  }
-
-  75% {
-  	transform: translate(0, -5px);
-  }
-
-  25% {
-    transform: translate(0, 5px);
-  }
-}
-
 #menulist a:visited{
 	color: white;
 	text-decoration: none;
 }
 
+#menulist a:hover{
+	animation: float 1s linear infinite;
+}
+
+@keyframes float {
+  0%, 50%, 100%{
+  	transform: scale(1);
+  }
+
+  75% {
+  	transform: scale(0.75);
+  }
+
+  25% {
+    transform: scale(1.25);
+  }
+}
+
+#banner img{
+	margin-top: 110px;
+	width: 100%;
+	display:block;
+	border-bottom: solid 1px black;
+}
+
 #content{
 	max-width: 1000px;
 	margin: auto;
-	margin-top: 200px;
 }
 
+#event{
+	background-color: rgb(244, 244, 176);
+	box-shadow: 0 3px 3px;
+	padding: 10px;
+	margin-bottom: 25px;
+	width: 100%;
+	font-weight: bold;
+	border-bottom: solid 1px black;
+	border-left: solid 1px black;
+	border-right: solid 1px black;;
+}
+
+.image{
+	padding: 3%;
+	background-color: white;
+	max-width: 45%;
+	border: solid 1px black;
+	float: left;
+	margin: 2%;
+}
+
+.image img{
+	max-width: 100%;
+	border: solid 1px black;
+}
+
+h3{
+	font-size: 1.5em;
+	text-align: center;
+}
+
+h4{
+	font-size: 1.25em;
+	text-align: center;
+}
+
+#calendar{
+	background-color: white;
+	border: solid 1px black;
+}
+
+#calendar img{
+	width: 100%;
+	display: block;
+}
+
+#location, #league{
+	background-color: white;
+	border: solid 1px black;
+	padding: 3%;
+	border: solid 1px black;
+}
+
+#location img, #league img{
+	width: 100%;
+	display: block;
+	border: solid 1px black;
+}
+
+#schedule{
+	background-color: rgb(57, 181, 73);
+	box-shadow: 0 3px 3px;
+	padding: 10px;
+	margin-bottom: 25px;
+	width: 100%;
+	font-weight: bold;
+	border: solid 1px black;
+}
+
+#speaker{
+	background-color: rgb(243, 121, 92);
+	box-shadow: 0 3px 3px;
+	padding: 10px;
+	margin-bottom: 25px;
+	width: 100%;
+	font-weight: bold;
+	border: solid 1px black;
+}
+
+#register{
+	background-color: rgb(80, 201, 235);
+	box-shadow: 0 3px 3px;
+	padding: 10px;
+	margin-bottom: 25px;
+	width: 100%;
+	font-weight: bold;
+	border: solid 1px black;
+}
