@@ -56,10 +56,26 @@ body{
 
 #dying img{
 	filter: brightness(25%);
-	animation: blood 8s linear;	
+	animation: blood 12s linear;	
 }
 
 @keyframes fade {
+	0%, 40% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+#text {
+	animation: fade 6s linear;
+}
+
+@keyframes fade2 {
 	0% {
 		opacity: 0;
 	}
@@ -71,8 +87,24 @@ body{
 	}
 }
 
-#text {
-	animation: fade 4s linear;
+#fire1, #fire2 {
+	animation: fade2 2s linear;
+}
+
+#fire1 img{
+	width: auto;
+	transform: scale(0.5, 0.5) translate(-5%, -110%);
+	position: fixed;
+	top: 50%;
+    left: 50%;
+}
+
+#fire2 img{
+	width: auto;
+	transform: scale(0.5, 0.5) translate(-195%, -110%);
+	position: fixed;
+	top: 50%;
+    left: 50%;
 }
 
 @keyframes ghost1{
@@ -113,7 +145,7 @@ body{
     left: 50%;
     opacity: 0;
     animation: ghost1 15s linear infinite;
-    animation-delay: 8s;
+    animation-delay: 12s;
 }
 
 @keyframes ghost2{
@@ -233,26 +265,26 @@ body{
     left: 50%;
     opacity: 0;
     animation: ghost2 60s linear infinite;
+    animation-delay: 12s;
 }
 
 #ghost3 img{
 	width: auto;
-	transform: translate(125%, 30%);
+	transform: translate(245%, -195%);
 	position: fixed;
 	top: 50%;
     left: 50%;
-    opacity: 0.75;
 }
 
 @keyframes float1 {
 	0% {
-		transform: translate(-210%,-250%);
+		transform: translate(-230%,-250%);
 	}
 	50% {
-		transform: translate(-210%,-260%);
+		transform: translate(-230%,-260%);
 	}
 	100% {
-		transform: translate(-210%,-250%);
+		transform: translate(-230%,-250%);
 	}
 }
 
@@ -265,7 +297,7 @@ body{
 	color: gray;
 	top: 50%;
     left: 50%;
-    transform: translate(-210%,-250%);
+    transform: translate(-230%,-250%);
     animation: float1 2s linear infinite;
     filter: brightness(125%);
 }
@@ -376,13 +408,13 @@ body{
 
 @keyframes float6 {
 	0% {
-		transform: translate(-300%,-150%);
+		transform: translate(-330%,-150%);
 	}
 	50% {
-		transform: translate(-300%,-160%);
+		transform: translate(-330%,-160%);
 	}
 	100% {
-		transform: translate(-300%,-150%);
+		transform: translate(-330%,-150%);
 	}
 }
 
@@ -394,7 +426,7 @@ body{
 	color: gray;
 	top: 50%;
     left: 50%;
-    transform: translate(-300%,-150%);
+    transform: translate(-330%,-150%);
     animation: float6 2s linear infinite;
     filter: brightness(125%);
 }
@@ -531,13 +563,13 @@ body{
 
 @keyframes float12 {
 	0% {
-		transform: translate(260%,-150%);
+		transform: translate(190%,-150%);
 	}
 	50% {
-		transform: translate(260%,-160%);
+		transform: translate(190%,-160%);
 	}
 	100% {
-		transform: translate(260%,-150%);
+		transform: translate(190%,-150%);
 	}
 }
 
@@ -549,7 +581,7 @@ body{
 	color: gray;
 	top: 50%;
     left: 50%;
-    transform: translate(260%,-150%);
+    transform: translate(190%,-150%);
     animation: float12 2s linear infinite;
     animation-delay: 1.2s;
     filter: brightness(125%);
@@ -557,13 +589,13 @@ body{
 
 @keyframes float13 {
 	0% {
-		transform: translate(370%,-150%);
+		transform: translate(300%,-150%);
 	}
 	50% {
-		transform: translate(370%,-160%);
+		transform: translate(300%,-160%);
 	}
 	100% {
-		transform: translate(370%,-150%);
+		transform: translate(300%,-150%);
 	}
 }
 
@@ -575,7 +607,7 @@ body{
 	color: gray;
 	top: 50%;
     left: 50%;
-    transform: translate(370%,-150%);
+    transform: translate(300%,-150%);
     animation: float13 2s linear infinite;
     animation-delay: 1.4s;
     filter: brightness(125%);
@@ -583,13 +615,13 @@ body{
 
 @keyframes float14 {
 	0% {
-		transform: translate(320%,-150%);
+		transform: translate(430%,-150%);
 	}
 	50% {
-		transform: translate(320%,-160%);
+		transform: translate(430%,-160%);
 	}
 	100% {
-		transform: translate(320%,-150%);
+		transform: translate(430%,-150%);
 	}
 }
 
@@ -601,7 +633,7 @@ body{
 	color: gray;
 	top: 50%;
     left: 50%;
-    transform: translate(320%,-150%);
+    transform: translate(430%,-150%);
     animation: float14 2s linear infinite;
     animation-delay: 1.6s;
     filter: brightness(125%);
