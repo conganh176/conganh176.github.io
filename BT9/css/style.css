@@ -38,7 +38,7 @@ body{
 }
 
 @keyframes blood {
-	0%, 40% {
+	0%, 50% {
 		filter: brightness(0%);
 		opacity: 0;
 	}
@@ -83,10 +83,21 @@ body{
 	5% {
 		opacity: 0.75;
 		transform: translate(200%, -110%);
+
 	}
+
+	30%{
+		transform: translate(50%, 0) scale(1.2, 1.2);
+	}
+
+
+	70%{
+		transform: translate(-150%, 0) scale(1.2, 1.2);
+	}
+
 	95%{
 		opacity: 0.75;
-		transform: translate(-290%, -110%);
+		transform: translate(-290%, -110%)  scale(1, 1);
 	}
 	100% {
 		opacity: 0;
@@ -96,11 +107,141 @@ body{
 
 #ghost1 img{
 	width: auto;
-	transform: translate(210%, -120%);
+	transform: translate(210%, -110%);
 	position: fixed;
 	top: 50%;
     left: 50%;
+    opacity: 0;
     animation: ghost1 15s linear infinite;
+    animation-delay: 8s;
+}
+
+@keyframes ghost2{
+	0% {
+		opacity: 0;
+		transform: translate(-45%, -35%);
+	}
+	
+	5% {
+		opacity: 1;
+		transform: translate(-45%, -35%);
+
+	}
+
+	10% {
+		opacity: 1;
+		transform: translate(-45%, -35%);
+
+	}
+
+	15%{
+		opacity: 0;
+		transform: translate(-45%, -35%);
+	}
+
+	20%{
+		opacity: 0;
+		transform: translate(60%, 0%) scale(1.25, 1.25);
+	}
+
+	25%{
+		opacity: 1;
+		transform: translate(60%, 0%) scale(1.25, 1.25);
+	}
+
+	30%{
+		opacity: 1;
+		transform: translate(60%, 0%) scale(1.25, 1.25);
+	}
+
+	35%{
+		opacity: 0;
+		transform: translate(60%, 0%) scale(1.25, 1.25);
+	}
+
+	40%{
+		opacity: 0;
+		transform: translate(250%, 40%) scale(1.5, 1.5);
+	}
+
+	45%{
+		opacity: 1;
+		transform: translate(250%, 40%) scale(1.5, 1.5);
+	}
+
+	50%{
+		opacity: 1;
+		transform: translate(250%, 40%) scale(1.5, 1.5);
+	}
+
+	55%{
+		opacity: 0;
+		transform: translate(250%, 40%) scale(1.5, 1.5);
+	}
+
+	60%{
+		opacity: 0;
+		transform: translate(90%, 75%) scale(1.8, 1.8);
+	}
+
+	65%{
+		opacity: 1;
+		transform: translate(90%, 75%) scale(1.8, 1.8);
+	}
+
+	70%{
+		opacity: 1;
+		transform: translate(90%, 75%) scale(1.8, 1.8);
+	}
+
+	75%{
+		opacity: 0;
+		transform: translate(90%, 75%) scale(1.8, 1.8);
+	}
+
+	80%{
+		opacity: 0;
+		transform: translate(-115%, 75%) scale(2,2);
+	}
+
+	85%{
+		opacity: 1;
+		transform: translate(-115%, 75%) scale(2,2);
+	}
+
+	90%{
+		opacity: 1;
+		transform: translate(-115%, 75%) scale(2,2);
+	}
+
+	95%{
+		opacity: 0;
+		transform: translate(-115%, 75%) scale(2,2);
+	}
+
+	100%{
+		opacity: 0;
+		transform: translate(-45%, -35%);
+	}
+}
+
+#ghost2 img{
+	width: auto;
+	transform: translate(-45%, -35%);
+	position: fixed;
+	top: 50%;
+    left: 50%;
+    opacity: 0;
+    animation: ghost2 60s linear infinite;
+}
+
+#ghost3 img{
+	width: auto;
+	transform: translate(125%, 30%);
+	position: fixed;
+	top: 50%;
+    left: 50%;
+    opacity: 0.75;
 }
 
 @keyframes float1 {
@@ -113,14 +254,6 @@ body{
 	100% {
 		transform: translate(-210%,-250%);
 	}
-}
-
-#ghost1 img{
-	width: auto;
-	transform: translate(200%, -120%);
-	position: fixed;
-	top: 50%;
-    left: 50%;
 }
 
 
