@@ -37,13 +37,439 @@ body{
 	position: relative;
 }
 
-#imagecontent p{
+@keyframes blood {
+	0%, 40% {
+		filter: brightness(0%);
+		opacity: 0;
+	}
+
+	70% {
+		filter: brightness(50%);
+		opacity: 1;
+	}
+
+	100% {
+		filter: brightness(25%);
+		opacity: 1;
+	}
+}
+
+#dying img{
+	filter: brightness(25%);
+	animation: blood 8s linear;	
+}
+
+@keyframes fade {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+#text {
+	animation: fade 4s linear;
+}
+
+@keyframes ghost1{
+	0% {
+		opacity: 0;
+		transform: translate(210%, -110%);
+	}
+	5% {
+		opacity: 0.75;
+		transform: translate(200%, -110%);
+	}
+	95%{
+		opacity: 0.75;
+		transform: translate(-290%, -110%);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(-300%, -110%);
+	}
+}
+
+#ghost1 img{
+	width: auto;
+	transform: translate(210%, -120%);
 	position: fixed;
-	font-family: 'Permanent Marker', cursive;
+	top: 50%;
+    left: 50%;
+    animation: ghost1 15s linear infinite;
+}
+
+@keyframes float1 {
+	0% {
+		transform: translate(-210%,-250%);
+	}
+	50% {
+		transform: translate(-210%,-260%);
+	}
+	100% {
+		transform: translate(-210%,-250%);
+	}
+}
+
+#ghost1 img{
+	width: auto;
+	transform: translate(200%, -120%);
+	position: fixed;
+	top: 50%;
+    left: 50%;
+}
+
+
+#imagecontent #H{
+	position: fixed;
+	font-family: 'Frijole', cursive;
 	font-weight: bold;
-	font-size: 3em;
+	font-size: 4em;
 	color: gray;
 	top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-210%,-250%);
+    animation: float1 2s linear infinite;
+    filter: brightness(125%);
+}
+
+@keyframes float2 {
+	0% {
+		transform: translate(-160%,-250%);
+	}
+	50% {
+		transform: translate(-160%,-260%);
+	}
+	100% {
+		transform: translate(-160%,-250%);
+	}
+}
+
+#imagecontent #a{
+	position: fixed;
+	font-family: 'Frijole', cursive;
+	font-weight: bold;
+	font-size: 4em;
+	color: gray;
+	top: 50%;
+    left: 50%;
+    transform: translate(-160%,-250%);
+    animation: float2 2s linear infinite;
+    animation-delay: 0.2s;
+    filter: brightness(125%);
+}
+
+@keyframes float3 {
+	0% {
+		transform: translate(-50%,-250%);
+	}
+	50% {
+		transform: translate(-50%,-260%);
+	}
+	100% {
+		transform: translate(-50%,-250%);
+	}
+}
+
+#imagecontent #p{
+	position: fixed;
+	font-family: 'Frijole', cursive;
+	font-weight: bold;
+	font-size: 4em;
+	color: gray;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%,-250%);
+    animation: float3 2s linear infinite;
+    animation-delay: 0.4s;
+    filter: brightness(125%);
+}
+
+@keyframes float4 {
+	0% {
+		transform: translate(70%,-250%);
+	}
+	50% {
+		transform: translate(70%,-260%);
+	}
+	100% {
+		transform: translate(70%,-250%);
+	}
+}
+
+#imagecontent #p2{
+	position: fixed;
+	font-family: 'Frijole', cursive;
+	font-weight: bold;
+	font-size: 4em;
+	color: gray;
+	top: 50%;
+    left: 50%;
+    transform: translate(70%,-250%);
+    animation: float4 2s linear infinite;
+    animation-delay: 0.6s;
+    filter: brightness(125%);
+}
+
+@keyframes float5 {
+	0% {
+		transform: translate(170%,-250%);
+	}
+	50% {
+		transform: translate(170%,-260%);
+	}
+	100% {
+		transform: translate(170%,-250%);
+	}
+}
+
+#imagecontent #y{
+	position: fixed;
+	font-family: 'Frijole', cursive;
+	font-weight: bold;
+	font-size: 4em;
+	color: gray;
+	top: 50%;
+    left: 50%;
+    transform: translate(170%,-250%);
+    animation: float5 2s linear infinite;
+    animation-delay: 0.8s;
+    filter: brightness(125%);
+}
+
+@keyframes float6 {
+	0% {
+		transform: translate(-300%,-150%);
+	}
+	50% {
+		transform: translate(-300%,-160%);
+	}
+	100% {
+		transform: translate(-300%,-150%);
+	}
+}
+
+#imagecontent #H2{
+	position: fixed;
+	font-family: 'Frijole', cursive;
+	font-weight: bold;
+	font-size: 4em;
+	color: gray;
+	top: 50%;
+    left: 50%;
+    transform: translate(-300%,-150%);
+    animation: float6 2s linear infinite;
+    filter: brightness(125%);
+}
+
+@keyframes float7 {
+	0% {
+		transform: translate(-310%,-150%);
+	}
+	50% {
+		transform: translate(-310%,-160%);
+	}
+	100% {
+		transform: translate(-310%,-150%);
+	}
+}
+
+#imagecontent #a2{
+	position: fixed;
+	font-family: 'Frijole', cursive;
+	font-weight: bold;
+	font-size: 4em;
+	color: gray;
+	top: 50%;
+    left: 50%;
+    transform: translate(-310%,-150%);
+    animation: float7 2s linear infinite;
+    animation-delay: 0.2s;
+    filter: brightness(125%);
+}
+
+@keyframes float8 {
+	0% {
+		transform: translate(-370%,-150%);
+	}
+	50% {
+		transform: translate(-370%,-160%);
+	}
+	100% {
+		transform: translate(-370%,-150%);
+	}
+}
+
+#imagecontent #l{
+	position: fixed;
+	font-family: 'Frijole', cursive;
+	font-weight: bold;
+	font-size: 4em;
+	color: gray;
+	top: 50%;
+    left: 50%;
+    transform: translate(-370%,-150%);
+    animation: float8 2s linear infinite;
+    animation-delay: 0.4s;
+    filter: brightness(125%);
+}
+
+@keyframes float9 {
+	0% {
+		transform: translate(-210%,-150%);
+	}
+	50% {
+		transform: translate(-210%,-160%);
+	}
+	100% {
+		transform: translate(-210%,-150%);
+	}
+}
+
+#imagecontent #l2{
+	position: fixed;
+	font-family: 'Frijole', cursive;
+	font-weight: bold;
+	font-size: 4em;
+	color: gray;
+	top: 50%;
+    left: 50%;
+    transform: translate(-210%,-150%);
+    animation: float9 2s linear infinite;
+    animation-delay: 0.6s;
+    filter: brightness(125%);
+}
+
+@keyframes float10 {
+	0% {
+		transform: translate(-50%,-150%);
+	}
+	50% {
+		transform: translate(-50%,-160%);
+	}
+	100% {
+		transform: translate(-50%,-150%);
+	}
+}
+
+#imagecontent #o{
+	position: fixed;
+	font-family: 'Frijole', cursive;
+	font-weight: bold;
+	font-size: 4em;
+	color: gray;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%,-150%);
+    animation: float10 2s linear infinite;
+    animation-delay: 0.8s;
+    filter: brightness(125%);
+}
+
+@keyframes float11 {
+	0% {
+		transform: translate(50%,-150%);
+	}
+	50% {
+		transform: translate(50%,-160%);
+	}
+	100% {
+		transform: translate(50%,-150%);
+	}
+}
+
+#imagecontent #w{
+	position: fixed;
+	font-family: 'Frijole', cursive;
+	font-weight: bold;
+	font-size: 4em;
+	color: gray;
+	top: 50%;
+    left: 50%;
+    transform: translate(50%,-150%);
+    animation: float11 2s linear infinite;
+    animation-delay: 1s;
+    filter: brightness(125%);
+}
+
+@keyframes float12 {
+	0% {
+		transform: translate(260%,-150%);
+	}
+	50% {
+		transform: translate(260%,-160%);
+	}
+	100% {
+		transform: translate(260%,-150%);
+	}
+}
+
+#imagecontent #e{
+	position: fixed;
+	font-family: 'Frijole', cursive;
+	font-weight: bold;
+	font-size: 4em;
+	color: gray;
+	top: 50%;
+    left: 50%;
+    transform: translate(260%,-150%);
+    animation: float12 2s linear infinite;
+    animation-delay: 1.2s;
+    filter: brightness(125%);
+}
+
+@keyframes float13 {
+	0% {
+		transform: translate(370%,-150%);
+	}
+	50% {
+		transform: translate(370%,-160%);
+	}
+	100% {
+		transform: translate(370%,-150%);
+	}
+}
+
+#imagecontent #e2{
+	position: fixed;
+	font-family: 'Frijole', cursive;
+	font-weight: bold;
+	font-size: 4em;
+	color: gray;
+	top: 50%;
+    left: 50%;
+    transform: translate(370%,-150%);
+    animation: float13 2s linear infinite;
+    animation-delay: 1.4s;
+    filter: brightness(125%);
+}
+
+@keyframes float14 {
+	0% {
+		transform: translate(320%,-150%);
+	}
+	50% {
+		transform: translate(320%,-160%);
+	}
+	100% {
+		transform: translate(320%,-150%);
+	}
+}
+
+#imagecontent #n{
+	position: fixed;
+	font-family: 'Frijole', cursive;
+	font-weight: bold;
+	font-size: 4em;
+	color: gray;
+	top: 50%;
+    left: 50%;
+    transform: translate(320%,-150%);
+    animation: float14 2s linear infinite;
+    animation-delay: 1.6s;
+    filter: brightness(125%);
 }
