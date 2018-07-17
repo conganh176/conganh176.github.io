@@ -11,6 +11,7 @@ html{
 
 body{
 	background: url("../img/6.png") no-repeat center center fixed;
+	background-color: black;
 	margin: 0;
 	padding: 0;
 	font-size: 30px;
