@@ -17,9 +17,20 @@ body{
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+@keyframes body {
+	0%, 70%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
 #body{
 	max-width: 1000px;
 	margin: auto;
+	opacity: 1;
+	animation: body 8s ease-in-out;
 }
 
 #content img{
@@ -53,7 +64,8 @@ body{
 
 #dying img{
 	filter: brightness(25%);
-	animation: blood 12s linear;	
+	animation: blood 12s linear;
+	animation-delay: 5s;
 }
 
 @keyframes fade {
@@ -77,6 +89,7 @@ body{
 	transform: translate(-50%, -250%);
 	top: 50%;
 	left: 50%;
+	animation-delay: 5s;
 }
 
 #text2 {
@@ -88,6 +101,7 @@ body{
 	transform: translate(-50%, -150%);
 	top: 50%;
 	left: 50%;
+	animation-delay: 5s;
 }
 
 @keyframes float{
@@ -127,17 +141,18 @@ p{
 @keyframes fade2 {
 	0% {
 		opacity: 0;
+		filter: brightness(100%);
 	}
-	50% {
-		opacity: 0.5;
-	}
+
 	100% {
 		opacity: 1;
+		filter: brightness(150%);
 	}
 }
 
 #fire1, #fire2 {
-	animation: fade2 2s linear;
+	animation: fade2 12s linear;
+	animation-delay: 6s;
 }
 
 #fire1 img{
@@ -194,7 +209,7 @@ p{
     left: 50%;
     opacity: 0;
     animation: ghost1 15s linear infinite;
-    animation-delay: 12s;
+    animation-delay: 17s;
 }
 
 @keyframes ghost2{
@@ -315,7 +330,7 @@ p{
     opacity: 1;
     opacity: 0;
     animation: ghost2 60s linear infinite;
-    animation-delay: 12s;
+    animation-delay: 17s;
 }
 
 @keyframes ghost3{
@@ -358,7 +373,7 @@ p{
 	top: 50%;
     left: 50%;
     animation: ghost3 60s infinite;
-    animation-delay: 12s;
+    animation-delay: 17s;
 }
 
 @keyframes ghost4{
@@ -391,7 +406,7 @@ p{
 	top: 50%;
     left: 50%;
     animation: ghost4 10s infinite;
-    animation-delay: 12s;
+    animation-delay: 17s;
 }
 
 @keyframes ghost5{
@@ -425,7 +440,7 @@ p{
 	top: 50%;
     left: 50%;
     animation: ghost5 8s infinite;
-    animation-delay: 16s;
+    animation-delay: 21s;
     opacity: 0;
 }
 
@@ -447,7 +462,7 @@ p{
 }
 
 #ghost6{
-	animation: fade 20s linear;
+	animation: fade 25s linear;
 
 }
 
@@ -484,5 +499,54 @@ p{
     left: 50%;
     animation: ghost7 6s infinite;
     opacity: 0;
-    animation-delay: 15s;
+    animation-delay: 20s;
 }
+
+#door1{
+	background-image: url(../img/door1a.png);
+	background-size: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+   	opacity: 0;
+    animation: door1 3s ease-in-out;
+}
+
+@keyframes door1{
+	0% {
+		opacity: 1;
+	}
+
+	100%{
+		opacity: 0;
+	}
+}
+
+#door2{
+	background-image: url(../img/door2a.png);
+	background-size: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    opacity: 0;
+    animation: door2 6s ease-in-out;
+}
+
+@keyframes door2{
+	0% {
+		opacity: 0;
+	}
+
+	50%{
+		opacity: 1;
+	}
+
+	100%{
+		opacity: 0;
+	}
+}
+
