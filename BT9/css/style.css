@@ -385,7 +385,7 @@ p{
 
 #ghost4 img{
 	width: auto;
-	transform: translate(-505%, -595%);
+	transform: translate(415%, -595%);
 	opacity: 0;
 	position: fixed;
 	top: 50%;
@@ -432,19 +432,19 @@ p{
 @keyframes ghost6{
     0%{
     	opacity: 0.5;
-    	transform: rotate(2deg);
+    	transform: translate(-50%, -120%) rotate(2deg);
     }
 
     50%{
     	opacity: 0.5;
-    	transform: rotate(-1deg)
+    	transform: translate(-50%, -120%) rotate(-1deg);
     }
 
     100%{
     	opacity: 0.5;
-    	transform: rotate(2deg);}
-
-	}
+    	transform: translate(-50%, -120%) rotate(2deg);
+    }
+}
 
 #ghost6{
 	animation: fade 20s linear;
@@ -453,9 +453,36 @@ p{
 
 #ghost6 img{
 	width: auto;
+	transform: translate(-50%, -120%);
 	position: fixed;
-	top: 10%;
-    left: 47%;
+	top: 50%;
+    left: 50%;
     animation: ghost6 4s infinite;
     opacity: 0;
+}
+
+@keyframes ghost7{
+    0%{
+    	opacity: 0;
+    }
+
+    25%, 75%{
+    	opacity: 0.5;
+    }
+
+
+    100%{
+    	opacity: 0;
+    }
+}
+
+#ghost7 img{
+	width: auto;
+	transform: translate(-380%, -140%);
+	position: fixed;
+	top: 50%;
+    left: 50%;
+    animation: ghost7 6s infinite;
+    opacity: 0;
+    animation-delay: 15s;
 }
