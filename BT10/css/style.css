@@ -16,3 +16,65 @@ body{
 	font-size: 14px;
 	font-family: Arial, Helvetica, sans-serif;
 }
+
+.menu {
+	background: url("../img/menu2.jpg");
+}
+
+.menucontent{
+	max-width: 1000px;
+	margin: auto;
+	overflow: hidden; 
+}
+
+.logo{
+	max-width: 20%;
+	float: left;
+}
+
+.logo img{
+	width: 100%;
+	display: block;
+}
+
+.menus{
+	max-width: 80%;
+	float: left;
+}
+
+.menus a{
+	font-size: 2em;
+	color: white;
+	text-decoration: none;
+	float: left;
+}
+
+ul li{
+	list-style-type: none;
+}
+
+li{
+	float: left;
+}
+
+li a{
+	display: block;
+	padding: 10px;
+}
+
+.foodmenu{
+	position: relative;
+    display: inline-block;
+}
+
+.foodcontent{
+	display: none;
+}
+
+.foodcontent a{
+	display: block;
+}
+
+.foodmenu:hover .foodcontent{
+	display: block;
+}
