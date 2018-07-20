@@ -22,13 +22,14 @@ body{
 }
 
 .menucontent{
-	max-width: 1000px;
+	width: 1000px;
 	margin: auto;
-	overflow: hidden; 
+	overflow: auto;
+	position: relative;
 }
 
 .logo{
-	max-width: 20%;
+	width: 20%;
 	float: left;
 }
 
@@ -38,23 +39,37 @@ body{
 }
 
 .menus{
-	max-width: 80%;
+	width: 80%;
 	float: left;
+}
+
+ul.menulist{
+	width: 100%;
+
+}
+
+li.menulist{
+	width: 20%;
+	padding: 10px;
+	margin-top: 75px;
 }
 
 .menus a{
-	font-size: 2em;
+	font-size: 1.2em;
 	color: white;
 	text-decoration: none;
-	float: left;
+	text-transform: uppercase;
+	text-align: center;
 }
 
-ul li{
+ul, li{
 	list-style-type: none;
+	display: block;
 }
 
 li{
 	float: left;
+
 }
 
 li a{
@@ -62,19 +77,26 @@ li a{
 	padding: 10px;
 }
 
-.foodmenu{
+li.foodmenu{
 	position: relative;
-    display: inline-block;
+
 }
 
-.foodcontent{
-	display: none;
+ul.foodcontent{
+	position: fixed;
+	float: none;
+	width: 140px;
+	background-color: black;
+
 }
 
 .foodcontent a{
 	display: block;
+	font-size: 1.1em;
+	text-align: center;
 }
 
-.foodmenu:hover .foodcontent{
+li.foodmenu:hover ul.foodcontent{
 	display: block;
+	z-index: 1;
 }
