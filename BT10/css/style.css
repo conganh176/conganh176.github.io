@@ -59,14 +59,14 @@ li.menulist{
 	color: white;
 	text-decoration: none;
 	text-transform: uppercase;
-	text-align: center;
 }
 
 ul, li{
 	list-style-type: none;
+	text-align: center;
 }
 
-li{
+li.menulist{
 	float: left;
 }
 
@@ -85,22 +85,27 @@ ul.foodcontent{
 	float: none;
 	width: 140px;
 	background-color: black;
-	display: none;
+	opacity: 0;
+  	visibility: hidden;
+  	transition: opacity 0.5s, visibility 0.5s;
 }
 
 .foodcontent a{
 	display: block;
 	font-size: 1.16em;
-	text-align: center;
+	padding-top: 13px;
+    padding-bottom: 13px;
 }
 
 li.foodmenu:hover ul.foodcontent{
-	display: block;
+	visibility: visible;
+  	opacity: 1;
 }
 
-.content{
-	max-width: 1000px;
+.specialcontent{
+	width: 1000px;
 	margin: auto;
+	height: auto;
 }
 
 .special1{
@@ -110,6 +115,7 @@ li.foodmenu:hover ul.foodcontent{
 	background-size: 120% 160%;
 	background-position: center bottom;
 	float: left;
+	position: relative;
 }
 
 .specialfood1{
@@ -119,11 +125,24 @@ li.foodmenu:hover ul.foodcontent{
 	padding-bottom: 5%;
 }
 
+.salefifty{
+	width: 20%;
+	position: absolute;
+	bottom: 35px;
+	left: 55px;
+}
+
+.salefifty img{
+	width: 100%;
+}
+
+
+
 .specialfood1 img{
 	width: 100%;
-	border: 1px groove brown;
+	border: 3px inset brown;
 	display: block;
-	opacity: 0.9;
+	filter: sepia(0.25);
 }
 
 .special2{
@@ -133,6 +152,7 @@ li.foodmenu:hover ul.foodcontent{
 	background-repeat: no-repeat;
 	background-size: 120% 160%;
 	background-position: center bottom;
+	position: relative;
 }
 
 .specialfood2{
@@ -144,9 +164,20 @@ li.foodmenu:hover ul.foodcontent{
 
 .specialfood2 img{
 	width: 100%;
-	border: 1px groove brown;
+	border: 3px inset brown;
 	display: block;
-	opacity: 0.9;
+	filter: sepia(0.25);
+}
+
+.salefifteen{
+	width: 30%;
+	position: absolute;
+	bottom: 20px;
+	right: 35px;
+}
+
+.salefifteen img{
+	width: 100%;
 }
 
 .special3{
@@ -157,6 +188,7 @@ li.foodmenu:hover ul.foodcontent{
 	background-repeat: no-repeat;
 	background-size: 120% 140%;
 	background-position: center bottom;
+	position: relative;
 }
 
 .specialfood3{
@@ -168,9 +200,20 @@ li.foodmenu:hover ul.foodcontent{
 
 .specialfood3 img{
 	width: 100%;
-	border: 1px groove brown;
+	border: 3px inset brown;
 	display: block;
-	opacity: 0.9;
+	filter: sepia(0.25);
+}
+
+.saleten{
+	width: 30%;
+	position: absolute;
+	bottom: 20px;
+	right: 35px;
+}
+
+.saleten img{
+	width: 100%;
 }
 
 .special4{
@@ -181,6 +224,7 @@ li.foodmenu:hover ul.foodcontent{
 	background-size: 120% 160%;
 	background-position: center bottom;
 	margin-left: 3%;
+	position: relative;
 }
 
 .specialfood4{
@@ -192,9 +236,20 @@ li.foodmenu:hover ul.foodcontent{
 
 .specialfood4 img{
 	width: 100%;
-	border: 1px groove brown;
+	border: 3px inset brown;
 	display: block;
-	opacity: 0.9;
+	filter: sepia(0.25);
+}
+
+.salefive{
+	width: 25%;
+	position: absolute;
+	bottom: 12px;
+	left: 20px;
+}
+
+.salefive img{
+	width: 100%;
 }
 
 .special5{
@@ -205,18 +260,54 @@ li.foodmenu:hover ul.foodcontent{
 	background-repeat: no-repeat;
 	background-size: 120% 160%;
 	background-position: center bottom;
+	position: relative;
 }
 
 .specialfood5{
 	padding-left: 8%;
 	padding-right: 8%;
-	padding-top: 18%;
+	padding-top: 17%;
 	padding-bottom: 4%;
 }
 
 .specialfood5 img{
 	width: 100%;
-	border: 1px groove brown;
+	border: 3px inset brown;
 	display: block;
-	opacity: 0.9;
+	filter: sepia(0.25);
+}
+
+.salefree{
+	width: 25%;
+	position: absolute;
+	bottom: 12px;
+	right: 26px;
+}
+
+.salefree img{
+	width: 100%;
+}
+
+.specialfood1 img:hover, 
+.specialfood2 img:hover, 
+.specialfood3 img:hover, 
+.specialfood4 img:hover, 
+.specialfood5 img:hover{
+	filter: sepia(0);
+}
+
+.ad{
+	background-image: url(../img/adbanner2.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 110%;;
+}
+
+.ad img{
+	display: block;
+	margin: auto;
+	width: 50%;
+	padding-top: 15%;
+    padding-bottom: 10%;
 }
