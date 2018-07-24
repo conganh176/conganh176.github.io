@@ -35,11 +35,6 @@ body{
 .logo img{
 	width: 100%;
 	display: block;
-	border-radius: 50%;
-}
-
-.clear{
-	clear:both;
 }
 
 .menus{
@@ -49,21 +44,18 @@ body{
 
 ul.menulist{
 	width: 100%;
-	padding-top: 80px;
 
 }
 
 li.menulist{
 	width: 25%;
-	background-image: url(../img/scroll2.png);
-	background-size: 90% 100%;
-	background-position: center;
-	background-repeat: no-repeat;
+	padding: 10px;
+	margin-top: 75px;
 }
 
 .menulist a{
 	font-size: 1.5em;
-	color: #383b3e;
+	color: #fff8dc;
 	text-decoration: none;
 	text-transform: uppercase;
 }
@@ -84,27 +76,23 @@ li a{
 
 li.foodmenu{
 	position: relative;
+
 }
 
 ul.foodcontent{
 	position: absolute;
-	width: 200px;
-	background-image: url(../img/scroll3.png);
-	background-size: 90% 100%;
-	background-position: center;
-	background-repeat: no-repeat;
+	width: 180px;
+	background-color: black;
 	opacity: 0;
   	visibility: hidden;
   	transition: opacity 0.5s, visibility 0.5s;
-  	z-index: 1;
 }
 
 .foodcontent a{
 	display: block;
-	font-size: 1.25em;
+	font-size: 1.5em;
 	padding-top: 13px;
     padding-bottom: 13px;
-    color: #383b3e;
 }
 
 li.foodmenu:hover ul.foodcontent{
@@ -122,6 +110,7 @@ li.foodmenu:hover ul.foodcontent{
 	width: 1000px;
 	margin: auto;
 	position: relative;
+	overflow: hidden;
 	padding: 10px;
 	color: #deb887;
 }
@@ -137,14 +126,9 @@ h2{
 	padding-top: 1%;
 }
 
-.footertext p:hover, .footertext h2:hover{
-	filter: brightness(125%);
-	cursor: default;
-}
-
 .map{
 	float: right;
-	border: 8px inset #deb887;
+	border: 10px inset #deb887;
 }
 
 .map iframe{
@@ -164,13 +148,11 @@ h1{
 	font-weight: bold;
 	text-align: center;
 	text-transform: uppercase;
-	color: #383b3e;
 }
 
 .content p{
 	font-size: 1.5em;
 	text-align: justify;
-	color: #383b3e;
 }
 
 .holder{
