@@ -30,12 +30,14 @@ body{
 .logo{
 	width: 20%;
 	float: left;
+	padding: 10px;
 }
 
 .logo img{
 	width: 100%;
 	display: block;
 	border-radius: 50%;
+	border: 10px solid #382410
 }
 
 .clear{
@@ -54,9 +56,11 @@ ul.menulist{
 }
 
 li.menulist{
-	width: 25%;
+	width: 23%;
+	margin-left: 1%;
+	margin-right: 1%;
 	background-image: url(../img/scroll2.png);
-	background-size: 90% 100%;
+	background-size: 100% 100%;
 	background-position: center;
 	background-repeat: no-repeat;
 }
@@ -66,6 +70,10 @@ li.menulist{
 	color: #383b3e;
 	text-decoration: none;
 	text-transform: uppercase;
+}
+
+.menulist a:hover{
+	color: #ed2939;
 }
 
 ul, li{
@@ -88,15 +96,16 @@ li.foodmenu{
 
 ul.foodcontent{
 	position: absolute;
-	width: 200px;
+	width: 184px;
 	background-image: url(../img/scroll3.png);
-	background-size: 90% 100%;
+	background-size: 100% 100%;
 	background-position: center;
 	background-repeat: no-repeat;
 	opacity: 0;
   	visibility: hidden;
-  	transition: opacity 0.5s, visibility 0.5s;
+  	transition: opacity 0.5s, visibility 0.5s, transform 0.75s;
   	z-index: 1;
+  	transform: translateY(-10px);
 }
 
 .foodcontent a{
@@ -110,6 +119,7 @@ ul.foodcontent{
 li.foodmenu:hover ul.foodcontent{
 	visibility: visible;
   	opacity: 1;
+  	transform: translateY(0);
 }
 
 .footer{
