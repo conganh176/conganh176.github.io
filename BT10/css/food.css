@@ -130,10 +130,69 @@ li.foodmenu:hover ul.foodcontent{
   	transform: translateY(0);
 }
 
+h1{
+	font-size: 3em;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #383b3e;
+}
+
+h2{
+	font-size: 2em;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.foodpic{
+	width: 60%;
+	float: left;
+}
+
+.bigpics{
+	overflow: hidden;
+	height: 300px;
+}
+
+.smallpics{
+	padding-top: 1%;
+}
+
+.smallpic{
+	width: 33.33333%;
+	float: left;
+}
+
+.smallpic img{
+	display: block;
+	height: 125px;
+}
+
+.opacity{
+	opacity: 0.75;
+	filter: sepia(25%);
+}
+
+.hover-opacity-off:hover, .opacity-off{
+	opacity: 1;
+	filter: sepia(0);
+}
+
+.textcontent{
+	width: 40%;
+	float: left;
+	padding-left: 2%;
+}
+
 .footer{
 	background-image: url(../img/footer.jpg);
 	border-top: 10px groove rgb(87, 56, 53);
 
+}
+
+.content p{
+	font-size: 1.5em;
+	text-align: justify;
+	color: #383b3e;
 }
 
 .footercontent{
@@ -144,21 +203,6 @@ li.foodmenu:hover ul.foodcontent{
 	color: #deb887;
 }
 
-h2{
-	font-size: 2em;
-	font-weight: bold;
-	text-transform: uppercase;
-	color: #deb887;
-	text-decoration: none;
-}
-
-h3{
-	font-size: 2em;
-	font-weight: bold;
-	text-transform: uppercase;
-	color: #383b3e;
-	border-bottom: 2px solid #383b3e;
-}
 
 .footertext p{
 	font-size: 1.25em;
@@ -185,58 +229,6 @@ h3{
 	background-color: #e6dfd3;
 	border: 10px ridge #8b5a2b;
 	padding: 2%;
-}
-
-h1{
-	font-size: 3em;
-	font-weight: bold;
-	text-align: center;
-	text-transform: uppercase;
-	color: #383b3e;
-}
-
-.name, .price{
-	text-align: center;
-	padding: 1%;
-	font-weight: bold;
-}
-
-.name{
-	font-size: 1.75em;
-	color: #383b3e;
-}
-
-.price{
-	font-size: 1.5em;
-	color: red;
-}
-
-.food{
-	width: 25%;
-	float: left;
-	padding: 1%;
-}
-
-.foodpic{
-	height: 175px;
-	overflow: hidden;
-	border: 1px inset gray;
-}
-
-.foodpic img{
-	width: 100%;
-	height: 100%;
-	filter: sepia(15%);
-	transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
-}
-
-.foodpic img:hover{
-	filter: sepia(0%);
-	transform: scale(1.1,1.1)
-}
-
-.foodpic img:active{
-	filter: brightness(110%);
 }
 
 .holder{

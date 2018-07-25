@@ -240,6 +240,7 @@ h1{
 	border: 3px inset brown;
 	display: block;
 	filter: sepia(0.25);
+	transition: filter 0.2s ease-in-out;
 }
 
 .special2{
@@ -264,6 +265,7 @@ h1{
 	border: 3px inset brown;
 	display: block;
 	filter: sepia(0.25);
+	transition: filter 0.2s ease-in-out;
 }
 
 .salefifteen{
@@ -300,6 +302,7 @@ h1{
 	border: 3px inset brown;
 	display: block;
 	filter: sepia(0.25);
+	transition: filter 0.2s ease-in-out;
 }
 
 .saleten{
@@ -336,6 +339,7 @@ h1{
 	border: 3px inset brown;
 	display: block;
 	filter: sepia(0.25);
+	transition: filter 0.2s ease-in-out;
 }
 
 .salefive{
@@ -372,6 +376,7 @@ h1{
 	border: 3px inset brown;
 	display: block;
 	filter: sepia(0.25);
+	transition: filter 0.2s ease-in-out;
 }
 
 .salefree{
@@ -391,6 +396,14 @@ h1{
 .specialfood4 img:hover, 
 .specialfood5 img:hover{
 	filter: sepia(0);
+}
+
+.specialfood1 img:active, 
+.specialfood2 img:active, 
+.specialfood3 img:active, 
+.specialfood4 img:active, 
+.specialfood5 img:active{
+	filter: brightness(110%);
 }
 
 .adcontent{
@@ -416,6 +429,7 @@ h1{
     margin-right: 1%;
     border: 1px solid gray;
     float: left;
+    transition: filter 0.1s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 .ad img:hover{
