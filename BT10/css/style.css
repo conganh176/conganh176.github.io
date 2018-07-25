@@ -30,7 +30,7 @@ body{
 .logo{
 	width: 20%;
 	float: left;
-	padding: 10px;
+	padding: 2%;
 }
 
 .logo img{
@@ -38,6 +38,14 @@ body{
 	display: block;
 	border-radius: 50%;
 	border: 10px solid #382410
+}
+
+.logo:hover{
+	padding: 1%;
+}
+
+.logo:active{
+	filter: brightness(125%);
 }
 
 .clear{
