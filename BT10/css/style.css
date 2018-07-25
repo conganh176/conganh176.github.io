@@ -406,15 +406,14 @@ h1{
 	filter: brightness(110%);
 }
 
-.adcontent{
+/*.adcontent{
 	background-image: url(../img/adbanner3.png);
-	background-size: cover;
+	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover;
 	padding-top: 15%;
     padding-bottom: 10%;
-}
+}*/
 
 .ad{
 	width: 50%;
