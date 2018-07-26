@@ -143,7 +143,9 @@ h2{
 	text-transform: uppercase;
 }
 
-b{
+.textcontent i{
+	font-weight: bold;
+	font-style: normal;
 	color: red;
 }
 

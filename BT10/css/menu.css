@@ -217,6 +217,18 @@ h1{
 	padding: 1%;
 }
 
+.food a{
+	text-decoration: none;
+}
+
+.food p.name:hover{
+	filter: brightness(150%);
+}
+
+.food p.name:active{
+	filter: brightness(200%);
+}
+
 .foodpic{
 	height: 175px;
 	overflow: hidden;
