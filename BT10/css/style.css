@@ -408,7 +408,7 @@ h1{
 
 .ad{
 	background-image: url(../img/adbanner3.png);
-	background-size: contain;
+	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 	padding-top: 15%;
