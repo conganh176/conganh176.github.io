@@ -143,14 +143,17 @@ h2{
 	text-transform: uppercase;
 }
 
+b{
+	color: red;
+}
+
 .foodpic{
 	width: 60%;
 	float: left;
 }
 
-.bigpics{
-	overflow: hidden;
-	height: 300px;
+.bigpics img{
+	border: 1px solid #383b3e;
 }
 
 .smallpics{
@@ -165,6 +168,7 @@ h2{
 .smallpic img{
 	display: block;
 	height: 125px;
+
 }
 
 .opacity{
