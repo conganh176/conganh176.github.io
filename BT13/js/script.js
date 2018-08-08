@@ -83,8 +83,14 @@ function changeBgColor2(color){
 	document.body.style.backgroundColor = color;
 }
 
-function copyContent(){
-	document.getElementById("p1").innerHTML = document.getElementById("p2").innerHTML;
+function copyContent(paragraph1, paragraph2){
+	document.getElementById(paragraph1).innerHTML = document.getElementById(paragraph2).innerHTML;
+}
+
+function copyContent2(paragraph1, paragraph2){
+	var paragraph1 = prompt("Chọn paragraph1 (p1, p2, p3)");
+	var paragraph2 = prompt("Chọn paragraph2 (p1, p2, p3)");
+	document.getElementById(paragraph1).innerHTML = document.getElementById(paragraph2).innerHTML;
 }
 
 console.log("It's work!!!");
