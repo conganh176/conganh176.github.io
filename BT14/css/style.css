@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+	background: url("../img/background.jpeg") no-repeat center center fixed;
+	margin: auto;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 1000px;
+}
+
+.clear{
+	clear: both;
+}
+
+.body{
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10%;
+	background-color: rgb(212, 213, 218);
+	border: 2px solid rgb(81, 79, 84);
+	border-radius: 5%;
+	box-shadow: 0px 1px 1px black;
+}
+
+p.head{
+	font-family: Courier, Eurostile;
+	font-size: 2.5em;
+	font-weight: bold;
+	text-align: center;
+	padding: 2%;
+	color: rgb(29, 22, 17);
+}
+
+.screen {
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.display{
+	width: 100%;
+}
+
+#math{
+	height: 2em;
+	font-size: 1.5em;
+	padding-left: 1%;
+	padding-right: 1%;
+}
+
+#result{
+	height: 2em;
+	font-size: 2em;
+}
+
+.buttons{
+	padding-top: 5%;
+	padding-bottom: 5%;
+	padding-left: 10%;
+	padding-right: 10%;	
+}
+
+button {
+	width: 65px;
+	height: 65px;
+	margin: 5px;
+	color: rgb(241, 245, 249);
+	background-color: rgb(49, 52, 59);
+	border-radius: 5%;
+	border: 0px solid black;
+	font-size: 1.5em;
+	box-shadow: 0px 5px 2px black;
+}
+
+button:active {
+	box-shadow: 0px 0px 0px black;
+	border: 2px solid black;
+}
+
+.longer {
+	height: 140px;
+}
+
+.CE {
+	background-color: rgb(154, 86, 104);
+}
+
+.first, .last{
+	float: left;
+}
+
+.last1{
+	width: 318px;
+	float: left;
+}
+
+.last2{
+	float: left;
+}

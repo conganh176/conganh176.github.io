@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Calculator</title>
+		<meta charset="utf-8">
+		<link rel="icon" type="image/png" href="img/icon.ico">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+		<script src="js/script.js"></script>
+	</head>
+	<body>
+		<div class = "body">
+			<div class = "top">
+				<p class = "head">CASINO</p>
+			</div>
+			<div class = "screen">
+				<input class="display" type="text" id="math"> <br>
+                <input class="display" type="text" id="result" disabled>
+			</div>
+			<div class = "buttons">
+				<div class = "first">
+					<button onclick="pow(2)">x&sup2;</button>
+					<button onclick="sqrt()">&radic;</button>
+					<button onclick="fact()">!</button>
+					<button onclick="percent()">%</button>
+					<button onclick="backspace()">&#9746;</button>
+					<button onclick="input(this);">7</button>
+					<button onclick="input(this);">8</button>
+					<button onclick="input(this);">9</button>
+					<button onclick="input(this);">(</button>
+					<button onclick="input(this);">)</button>
+					<button onclick="input(this);">4</button>
+					<button onclick="input(this);">5</button>
+					<button onclick="input(this);">6</button>
+					<button onclick="cal(this);">*</button>
+					<button onclick="cal(this);">/</button>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+				<div class = "last">
+					<div class = "last1">
+						<button onclick="input(this);">1</button>
+						<button onclick="input(this);">2</button>
+						<button onclick="input(this);">3</button>
+						<button onclick="cal(this);">-</button>
+						<button onclick="del()" class = "CE">CE</button>
+						<button onclick="input(this);">0</button>
+						<button onclick="inputC(this);">.</button>
+						<button onclick="equal();">=</button>
+						<div class="clear"></div>
+					</div>
+					<div class = "last2">
+						<button onclick="cal(this);" class="longer">+</button>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+		</div>
+	</body>
+</html>
