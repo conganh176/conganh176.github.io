@@ -6,57 +6,60 @@
 		<link rel="icon" type="image/png" href="img/icon.ico">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-		<script src="js/script.js"></script>
 	</head>
 	<body>
 		<div class = "body">
+			<form name="calculator">
 			<div class = "top">
 				<p class = "head">CASINO</p>
 			</div>
 			<div class = "screen">
+				<div class = "screenborder">
 				<input class="display" type="text" id="math"> <br>
                 <input class="display" type="text" id="result" disabled>
+            	</div>
 			</div>
 			<div class = "buttons">
 				<div class = "first">
-					<button onclick="pow(2)">x&sup2;</button>
-					<button onclick="sqrt()">&radic;</button>
-					<button onclick="fact()">!</button>
-					<button onclick="percent()">%</button>
-					<button onclick="backspace()">&#9746;</button>
-					<button onclick="input(this);">7</button>
-					<button onclick="input(this);">8</button>
-					<button onclick="input(this);">9</button>
-					<button onclick="input(this);">(</button>
-					<button onclick="input(this);">)</button>
-					<button onclick="input(this);">4</button>
-					<button onclick="input(this);">5</button>
-					<button onclick="input(this);">6</button>
-					<button onclick="cal(this);">*</button>
-					<button onclick="cal(this);">/</button>
+					<input class="key" onclick="calculator.math.value += 'pow(, 2)'" type="button" value="x&sup2;">
+					<input class="key" onclick="calculator.math.value += 'Math.sqrt('" type="button" value="&radic;">
+					<input class="key" onclick="calculator.math.value += '!'" type="button" value="!">
+					<input class="key" onclick="calculator.math.value += '/(100)'" type="button" value="%">
+					<input class="key" onclick="backspace()" type="button" value="&#9746;">
+					<input class="key" onclick="calculator.math.value += '7'" type="button" value="7">
+					<input class="key" onclick="calculator.math.value += '8'" type="button" value="8">
+					<input class="key" onclick="calculator.math.value += '9'" type="button" value="9">
+					<input class="key" onclick="calculator.math.value += '('" type="button" value="(">
+					<input class="key" onclick="calculator.math.value += ')'" type="button" value=")">
+					<input class="key" onclick="calculator.math.value += '4'" type="button" value="4">
+					<input class="key" onclick="calculator.math.value += '5'" type="button" value="5">
+					<input class="key" onclick="calculator.math.value += '6'" type="button" value="6">
+					<input class="key" onclick="calculator.math.value += '*'" type="button" value="*">
+					<input class="key" onclick="calculator.math.value += '/'" type="button" value="/">
 					<div class="clear"></div>
 				</div>
 				<div class="clear"></div>
 				<div class = "last">
 					<div class = "last1">
-						<button onclick="input(this);">1</button>
-						<button onclick="input(this);">2</button>
-						<button onclick="input(this);">3</button>
-						<button onclick="cal(this);">-</button>
-						<button onclick="del()" class = "CE">CE</button>
-						<button onclick="input(this);">0</button>
-						<button onclick="inputC(this);">.</button>
-						<button onclick="equal();">=</button>
+						<input class="key" onclick="calculator.math.value += '1'" type="button" value="1">
+						<input class="key" onclick="calculator.math.value += '2'" type="button" value="2">
+						<input class="key" onclick="calculator.math.value += '3'" type="button" value="3">
+						<input class="key" onclick="calculator.math.value += '-'" type="button" value="-">
+						<input class="key" onclick="reset()" type="button" id="CE" value="CE">
+						<input class="key" onclick="calculator.math.value += '0'" type="button" value="0">
+						<input class="key" onclick="calculator.math.value += '.'" type="button" value=".">
+						<input class="key" onclick="equalto()" type="button" value="=">
 						<div class="clear"></div>
 					</div>
 					<div class = "last2">
-						<button onclick="cal(this);" class="longer">+</button>
+						<input class="key" onclick="calculator.math.value += '+'" type="button" value="+" id="longer">
 						<div class="clear"></div>
 					</div>
 				</div>
 				<div class="clear"></div>
 			</div>
-			
+			</form>	
 		</div>
+		<script src="js/script.js"></script>
 	</body>
 </html>

@@ -11,6 +11,11 @@ body{
 	width: 1000px;
 }
 
+@font-face {
+  font-family: 'digital-7';
+  src: url('../font/digital-7.ttf');
+}
+
 .clear{
 	clear: both;
 }
@@ -20,19 +25,22 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 10%;
-	background-color: rgb(212, 213, 218);
-	border: 2px solid rgb(81, 79, 84);
-	border-radius: 5%;
-	box-shadow: 0px 1px 1px black;
+	background-color: rgb(209, 210, 214);
+	border: 3px groove rgb(81, 79, 84);
+	border-top-right-radius: 5%;
+	border-top-left-radius: 5%;
+	border-bottom-left-radius: 10%;
+	border-bottom-right-radius: 10%;
+	box-shadow: 0px 2px 2px black;
 }
 
 p.head{
-	font-family: Courier, Eurostile;
-	font-size: 2.5em;
+	font-family: Arial Black;
+	font-size: 3em;
 	font-weight: bold;
 	text-align: center;
 	padding: 2%;
-	color: rgb(29, 22, 17);
+	color: rgb(24, 15, 11);
 }
 
 .screen {
@@ -40,20 +48,44 @@ p.head{
 	padding-right: 10%;
 }
 
+.screenborder {
+	border-left: 25px ridge rgb(88, 92, 101);
+	border-right: 25px groove rgb(88, 92, 101);
+	border-top: 10px ridge rgb(88, 92, 101);
+	border-bottom: 20px groove rgb(88, 92, 101);
+	border-top-left-radius: 3%;
+	border-top-right-radius: 3%;
+	border-bottom-left-radius: 10%;
+	border-bottom-right-radius: 10%;
+}
+
 .display{
 	width: 100%;
+	background-color: rgb(210, 224, 225);
+	border: none;
 }
+
+.display:focus {outline:0;}
 
 #math{
 	height: 2em;
-	font-size: 1.5em;
-	padding-left: 1%;
-	padding-right: 1%;
+	font-size: 1.75em;
+	padding-left: 5%;
+	padding-right: 5%;
+	font-family: 'digital-7';
+	font-weight: bold;
+	letter-spacing: 0.1em;
 }
 
 #result{
 	height: 2em;
 	font-size: 2em;
+	padding-left: 5%;
+	padding-right: 5%;
+	font-family: 'digital-7';
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	text-align: right;
 }
 
 .buttons{
@@ -63,28 +95,33 @@ p.head{
 	padding-right: 10%;	
 }
 
-button {
+.key {
 	width: 65px;
 	height: 65px;
 	margin: 5px;
 	color: rgb(241, 245, 249);
 	background-color: rgb(49, 52, 59);
-	border-radius: 5%;
+	border-top-right-radius: 10%;
+	border-top-left-radius: 10%;
+	border-bottom-left-radius: 15%;
+	border-bottom-right-radius: 15%;
 	border: 0px solid black;
 	font-size: 1.5em;
-	box-shadow: 0px 5px 2px black;
+	box-shadow: 0px 3px 2px black;
 }
 
-button:active {
+.key:active {
 	box-shadow: 0px 0px 0px black;
 	border: 2px solid black;
 }
 
-.longer {
+.key:focus {outline:0;}
+
+#longer{
 	height: 140px;
 }
 
-.CE {
+#CE {
 	background-color: rgb(154, 86, 104);
 }
 
