@@ -117,23 +117,6 @@ p.head{
 
 .key:focus {outline:0;}
 
-#longer{
-	height: 140px;
-}
-
 #CE {
 	background-color: rgb(154, 86, 104);
-}
-
-.first, .last{
-	float: left;
-}
-
-.last1{
-	width: 318px;
-	float: left;
-}
-
-.last2{
-	float: left;
 }
