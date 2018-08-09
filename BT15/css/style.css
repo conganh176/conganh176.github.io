@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+	background: url("../img/background.jpeg") no-repeat center center fixed;
+	margin: auto;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 1000px;
+}
+
+@font-face {
+  font-family: 'digital-7';
+  src: url('../font/digital-7.ttf');
+}
+
+.clear{
+	clear: both;
+}
