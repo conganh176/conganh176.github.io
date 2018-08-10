@@ -4,11 +4,13 @@
     padding: 0;
 }
 
-body{
-	background: url("../img/background.jpeg") no-repeat center center fixed;
+body {
+	background: url("../img/background1.jpg");
 	margin: auto;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'MedievalSharp', cursive;
+	font-weight: bold;
 	width: 1000px;
+	color: #383b3e;
 }
 
 @font-face {
@@ -16,6 +18,199 @@ body{
   src: url('../font/digital-7.ttf');
 }
 
-.clear{
+.clear {
 	clear: both;
+}
+
+#door {
+	position: relative;
+}
+
+#door img {
+	width: 100%;
+	position: absolute;
+	z-index: 0;
+}
+
+#score {
+	position: relative;
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+
+#score img{
+	position: absolute;
+	top: 450px;
+	left: 450px;
+}
+
+#start {
+	position: relative;
+	transition: opacity 3s;
+}
+
+#start h1{
+	text-align: center;
+    font-size: 4.5em;
+    position: absolute;
+    width: 1000px;
+    top: 300px;
+    color: black;
+}
+
+#start img {
+	position: absolute;
+	width: 100px;
+    top: 450px;
+    left: 450px;
+    z-index: 1;
+}
+
+#start img:hover {
+	filter: brightness(125%);
+	cursor: pointer;
+}
+
+#start img:active {
+	filter: brightness(150%);
+	cursor: pointer;
+}
+
+#lose h1 {
+	text-align: center;
+	margin-top: 15%;
+	font-size: 3em;
+	margin-bottom: 5%;
+}
+
+#quiz{
+	position: relative;
+}
+
+#quests {
+	position: absolute;
+/*	top: 0px;*/
+	top: -700px;
+
+	transition: top 3s;
+}
+
+#question {
+	font-size: 2em;
+	text-align: center;
+	width: 1000px;
+	height: 100%;
+	margin: auto;
+	background: url("../img/board3.png");
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: 100% 100%;
+	padding-top: 20%;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+}
+
+.answer {
+	font-size: 1.5em;
+	width: 40%;
+	text-align: center;
+	background: url("../img/board2.png");
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: 100% 100%;
+	padding-top: 10%;
+	padding-bottom: 3%;
+}
+
+.answer p:hover {
+	cursor: pointer;
+	color: red;
+}
+
+
+#one, #three {
+	float: left;
+	margin-left: 5%;
+	padding-left: 4%;
+	padding-right: 4%;
+}
+
+#two, #four {
+	float: right;
+	margin-right: 5%;
+	padding-left: 4%;
+	padding-right: 4%;
+}
+
+#lose {
+	display: none;
+    z-index: 1;
+    position: relative
+}
+
+#lose h1 {     
+	text-align: center;
+    font-size: 5em;
+    position: absolute;
+    width: 1000px;
+    top: 150px;
+    color: black;
+}
+
+#again {
+	display: none;
+    z-index: 1;
+    position: relative
+}
+
+#again img {     
+    position: absolute;
+    top: 437px;
+    left: 44%;
+    width: 12%
+}
+
+#again img:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+#again img:active {
+	opacity: 0.75;
+	cursor: pointer;
+}
+
+/*
+#answer1, #answer2 {
+	background: url("../img/board2.png");
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: 100% 100%;
+	padding-top: 10%;
+	padding-bottom: 3%;
+}
+
+#answer3, #answer4 {
+	background: url("../img/board2.png");
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: 100% 100%;
+	padding-top: 10%;
+	padding-bottom: 3%;
+}*/
+
+#star1, #star2, #star3, #star4, #star5 {
+	display: none;
+}
+
+.keyhole{
+	animation: keyhole 2s ease-in-out;
+}
+
+@keyframes keyhole {
+	0%, 50% {transform: scale(2, 2);
+		opacity: 0;}
+	100% {transform: scale(1, 1);
+		opacity: 1;}
 }
