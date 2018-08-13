@@ -3,8 +3,7 @@ function backspace() {
 }
 
 function reset() {
-	$('.display')[1].value = "";
-	$('.display')[0].value = "";
+	$('.display').value = "";
 }
 
 function equalto() {
@@ -89,7 +88,7 @@ function factorial() {
 }
 
 function theme() {
-	if ($('input')[2].checked) {
+	if ($('#checkbox')[0].checked) {
 		$('body').css('background-image', 'url("img/background.jpg")');
 		$('.body').css('border-radius', '10%');
 		$('.body').css('background-color', 'black');
