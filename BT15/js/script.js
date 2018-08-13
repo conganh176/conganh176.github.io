@@ -30,7 +30,7 @@ var q3 = {
 var q4 = {
 	question: "Question 4: At which of these location can you see the sunrise the earliest?",
 	answer1: "A: Cape Nosappu.",
-	answer2: "B: The summit of of Mt.Fuji.",
+	answer2: "B: The summit of Mt.Fuji.",
 	answer3: "C: Cape Sata.",
 	answer4: "D: They're all the same.",
 	trueanswer: "answer2"
@@ -62,11 +62,12 @@ document.getElementById("answer3").innerText = questions[i].answer3;
 document.getElementById("answer4").innerText = questions[i].answer4;
 
 function start() {
-	document.getElementById("quests").className = "quizstart";
 	document.getElementById("quests").style.top = "0px";
+
 	document.getElementById("start").style.opacity = 0;
 
-	document.getElementById("score").className = "keyhole";
+	document.getElementById("score").style.transform = "scale(1, 1)";
+
 	document.getElementById("score").style.opacity = 1;
 }
 
@@ -75,7 +76,8 @@ function theanswer(x) {
 	if (x.id == questions[i].trueanswer) {
 		point += 1;
 		// x.innerText = x.innerText + " correct";
-		stars[i].style.display = "block";
+		stars[i].style.opacity = 1;
+		stars[i].style.transform = "scale(1, 1)";
 		// document.getElementById("score").innerHTML = "<img src=\"img/star1.png\" width=\"10%\">";
 	}
 	else {
@@ -86,27 +88,31 @@ function theanswer(x) {
 
 	i += 1;
 	if (i < questions.length) {
-		document.getElementById("question").innerText = questions[i].question;
-		document.getElementById("answer1").innerText = questions[i].answer1;
-		document.getElementById("answer2").innerText = questions[i].answer2;
-		document.getElementById("answer3").innerText = questions[i].answer3;
-		document.getElementById("answer4").innerText = questions[i].answer4;
+		document.getElementById("quests").style.top = "-700px";
+		setTimeout(function(){document.getElementById("quests").style.top = "0px"}, 500);
+		setTimeout(function(){document.getElementById("question").innerText = questions[i].question}, 500);
+		setTimeout(function(){document.getElementById("answer1").innerText = questions[i].answer1}, 500);
+		setTimeout(function(){document.getElementById("answer2").innerText = questions[i].answer2}, 500);
+		setTimeout(function(){document.getElementById("answer3").innerText = questions[i].answer3}, 500);
+		setTimeout(function(){document.getElementById("answer4").innerText = questions[i].answer4}, 500);
+
 	}
 	else {
 		if (point == questions.length) {
-		window.location.assign("win.html")
+		document.getElementById("quests").style.top = "-700px";
+		setTimeout(function(){window.location.assign("win.html")}, 1000);
 		}
 		else {
-		document.getElementById("quiz").style.display = "none";	
-		document.getElementById("lose").style.display = "block";	
-		document.getElementById("again").style.display = "block";	
+		document.getElementById("quests").style.top = "-700px";	
+		setTimeout(function(){document.getElementById("lose").style.display = "block"}, 500);
+		setTimeout(function(){document.getElementById("again").style.display = "block"}, 500);	
 		}
 	}
 }
 
 function again() {
-	document.getElementById("quiz").style.display = "block";
-	document.getElementById("lose").style.display = "none";	
+	document.getElementById("quests").style.top = "0px";
+	document.getElementById("lose").style.display = "none";
 	document.getElementById("again").style.display = "none";
 	point = 0
 	i = 0
@@ -115,9 +121,14 @@ function again() {
 	document.getElementById("answer2").innerText = questions[i].answer2;
 	document.getElementById("answer3").innerText = questions[i].answer3;
 	document.getElementById("answer4").innerText = questions[i].answer4;
-	star1.style.display = "none";
-	star2.style.display = "none";
-	star3.style.display = "none";
-	star4.style.display = "none";
-	star5.style.display = "none";
+	star1.style.opacity = 0;
+	star2.style.opacity = 0;
+	star3.style.opacity = 0;
+	star4.style.opacity = 0;
+	star5.style.opacity = 0;
+	star1.style.transform = "scale(2, 2)";
+	star2.style.transform = "scale(2, 2)";
+	star3.style.transform = "scale(2, 2)";
+	star4.style.transform = "scale(2, 2)";
+	star5.style.transform = "scale(2, 2)";
 }

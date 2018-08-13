@@ -31,7 +31,7 @@ body {
 	width: 100%;
 	position: absolute;
 	z-index: 0;
-	animation: dooropen 6s ease-in-out;
+	animation: dooropen 4s ease-in-out;
 	opacity: 0
 }
 
@@ -45,6 +45,14 @@ body {
 	z-index: 0;
 }
 
+#dooropen h1 {
+	position: absolute;
+	font-size: 4em;
+    top: 735px;
+    left: 265px;
+    color: black;
+}
+
 #score {
 	position: relative;
 }
@@ -53,14 +61,14 @@ body {
 	0% {visibility: visible; top: 450px;}
 	20% {filter: brightness(150%);}
 	40% {filter: brightness(100%); top: 450px;}
-	100% {top: 1145px;}
+	100% {top: 1051px;}
 }
 
 #score img{
 	position: absolute;
 	top: 450px;
 	left: 450px;
-	animation: lock 5s ease-in-out;
+	animation: lock 3s ease-in-out;
 	visibility: hidden;
 }
 
