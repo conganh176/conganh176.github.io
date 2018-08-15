@@ -89,7 +89,7 @@ function factorial() {
 
 function theme() {
 	if ($('#checkbox')[0].checked) {
-		$('body').css('background-image', 'url("img/background.jpg")');
+		$('body').css('background-image', 'url("img/background2.jpg")');
 		$('.body').css('border-radius', '10%');
 		$('.body').css('background-color', 'black');
 		$('.head').text('iPhone');
