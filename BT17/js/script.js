@@ -25,15 +25,24 @@ var front12b = "<img src='img/front12b.png' alt='front12b'>";
 
 var front = [front1, front2, front3, front4, front5, front6, front7, front8, front9, front10, front11, front12, front13, front14, front15, front16, front17, front18, front19, front20, front21, front22, front21b, front12b]
 // var randomfront = front[Math.floor(Math.random()*front.length)];
-newfront = front.sort(function() { return 0.5 - Math.random() });
+var newfront = front.sort(function() { return 0.5 - Math.random() });
+var slicedfront = newfront.slice(0,6).concat(newfront.slice(0,6));
+var newslicefront = slicedfront.sort(function() { return 0.5 - Math.random() });
 
 var back = document.getElementsByClassName("front");
-var randomback = back[Math.floor(Math.random()*back.length)];
+// var randomback = back[Math.floor(Math.random()*back.length)];
 
-back[0].innerHTML = newfront[0];
-back[1].innerHTML = newfront[1];
-back[2].innerHTML = newfront[2];
-back[3].innerHTML = newfront[3];
-back[4].innerHTML = newfront[4];
-back[5].innerHTML = newfront[5];
+back[0].innerHTML = newslicefront[0];
+back[1].innerHTML = newslicefront[1];
+back[2].innerHTML = newslicefront[2];
+back[3].innerHTML = newslicefront[3];
+back[4].innerHTML = newslicefront[4];
+back[5].innerHTML = newslicefront[5];
+back[6].innerHTML = newslicefront[6];
+back[7].innerHTML = newslicefront[7];
+back[8].innerHTML = newslicefront[8];
+back[9].innerHTML = newslicefront[9];
+back[10].innerHTML = newslicefront[10];
+back[11].innerHTML = newslicefront[11];
+
 // document.getElementsByClassName("front")[0].innerHTML= randomfront;
