@@ -163,3 +163,7 @@ p.head{
 input:checked + .slider:before {
   left: 80px;
 }
+
+#theme {
+	padding-left: 10%;
+}

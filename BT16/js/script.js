@@ -3,7 +3,7 @@ function backspace() {
 }
 
 function reset() {
-	$('.display').value = "";
+	$('.display').value = "";	
 }
 
 function equalto() {

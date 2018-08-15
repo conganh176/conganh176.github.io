@@ -9,25 +9,26 @@
 	</head>
 	<body>
 		<div class = "body">
-			<form name="calculator">
 			<div class = "top">
 				<p class = "head">CASINO</p>
 			</div>
+			<div id = "theme">
+					<span id = "spantext" style = "font-weight: bold">Change theme</span><br/>
+					<label class="switch">
+  						<input id ="checkbox" type="checkbox" onclick="theme()">
+  						<span class="slider"></span>
+					</label>
+			</div>
+			<form name="calculator">
 			<div class = "screen">
 				<div class = "screenborder">
 				<input class="display" type="text" id="math"> <br>
                 <input class="display" type="text" id="result" disabled">
             	</div>
 			</div>
-
+			
 			<div class = "buttons">
-				<div id = "theme">
-					<span id = "spantext" style = "font-weight: bold">Change theme</span><br/>
-					<label class="switch">
-  						<input id ="checkbox" type="checkbox" onclick="theme()">
-  						<span class="slider"></span>
-					</label>
-				</div>
+				
 				<input class="key yellow" onclick="pow()" type="button" value="x&sup2;">
 				<input class="key yellow" onclick="sqrt()" type="button" value="&radic;">
 				<input class="key yellow" onclick="factorial()" type="button" value="!">
