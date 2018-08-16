@@ -17,6 +17,7 @@ body{
 	float: left;
 	position: relative;
 	margin-bottom: 3%;
+	cursor: pointer;
 }
 
 .card img {
@@ -28,6 +29,8 @@ body{
 	transform: rotateY(180deg);
 	position: absolute;
 	top: 0;
+	opacity: 0;
+	visibility: hidden;
 }
 
 .card:hover {
@@ -38,15 +41,31 @@ body{
 	filter: brightness(150%);
 }
 
-.card:hover .back {
+/*.card:hover .back {
 	transform: rotateY(180deg);
 }
 
 .card:hover .front {
 	transform: rotateY(0deg);
-}
+}*/
 
-.front, .back {
+/*.front, .back {
 	transition: transform 0.5s ease-in-out;
 	backface-visibility: hidden;
+}*/
+
+.hide {
+	opacity: 0;
+	visibility: hidden;
+	transform: rotateY(180deg);
+	backface-visibility: hidden;
+	transition: all 0.5s ease-in-out;
+}
+
+.show {
+	opacity: 1;
+	visibility: visible;
+	transform: rotateY(0deg);
+	backface-visibility: hidden;
+	transition: all 0.5s ease-in-out;
 }

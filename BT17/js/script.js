@@ -1,3 +1,5 @@
+var point = 0;
+
 var front = ["<img src='img/front1.png' alt='front1'>", 
 			"<img src='img/front2.png' alt='front2'>",  
 			"<img src='img/front3.png' alt='front3'>", 
@@ -26,7 +28,58 @@ var front = ["<img src='img/front1.png' alt='front1'>",
 var slicedfront = front.slice(0,6).concat(front.slice(0,6));
 var newslicefront = slicedfront.sort(function() { return 0.5 - Math.random() });
 
-for (var i = 0; i < document.getElementsByClassName("front").length; i++) {
-	document.getElementsByClassName("front")[i].innerHTML = newslicefront[i];
-	document.getElementsByClassName("back")[i].innerHTML = "<img src='img/back.png' alt = 'back'>"
+for (var i = 0; i < $('.front').length; i++) {
+	$('.front')[i].innerHTML = newslicefront[i];
+	$('.back')[i].innerHTML = "<img src='img/back.png' alt = 'back'>"
 }
+
+$(".card").mouseenter(function(){
+	$("#hoveraudio")[0].play();
+});
+
+$(".card").mouseout(function(){
+	$("#hoveraudio")[0].pause();
+	$("#hoveraudio")[0].currentTime = 0;
+
+});
+
+$(".card").click(function() {
+	$(this).find(".back").addClass("hide");
+	$(this).find(".back").removeClass("show");
+	$(this).find(".front").addClass("show");
+	$(this).find(".front").removeClass("hide");
+	$("#hoveraudio")[0].pause();
+	$("#hoveraudio")[0].currentTime = 0;
+	$("#clickaudio")[0].play();
+
+	if ($(this).find("front show")) {
+		$(this).hover(function(){
+			$(this).css("filter", "brightness(100%)");
+			$(this).css("cursor", "default");
+			$("#hoveraudio")[0].pause();
+			$("#hoveraudio")[0].currentTime = 0;
+		})
+		$(this).click(function(){
+			$(this).css("filter", "brightness(100%)");
+			$(this).css("cursor", "default");
+			$("#clickaudio")[0].pause();
+			$("#clickaudio")[0].currentTime = 0;
+		})
+	}
+});
+
+// function playSound(hoveraudio) {
+// 	var hoveraudio=document.getElementById(hoveraudio);
+// 	hoveraudio.play();
+// }
+
+// function stopSound(hoveraudio) {
+// 	var hoveraudio=document.getElementById(hoveraudio);
+// 	hoveraudio.pause();
+// 	hoveraudio.currentTime = 0;
+// }
+
+// // function play(clickaudio) {
+// // 	var audio2=document.getElementById(clickaudio);
+// // 	audio2.play();
+// // }
