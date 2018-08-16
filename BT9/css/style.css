@@ -152,8 +152,7 @@ p{
 }
 
 #fire1, #fire2 {
-	animation: fade2 12s linear;
-	animation-delay: 6s;
+	
 }
 
 #fire1 img{

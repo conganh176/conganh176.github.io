@@ -30,13 +30,21 @@ body{
 	top: 0;
 }
 
-.card:hover .back {
+.card:hover {
+	filter: brightness(125%);
+}
+
+.card:active {
+	filter: brightness(150%);
+}
+
+/*.card:hover .back {
 	transform: rotateY(180deg);
 }
 
 .card:hover .front {
 	transform: rotateY(0deg);
-}
+}*/
 
 .front, .back {
 	transition: transform 0.5s ease-in-out;
