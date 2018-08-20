@@ -8,12 +8,13 @@ body{
 	background: url("../img/background2.jpg") no-repeat center center fixed;
 	margin: auto;
 	font-family: Arial, Helvetica, sans-serif;
-	width: 1000px;
+	max-width: 1000px;
 }
 
 .card {
-	margin-left: 37.5px;
-	margin-right: 37.5px;
+	width: 17.5%;
+	margin-left: 3.75%;
+	margin-right: 3.75%;
 	float: left;
 	position: relative;
 	margin-bottom: 3%;
@@ -21,6 +22,7 @@ body{
 }
 
 .card img {
+	max-width: 100%;
 	margin: auto;
 	display: block;
 }
@@ -29,6 +31,13 @@ body{
 	transform: rotateY(180deg);
 	position: absolute;
 	top: 0;
+	opacity: 0;
+	visibility: hidden;
+	width: 100%;
+}
+
+.back {
+	transform: rotateY(180deg);
 	opacity: 0;
 	visibility: hidden;
 }
@@ -41,20 +50,19 @@ body{
 	filter: brightness(150%);
 }
 
-/*.card:hover .back {
-	transform: rotateY(180deg);
+.front, .back {
+	/*transition: transform 0.5s ease-in-out;*/
+	backface-visibility: hidden;
+	transition: all 0.5s ease-in-out;
 }
 
-.card:hover .front {
+.pick {
+	opacity: 1;
+	visibility: visible;
 	transform: rotateY(0deg);
-}*/
+}
 
-/*.front, .back {
-	transition: transform 0.5s ease-in-out;
-	backface-visibility: hidden;
-}*/
-
-.hide {
+/*.hide {
 	opacity: 0;
 	visibility: hidden;
 	transform: rotateY(180deg);
@@ -68,4 +76,4 @@ body{
 	transform: rotateY(0deg);
 	backface-visibility: hidden;
 	transition: all 0.5s ease-in-out;
-}
+}*/

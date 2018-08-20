@@ -1,4 +1,5 @@
 var current = null;
+var points = 0;
 
 // var front = ["<img src='img/front1.png' alt='front1'>", 
 // 			"<img src='img/front2.png' alt='front2'>",  
@@ -42,39 +43,75 @@ $(function() {
 	var html = '';
 	for (var i = 0; i < cards.length; i++ ) {
 		html += '<div class = "card" data-name ="' + cards[i] + '" onclick = "pick(this)">' +
-			'<div class = "front hide"><img src="img/front' + cards[i] + '.png" alt="front' + cards[i] + '"></div>' +
-			'<div class = "back show"><img src="img/back.png" alt = "back"></div></div>'
+			'<div class = "front"><img src="img/front' + cards[i] + '.png" alt="front' + cards[i] + '"></div>' +
+			'<div class = "back pick"><img src="img/back.png" alt = "back"></div></div>'
 	};
 	$('.body').html(html);
+	
+	$(".card").mouseenter(function(){
+		$("#hoveraudio")[0].play();
+	});
+
+	$(".card").mouseout(function(){
+		$("#hoveraudio")[0].pause();
+		$("#hoveraudio")[0].currentTime = 0;
+	});
+
+	$(".card").click(function(){
+		$("#hoveraudio")[0].pause();
+	 	$("#hoveraudio")[0].currentTime = 0;
+		$("#clickaudio")[0].play();
+	});
 });
 
-$(".card").mouseenter(function(){
-	$("#hoveraudio")[0].play();
-});
-
-$(".card").mouseout(function(){
-	$("#hoveraudio")[0].pause();
-	$("#hoveraudio")[0].currentTime = 0;
-
-});
 
 function pick(x) {
-	$(x).find(".back").toggleClass("show").toggleClass("hide");
-	$(x).find(".front").toggleClass("show").toggleClass("hide");
+	$(x).find(".back").toggleClass("pick");
+	$(x).find(".front").toggleClass("pick");
+
 	if (!current) {
 		current = $(x);
+		current.css('pointer-events', 'none');
 	}
 	else {
 		if (current.attr("data-name") != $(x).attr("data-name")) {
+			$('.card').css('pointer-events', 'none');
 			console.log("Wrong");
-			current.toggleClass("show").toggleClass("hide");
-			// $(x).find(".front").toggleClass("hide").toggleClass("show");
-			// $(x).find(".back").toggleClass("show").toggleClass("hide");
-			current = null;
+			setTimeout(function() {
+				$("#hoveraudio")[0].pause();
+				$("#hoveraudio")[0].currentTime = 0;
+				$("#clickaudio")[0].pause();
+				$("#clickaudio")[0].currentTime = 0;
+				$("#wrongaudio")[0].play();
+				$(x).find(".front").toggleClass("pick");
+				$(x).find(".back").toggleClass("pick");
+				current.find(".front").toggleClass("pick");
+				current.find(".back").toggleClass("pick");
+				$('.card').css('pointer-events', 'auto');
+				current = null; 
+			}, 500);
 		}
 		else {
 			console.log("Correct");
-			current = null;
+			setTimeout(function() {
+				points += 1;
+				$("#hoveraudio")[0].pause();
+				$("#hoveraudio")[0].currentTime = 0;
+				$("#clickaudio")[0].pause();
+				$("#clickaudio")[0].currentTime = 0;
+				$("#correctaudio")[0].play();
+				$(x).find(".front").css("opacity", "0");
+				$(x).find(".back").css("opacity", "0");
+				current.find(".front").css("opacity", "0");
+				current.find(".back").css("opacity", "0");
+				$(x).css("cursor", "default");
+				current.css("cursor", "default");
+				$(x).removeAttr('onclick');
+				current.removeAttr('onclick');
+				$(x).unbind("mouseenter mouseout click");
+				current.unbind("mouseenter mouseout click");
+				current = null;
+			}, 500);
 		}
 	}
 }
