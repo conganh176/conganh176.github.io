@@ -104,6 +104,8 @@ function pick(x) {
 				$(x).find(".back").css("opacity", "0");
 				current.find(".front").css("opacity", "0");
 				current.find(".back").css("opacity", "0");
+				$(x).find(".front").css("visibility", "hidden");
+				current.find(".front").css("visibility", "hidden");
 				$(x).css("cursor", "default");
 				current.css("cursor", "default");
 				$(x).removeAttr('onclick');
