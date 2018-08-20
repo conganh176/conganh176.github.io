@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+	background: url("../img/background2.jpg") no-repeat center center fixed;
+	margin: auto;
+	font-family: Arial, Helvetica, sans-serif;
+	max-width: 1000px;
+}
+
+.start {
+	
+}
+
+.times {
+	position: relative;
+}
+
+progress {
+	width: 100%;
+	margin: 1%;
+	height: 40px;
+	border: 1px solid black;
+
+}
+
+.timedetail {
+	font-size: 2em;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.blink {
+  animation: blinker 1s ease-in-out infinite;
+}
+
+.blinkfaster {
+	animation: blinker 0.5s ease-in-out infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.body {
+	/*display: none;*/
+
+}
+
+.card {
+	width: 17.5%;
+	margin-left: 3.75%;
+	margin-right: 3.75%;
+	float: left;
+	position: relative;
+	margin-bottom: 3%;
+	cursor: pointer;
+}
+
+.card img {
+	max-width: 100%;
+	margin: auto;
+	display: block;
+}
+
+.front {
+	transform: rotateY(180deg);
+	position: absolute;
+	top: 0;
+	opacity: 0;
+	visibility: hidden;
+	width: 100%;
+}
+
+.back {
+	transform: rotateY(180deg);
+	opacity: 0;
+	visibility: hidden;
+}
+
+.card:hover {
+	filter: brightness(125%);
+}
+
+.card:active {
+	filter: brightness(150%);
+}
+
+.front, .back {
+	/*transition: transform 0.5s ease-in-out;*/
+	backface-visibility: hidden;
+	transition: all 0.5s ease-in-out;
+}
+
+.pick {
+	opacity: 1;
+	visibility: visible;
+	transform: rotateY(0deg);
+}
+
+.lose {
+	font-size: 2em;
+	text-align: center;
+	color: rgb(222, 222, 222);
+	font-weight: bold;
+	display: none;
+}
+
+#easy {
+
+}

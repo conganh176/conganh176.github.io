@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Arcana Memory Game</title>
+		<meta charset="utf-8">
+		<link rel="icon" type="image/png" href="img/icon.ico">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	</head>
+	<body>
+		<div class = "start">
+
+		</div>
+		<div class = "times">
+			<progress id = "time" value="100" max="100"></progress>
+			<p class="timedetail">
+   				<span id = "remains"></span>&nbsp;/&nbsp;<span id = "maxs"></span>
+  			</p>
+		</div>
+		<div class = "body">
+			<!-- <div class = "card">
+				<div class = "front hide"></div>
+				<div class = "back show"></div>
+			</div>
+			<div class = "card">
+				<div class = "front hide"></div>
+				<div class = "back show"></div>
+			</div>
+			<div class = "card">
+				<div class = "front hide"></div>
+				<div class = "back show"></div>
+			</div>
+			<div class = "card">
+				<div class = "front hide"></div>
+				<div class = "back show"></div>
+			</div>
+			<div class = "card">
+				<div class = "front hide"></div>
+				<div class = "back show"></div>
+			</div>
+			<div class = "card">
+				<div class = "front hide"></div>
+				<div class = "back show"></div>
+			</div>
+			<div class = "card">
+				<div class = "front hide"></div>
+				<div class = "back show"></div>
+			</div>
+			<div class = "card">
+				<div class = "front hide"></div>
+				<div class = "back show"></div>
+			</div>
+			<div class = "card">
+				<div class = "front hide"></div>
+				<div class = "back show"></div>
+			</div>
+			<div class = "card"">
+				<div class = "front hide"></div>
+				<div class = "back show"></div>
+			</div>
+			<div class = "card">
+				<div class = "front hide"></div>
+				<div class = "back show"></div>
+			</div>
+			<div class = "card">
+				<div class = "front hide"></div>
+				<div class = "back show"></div>
+			</div> -->
+		</div>
+		<div class = "lose" id = "easy">
+			<p>Life is truth, and never a dream... All souls know this from birth...</p> 
+			<p>The truth is something that is chosen and grasped...</p> 
+			<p>Something discovered with one's vision and will.</p> 
+			<p>Only by gaining that does the seeker become truth himself, a cord that connects past and future.</p> 
+			<p>But now, our guest's destiny has been severed, and the truth languishes with the hollow, fog-filled forest...</p>
+		</div><br/>
+		<div class = "lose" id = "medium">
+			<p>Death is not a hunter unbeknowst to its prey.</p> 
+			<p>One is always aware that it lies in wait.</p> 
+			<p>Though life is merely a journey to the grave, it must not be undertaken without hope.</p>
+			<p>Only then will a traveler's story live on, treasured by those who bid him farewell.</p>
+			<p>But alas, my guest's life has now ended, his tale left unwritten...</p>
+		</div><br/>
+		<div class = "lose" id = "hard">
+			<p>As proof of one's life, there exists the danger of death.</p> 
+			<p>This proof exists as a flame, painfully burning one's life away.</p>
+			<p>Yet though a life crumbles to dust, time moves ever onward.</p>
+			<p>He who had been your proof, your life itself...</p>
+			<p>The answer has been lost, never to be found again...</p>
+		</div>
+		<audio id="hoveraudio" src="sound/hover.mp3" type="audio/mpeg"></audio>
+		<audio id="clickaudio" src="sound/click.mp3" type="audio/mpeg"></audio>
+		<audio id="wrongaudio" src="sound/wrong2.mp3" type="audio/mpeg"></audio>
+		<audio id="correctaudio" src="sound/correct.mp3" type="audio/mpeg"></audio>
+		<audio src="sound/background.mp3" type="audio/mpeg" autoplay></audio>
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/script.js"></script>
+	</body>
+</html>
