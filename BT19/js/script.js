@@ -27,6 +27,132 @@ function easy() {
 	document.getElementById("time").max = time;
 	document.getElementById("maxs").innerHTML = time;
 	document.getElementById("remains").innerHTML = time;
+	setTimeout(function(){
+		$(function() {
+			var run = setInterval(function() {
+				time --;
+				console.log(time);
+				document.getElementById("time").value = time;
+				document.getElementById("remains").innerHTML = time;
+				if (time == 10) {
+					$('.times').addClass("blink");
+					$('body').css('filter', 'grayscale(25%');
+					$('body').css("transition", "filter 0.5s ease-in-out")
+				}
+
+				if (time == 5) {
+					$('.times').removeClass("blink").addClass("blinkfaster");
+					$('body').css('filter', 'grayscale(50%');
+					$('body').css("transition", "filter 0.5s ease-in-out")
+				}
+
+				if (time == 0) {
+					clearInterval(run);
+					$('.card').css('pointer-events', 'none');
+					$('.times').removeClass("blinkfaster");
+					$('body').css('filter', 'grayscale(100%');
+					$('body').css("transition", "filter 0.5s ease-in-out")
+					console.log("Lose easy")
+				}
+				if (points == 6) {
+							clearInterval(run);
+							setTimeout(function() {
+							alert("Winner!");
+							}, 500);
+						}
+				}, 1000);
+		});
+	}, 3500);
+};
+
+function medium() {
+	time = 30;
+	document.getElementById("time").max = time;
+	document.getElementById("maxs").innerHTML = time;
+	document.getElementById("remains").innerHTML = time;
+	setTimeout(function(){
+		$(function() {
+			var run = setInterval(function() {
+				time --;
+				console.log(time);
+				document.getElementById("time").value = time;
+				document.getElementById("remains").innerHTML = time;
+				if (time == 10) {
+					$('.times').addClass("blink");
+					$('body').css('filter', 'grayscale(25%');
+					$('body').css("transition", "filter 0.5s ease-in-out")
+				}
+
+				if (time == 5) {
+					$('.times').removeClass("blink").addClass("blinkfaster");
+					$('body').css('filter', 'grayscale(50%');
+					$('body').css("transition", "filter 0.5s ease-in-out")
+				}
+
+				if (time == 0) {
+					clearInterval(run);
+					$('.card').css('pointer-events', 'none');
+					$('.times').removeClass("blinkfaster");
+					$('body').css('filter', 'grayscale(100%');
+					$('body').css("transition", "filter 0.5s ease-in-out")
+					console.log("Lose easy")
+				}
+				if (points == 6) {
+							clearInterval(run);
+							setTimeout(function() {
+							alert("Winner!");
+							}, 500);
+						}
+				}, 1000);
+		});
+	}, 3500);
+};
+
+function hard() {
+	time = 15;
+	document.getElementById("time").max = time;
+	document.getElementById("maxs").innerHTML = time;
+	document.getElementById("remains").innerHTML = time;
+	setTimeout(function(){
+		$(function() {
+			var run = setInterval(function() {
+				time --;
+				console.log(time);
+				document.getElementById("time").value = time;
+				document.getElementById("remains").innerHTML = time;
+				if (time == 10) {
+					$('.times').addClass("blink");
+					$('body').css('filter', 'grayscale(25%');
+					$('body').css("transition", "filter 0.5s ease-in-out")
+				}
+
+				if (time == 5) {
+					$('.times').removeClass("blink").addClass("blinkfaster");
+					$('body').css('filter', 'grayscale(50%');
+					$('body').css("transition", "filter 0.5s ease-in-out")
+				}
+
+				if (time == 0) {
+					clearInterval(run);
+					$('.card').css('pointer-events', 'none');
+					$('.times').removeClass("blinkfaster");
+					$('body').css('filter', 'grayscale(100%');
+					$('body').css("transition", "filter 0.5s ease-in-out")
+					console.log("Lose easy")
+				}
+				if (points == 6) {
+							clearInterval(run);
+							setTimeout(function() {
+							alert("Winner!");
+							}, 500);
+						}
+				}, 1000);
+		});
+	}, 3500);
+};
+
+function start() {
+	
 
 	$(".black").css("display", "block");
 	$(".black").css("visibility", "visible");
@@ -34,13 +160,15 @@ function easy() {
 	$(".black").css("opacity", "1");
 	$('.start').css("opacity", "0");
 	$('.start').css("transition", "opacity 1s ease-in-out")
+	$('.video').css("display", "block");
+	$('.video').css("visibility", "visible")
 	});
 	// $('.black').css("transition", "opacity 1s ease-in-out")
 	
-	setTimeout(function(){
-		$(".black").css("display", "none");
-		$(".black").css("visibility", "hidden");
-	}, 2000);
+	// setTimeout(function(){
+	// 	$(".black").css("display", "none");
+	// 	$(".black").css("visibility", "hidden");
+	// }, 2000);
 
 	setTimeout(function(){
 		$('body').css('background', 'url("img/background.png")');
@@ -51,14 +179,27 @@ function easy() {
 		$('.body').css("visibility", "visible");
 		$('.times').css("display", "block");
 		$('.times').css("visibility", "visible");
+		$('.video').css("opacity", "1")
+		$('#openvideo')[0].play();
 	}, 1000);
+
+	setTimeout(function() {
+		$(".black").css("opacity", "1");
+	}, 2000);
+
+	setTimeout(function() {
+		$('.video').css("display", "none");
+		$('.video').css("visibility", "hidden")
+		$(".black").css("opacity", "0");
+	}, 3000);
 
 	setTimeout(function(){
 	$('.body').css("opacity", "1");
 	$('.body').css("transition", "opacity 1s ease-in-out")
 	$('.times').css("opacity", "1");
 	$('.times').css("transition", "opacity 1s ease-in-out")
-
+	$(".black").css("display", "none");
+	$(".black").css("visibility", "hidden");
 
 	$(function() {
 	
@@ -86,178 +227,184 @@ function easy() {
 			$("#clickaudio")[0].play();
 		});
 
-		var run = setInterval(function() {
-			time --;
-			console.log(time);
-			document.getElementById("time").value = time;
-			document.getElementById("remains").innerHTML = time;
-			if (time == 10) {
-				$('.times').addClass("blink");
-			}
+		// var run = setInterval(function() {
+		// 	time --;
+		// 	console.log(time);
+		// 	document.getElementById("time").value = time;
+		// 	document.getElementById("remains").innerHTML = time;
+		// 	if (time == 10) {
+		// 		$('.times').addClass("blink");
+		// 	}
 
-			if (time == 5) {
-				$('.times').removeClass("blink").addClass("blinkfaster");
-			}
+		// 	if (time == 5) {
+		// 		$('.times').removeClass("blink").addClass("blinkfaster");
+		// 	}
 
-			if (time == 0) {
-				clearInterval(run);
-				$('.card').css('pointer-events', 'none');
-				// alert("Loser!");
-			}
-			if (points == 6) {
-						clearInterval(run);
-						setTimeout(function() {
-						alert("Winner!");
-						}, 500);
-					}
-			}, 1000);
+		// 	if (time == 0) {
+		// 		clearInterval(run);
+		// 		$('.card').css('pointer-events', 'none');
+		// 		// alert("Loser!");
+		// 	}
+		// 	if (points == 6) {
+		// 				clearInterval(run);
+		// 				setTimeout(function() {
+		// 				alert("Winner!");
+		// 				}, 500);
+		// 			}
+		// 	}, 1000);
 		});
-	}, 2000);
+	}, 3500);
 }
 
-function medium() {
-	time = 30;
-	document.getElementById("time").max = time;
-	document.getElementById("maxs").innerHTML = time;
-	document.getElementById("remains").innerHTML = time;
-	$('.start').css("opacity", "0");
-	setTimeout(function(){
-		$('.start').css("visibility", "hidden");
-    	$('.start').css("display", "none");
-	}, 1000);
-	$('body').css('background', 'url("img/background.png")');
-	$('.body').css("opacity", "1");
-	$('.body').css("display", "block");
-	$('.body').css("visibility", "visible");
-	$('.times').css("opacity", "1");
-	$('.times').css("display", "block");
-	$('.times').css("visibility", "visible");
+// function medium() {
+// 	time = 30;
+// 	document.getElementById("time").max = time;
+// 	document.getElementById("maxs").innerHTML = time;
+// 	document.getElementById("remains").innerHTML = time;
+// 	$('.start').css("opacity", "0");
+// 	setTimeout(function(){
+// 		$('.start').css("visibility", "hidden");
+//     	$('.start').css("display", "none");
+// 	}, 1000);
+// 	$('body').css('background', 'url("img/background.png")');
+// 	$('.body').css("opacity", "1");
+// 	$('.body').css("display", "block");
+// 	$('.body').css("visibility", "visible");
+// 	$('.times').css("opacity", "1");
+// 	$('.times').css("display", "block");
+// 	$('.times').css("visibility", "visible");
 	
-	$(function() {
+// 	$(function() {
 	
-	cards = cards.sort(function() { return 0.5 - Math.random() });
+// 	cards = cards.sort(function() { return 0.5 - Math.random() });
 	
-	for (var i = 0; i < cards.length; i++ ) {
-		html += '<div class = "card" data-name ="' + cards[i] + '" onclick = "pick(this)">' +
-			'<div class = "front"><img src="img/front' + cards[i] + '.png" alt="front' + cards[i] + '"></div>' +
-			'<div class = "back pick"><img src="img/back.png" alt = "back"></div></div>'
-	};
-	$('.body').html(html);
+// 	for (var i = 0; i < cards.length; i++ ) {
+// 		html += '<div class = "card" data-name ="' + cards[i] + '" onclick = "pick(this)">' +
+// 			'<div class = "front"><img src="img/front' + cards[i] + '.png" alt="front' + cards[i] + '"></div>' +
+// 			'<div class = "back pick"><img src="img/back.png" alt = "back"></div></div>'
+// 	};
+// 	$('.body').html(html);
 	
-	$(".card").mouseenter(function(){
-		$("#hoveraudio")[0].play();
-	});
+// 	$(".card").mouseenter(function(){
+// 		$("#hoveraudio")[0].play();
+// 	});
 
-	$(".card").mouseout(function(){
-		$("#hoveraudio")[0].pause();
-		$("#hoveraudio")[0].currentTime = 0;
-	});
+// 	$(".card").mouseout(function(){
+// 		$("#hoveraudio")[0].pause();
+// 		$("#hoveraudio")[0].currentTime = 0;
+// 	});
 
-	$(".card").click(function(){
-		$("#hoveraudio")[0].pause();
-	 	$("#hoveraudio")[0].currentTime = 0;
-		$("#clickaudio")[0].play();
-	});
+// 	$(".card").click(function(){
+// 		$("#hoveraudio")[0].pause();
+// 	 	$("#hoveraudio")[0].currentTime = 0;
+// 		$("#clickaudio")[0].play();
+// 	});
 
-	var run = setInterval(function() {
-		time --;
-		console.log(time);
-		document.getElementById("time").value = time;
-		document.getElementById("remains").innerHTML = time;
-		if (time == 10) {
-			$('.times').addClass("blink");
-		}
+// 	var run = setInterval(function() {
+// 		time --;
+// 		console.log(time);
+// 		document.getElementById("time").value = time;
+// 		document.getElementById("remains").innerHTML = time;
+// 		if (time == 10) {
+// 			$('.times').addClass("blink");
+// 		}
 
-		if (time == 5) {
-			$('.times').removeClass("blink").addClass("blinkfaster");
-		}
+// 		if (time == 5) {
+// 			$('.times').removeClass("blink").addClass("blinkfaster");
+// 		}
 
-		if (time == 0) {
-			clearInterval(run);
-			$('.card').css('pointer-events', 'none');
-			// alert("Loser!");
-		}
-		if (points == 6) {
-					clearInterval(run);
-					setTimeout(function() {
-					alert("Winner!");
-					}, 500);
-				}
-	}, 1000);
-});
-}
+// 		if (time == 0) {
+// 			clearInterval(run);
+// 			$('.card').css('pointer-events', 'none');
+// 			// alert("Loser!");
+// 		}
+// 		if (points == 6) {
+// 					clearInterval(run);
+// 					setTimeout(function() {
+// 					alert("Winner!");
+// 					}, 500);
+// 				}
+// 	}, 1000);
+// });
+// }
 
-function hard() {
-	time = 15;
-	document.getElementById("time").max = time;
-	document.getElementById("maxs").innerHTML = time;
-	document.getElementById("remains").innerHTML = time;
-	$('.start').css("opacity", "0");
-	setTimeout(function(){
-		$('.start').css("visibility", "hidden");
-    	$('.start').css("display", "none");
-	}, 1000);
-	$('body').css('background', 'url("img/background.png")');
-	$('.body').css("opacity", "1");
-	$('.body').css("display", "block");
-	$('.body').css("visibility", "visible");
-	$('.times').css("opacity", "1");
-	$('.times').css("display", "block");
-	$('.times').css("visibility", "visible");
+// function hard() {
+// 	time = 15;
+// 	document.getElementById("time").max = time;
+// 	document.getElementById("maxs").innerHTML = time;
+// 	document.getElementById("remains").innerHTML = time;
+// 	$('.start').css("opacity", "0");
+// 	setTimeout(function(){
+// 		$('.start').css("visibility", "hidden");
+//     	$('.start').css("display", "none");
+// 	}, 1000);
+// 	$('body').css('background', 'url("img/background.png")');
+// 	$('.body').css("opacity", "1");
+// 	$('.body').css("display", "block");
+// 	$('.body').css("visibility", "visible");
+// 	$('.times').css("opacity", "1");
+// 	$('.times').css("display", "block");
+// 	$('.times').css("visibility", "visible");
 	
-	$(function() {
+// 	$(function() {
 	
-	cards = cards.sort(function() { return 0.5 - Math.random() });
+// 	cards = cards.sort(function() { return 0.5 - Math.random() });
 	
-	for (var i = 0; i < cards.length; i++ ) {
-		html += '<div class = "card" data-name ="' + cards[i] + '" onclick = "pick(this)">' +
-			'<div class = "front"><img src="img/front' + cards[i] + '.png" alt="front' + cards[i] + '"></div>' +
-			'<div class = "back pick"><img src="img/back.png" alt = "back"></div></div>'
-	};
-	$('.body').html(html);
+// 	for (var i = 0; i < cards.length; i++ ) {
+// 		html += '<div class = "card" data-name ="' + cards[i] + '" onclick = "pick(this)">' +
+// 			'<div class = "front"><img src="img/front' + cards[i] + '.png" alt="front' + cards[i] + '"></div>' +
+// 			'<div class = "back pick"><img src="img/back.png" alt = "back"></div></div>'
+// 	};
+// 	$('.body').html(html);
 	
-	$(".card").mouseenter(function(){
-		$("#hoveraudio")[0].play();
-	});
+// 	$(".card").mouseenter(function(){
+// 		$("#hoveraudio")[0].play();
+// 	});
 
-	$(".card").mouseout(function(){
-		$("#hoveraudio")[0].pause();
-		$("#hoveraudio")[0].currentTime = 0;
-	});
+// 	$(".card").mouseout(function(){
+// 		$("#hoveraudio")[0].pause();
+// 		$("#hoveraudio")[0].currentTime = 0;
+// 	});
 
-	$(".card").click(function(){
-		$("#hoveraudio")[0].pause();
-	 	$("#hoveraudio")[0].currentTime = 0;
-		$("#clickaudio")[0].play();
-	});
+// 	$(".card").click(function(){
+// 		$("#hoveraudio")[0].pause();
+// 	 	$("#hoveraudio")[0].currentTime = 0;
+// 		$("#clickaudio")[0].play();
+// 	});
 
-	var run = setInterval(function() {
-		time --;
-		console.log(time);
-		document.getElementById("time").value = time;
-		document.getElementById("remains").innerHTML = time;
-		if (time == 10) {
-			$('.times').addClass("blink");
-		}
+// 	var run = setInterval(function() {
+// 		time --;
+// 		console.log(time);
+// 		document.getElementById("time").value = time;
+// 		document.getElementById("remains").innerHTML = time;
+// 		if (time == 10) {
+// 			$('.times').addClass("blink");
+// 		}
 
-		if (time == 5) {
-			$('.times').removeClass("blink").addClass("blinkfaster");
-		}
+// 		if (time == 5) {
+// 			$('.times').removeClass("blink").addClass("blinkfaster");
+// 		}
 
-		if (time == 0) {
-			clearInterval(run);
-			$('.card').css('pointer-events', 'none');
-			// alert("Loser!");
-		}
-		if (points == 6) {
-					clearInterval(run);
-					setTimeout(function() {
-					alert("Winner!");
-					}, 500);
-				}
-	}, 1000);
-});
-}
+// 		if (time == 0) {
+// 			clearInterval(run);
+// 			$('.card').css('pointer-events', 'none');
+// 			// alert("Loser!");
+// 		}
+// 		if (points == 6) {
+// 					clearInterval(run);
+// 					setTimeout(function() {
+// 					alert("Winner!");
+// 					}, 500);
+// 				}
+// 	}, 1000);
+// });
+// }
+
+
+
+
+
+
 
 // $(function() {
 	

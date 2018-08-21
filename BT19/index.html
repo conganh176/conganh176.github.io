@@ -11,10 +11,13 @@
 		<div class = "black"></div>
 		<div class = "start">
 			<h1>Arcana Memory Game</h1>
-			<h2>""</h2>
-			<div class = "difficulty"><p onclick="easy()">Easy</p></div>
-			<div class = "difficulty"><p onclick="medium()">Medium</p></div>
-			<div class = "difficulty"><p onclick="hard()">Hard</p></div>
+			<h2>"I am thou... Thou art I...<br/>
+				Thou hast acquired thy life challenge<br/>
+				Thou shalt connect bonds of arcana<br/>
+				Thy life journey shalt be decided."</h2>
+			<div class = "difficulty"><p onclick="start(); easy()">Easy</p></div>
+			<div class = "difficulty"><p onclick="start(); medium()">Medium</p></div>
+			<div class = "difficulty"><p onclick="start(); hard()">Hard</p></div>
 		</div>
 		<div class = "times">
 			<progress id = "time" value="100" max="100"></progress>
@@ -92,6 +95,9 @@
 			<p>Yet though a life crumbles to dust, time moves ever onward.</p>
 			<p>He who had been your proof, your life itself...</p>
 			<p>The answer has been lost, never to be found again...</p>
+		</div>
+		<div class = "video">
+			<video id="openvideo" src="video/video.mp4" type="video/mp4"></video>
 		</div>
 		<audio id="hoveraudio" src="sound/hover.mp3" type="audio/mpeg"></audio>
 		<audio id="clickaudio" src="sound/click.mp3" type="audio/mpeg"></audio>
