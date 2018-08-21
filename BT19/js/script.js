@@ -1,50 +1,142 @@
 var current = null;
 var points = 0;
-var time = 60;
-document.getElementById("time").max = time;
-document.getElementById("maxs").innerHTML = time;
-document.getElementById("remains").innerHTML = time;
+var time;
+var html = '';
 
-// var front = ["<img src='img/front1.png' alt='front1'>", 
-// 			"<img src='img/front2.png' alt='front2'>",  
-// 			"<img src='img/front3.png' alt='front3'>", 
-// 			"<img src='img/front4.png' alt='front4'>", 
-// 			"<img src='img/front5.png' alt='front5'>", 
-// 			"<img src='img/front6.png' alt='front6'>", 
-// 			"<img src='img/front7.png' alt='front7'>", 
-// 			"<img src='img/front8.png' alt='front8'>",
-// 			"<img src='img/front9.png' alt='front9'>", 
-// 			"<img src='img/front10.png' alt='front10'>",
-// 			"<img src='img/front11.png' alt='front11'>", 
-// 			"<img src='img/front12.png' alt='front12'>", 
-// 			"<img src='img/front13.png' alt='front13'>",
-// 			"<img src='img/front14.png' alt='front14'>",
-// 			"<img src='img/front15.png' alt='front15'>",
-// 			"<img src='img/front16.png' alt='front16'>", 
-// 			"<img src='img/front17.png' alt='front17'>", 
-// 			"<img src='img/front18.png' alt='front18'>", 
-// 			"<img src='img/front19.png' alt='front19'>", 
-// 			"<img src='img/front20.png' alt='front20'>", 
-// 			"<img src='img/front21.png' alt='front21'>",
-// 			"<img src='img/front21b.png' alt='front21b'>",
-// 			"<img src='img/front22.png' alt='front22'>",
-// 			"<img src='img/front12b.png' alt='front12b'>"].sort(function() { return 0.5 - Math.random() });
+
+// function easy() {
+// 	time = 60;
+// }
+
+// function medium() {
+// 	time = 30;
+// }
+
+// function hard() {
+// 	time = 15;
+// }
 
 var front = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
 front = front.sort(function() { return 0.5 - Math.random() });
 
 var cards = front.slice(0,6);
-// var shufflecards = cards.concat(cards).sort(function() { return 0.5 - Math.random() });
+cards = cards.concat(cards);
 
-// for (var i = 0; i < $('.front').length; i++) {
-// 	$('.front')[i].innerHTML = shufflecards[i];
-// 	$('.back')[i].innerHTML = "<img src='img/back.png' alt = 'back'>";
-// }
+function easy() {
+	time = 60;
+	document.getElementById("time").max = time;
+	document.getElementById("maxs").innerHTML = time;
+	document.getElementById("remains").innerHTML = time;
 
-$(function() {
-	cards = cards.concat(cards);
+	$(".black").css("display", "block");
+	$(".black").css("visibility", "visible");
+	setTimeout(function(){
+	$(".black").css("opacity", "1");
+	$('.start').css("opacity", "0");
+	$('.start').css("transition", "opacity 1s ease-in-out")
+	});
+	// $('.black').css("transition", "opacity 1s ease-in-out")
+	
+	setTimeout(function(){
+		$(".black").css("display", "none");
+		$(".black").css("visibility", "hidden");
+	}, 2000);
+
+	setTimeout(function(){
+		$('body').css('background', 'url("img/background.png")');
+		$(".black").css("opacity", "0");
+		$('.start').css("visibility", "hidden");
+    	$('.start').css("display", "none");
+    	$('.body').css("display", "block");
+		$('.body').css("visibility", "visible");
+		$('.times').css("display", "block");
+		$('.times').css("visibility", "visible");
+	}, 1000);
+
+	setTimeout(function(){
+	$('.body').css("opacity", "1");
+	$('.body').css("transition", "opacity 1s ease-in-out")
+	$('.times').css("opacity", "1");
+	$('.times').css("transition", "opacity 1s ease-in-out")
+
+
+	$(function() {
+	
+		cards = cards.sort(function() { return 0.5 - Math.random() });
+	
+		for (var i = 0; i < cards.length; i++ ) {
+			html += '<div class = "card" data-name ="' + cards[i] + '" onclick = "pick(this)">' +
+				'<div class = "front"><img src="img/front' + cards[i] + '.png" alt="front' + cards[i] + '"></div>' +
+				'<div class = "back pick"><img src="img/back.png" alt = "back"></div></div>'
+		};
+		$('.body').html(html);
+	
+		$(".card").mouseenter(function(){
+			$("#hoveraudio")[0].play();
+		});
+
+		$(".card").mouseout(function(){
+			$("#hoveraudio")[0].pause();
+			$("#hoveraudio")[0].currentTime = 0;
+		});
+
+		$(".card").click(function(){
+			$("#hoveraudio")[0].pause();
+		 	$("#hoveraudio")[0].currentTime = 0;
+			$("#clickaudio")[0].play();
+		});
+
+		var run = setInterval(function() {
+			time --;
+			console.log(time);
+			document.getElementById("time").value = time;
+			document.getElementById("remains").innerHTML = time;
+			if (time == 10) {
+				$('.times').addClass("blink");
+			}
+
+			if (time == 5) {
+				$('.times').removeClass("blink").addClass("blinkfaster");
+			}
+
+			if (time == 0) {
+				clearInterval(run);
+				$('.card').css('pointer-events', 'none');
+				// alert("Loser!");
+			}
+			if (points == 6) {
+						clearInterval(run);
+						setTimeout(function() {
+						alert("Winner!");
+						}, 500);
+					}
+			}, 1000);
+		});
+	}, 2000);
+}
+
+function medium() {
+	time = 30;
+	document.getElementById("time").max = time;
+	document.getElementById("maxs").innerHTML = time;
+	document.getElementById("remains").innerHTML = time;
+	$('.start').css("opacity", "0");
+	setTimeout(function(){
+		$('.start').css("visibility", "hidden");
+    	$('.start').css("display", "none");
+	}, 1000);
+	$('body').css('background', 'url("img/background.png")');
+	$('.body').css("opacity", "1");
+	$('.body').css("display", "block");
+	$('.body').css("visibility", "visible");
+	$('.times').css("opacity", "1");
+	$('.times').css("display", "block");
+	$('.times').css("visibility", "visible");
+	
+	$(function() {
+	
 	cards = cards.sort(function() { return 0.5 - Math.random() });
-	var html = '';
+	
 	for (var i = 0; i < cards.length; i++ ) {
 		html += '<div class = "card" data-name ="' + cards[i] + '" onclick = "pick(this)">' +
 			'<div class = "front"><img src="img/front' + cards[i] + '.png" alt="front' + cards[i] + '"></div>' +
@@ -93,6 +185,132 @@ $(function() {
 				}
 	}, 1000);
 });
+}
+
+function hard() {
+	time = 15;
+	document.getElementById("time").max = time;
+	document.getElementById("maxs").innerHTML = time;
+	document.getElementById("remains").innerHTML = time;
+	$('.start').css("opacity", "0");
+	setTimeout(function(){
+		$('.start').css("visibility", "hidden");
+    	$('.start').css("display", "none");
+	}, 1000);
+	$('body').css('background', 'url("img/background.png")');
+	$('.body').css("opacity", "1");
+	$('.body').css("display", "block");
+	$('.body').css("visibility", "visible");
+	$('.times').css("opacity", "1");
+	$('.times').css("display", "block");
+	$('.times').css("visibility", "visible");
+	
+	$(function() {
+	
+	cards = cards.sort(function() { return 0.5 - Math.random() });
+	
+	for (var i = 0; i < cards.length; i++ ) {
+		html += '<div class = "card" data-name ="' + cards[i] + '" onclick = "pick(this)">' +
+			'<div class = "front"><img src="img/front' + cards[i] + '.png" alt="front' + cards[i] + '"></div>' +
+			'<div class = "back pick"><img src="img/back.png" alt = "back"></div></div>'
+	};
+	$('.body').html(html);
+	
+	$(".card").mouseenter(function(){
+		$("#hoveraudio")[0].play();
+	});
+
+	$(".card").mouseout(function(){
+		$("#hoveraudio")[0].pause();
+		$("#hoveraudio")[0].currentTime = 0;
+	});
+
+	$(".card").click(function(){
+		$("#hoveraudio")[0].pause();
+	 	$("#hoveraudio")[0].currentTime = 0;
+		$("#clickaudio")[0].play();
+	});
+
+	var run = setInterval(function() {
+		time --;
+		console.log(time);
+		document.getElementById("time").value = time;
+		document.getElementById("remains").innerHTML = time;
+		if (time == 10) {
+			$('.times').addClass("blink");
+		}
+
+		if (time == 5) {
+			$('.times').removeClass("blink").addClass("blinkfaster");
+		}
+
+		if (time == 0) {
+			clearInterval(run);
+			$('.card').css('pointer-events', 'none');
+			// alert("Loser!");
+		}
+		if (points == 6) {
+					clearInterval(run);
+					setTimeout(function() {
+					alert("Winner!");
+					}, 500);
+				}
+	}, 1000);
+});
+}
+
+// $(function() {
+	
+// 	cards = cards.sort(function() { return 0.5 - Math.random() });
+// 	var html = '';
+// 	for (var i = 0; i < cards.length; i++ ) {
+// 		html += '<div class = "card" data-name ="' + cards[i] + '" onclick = "pick(this)">' +
+// 			'<div class = "front"><img src="img/front' + cards[i] + '.png" alt="front' + cards[i] + '"></div>' +
+// 			'<div class = "back pick"><img src="img/back.png" alt = "back"></div></div>'
+// 	};
+// 	$('.body').html(html);
+	
+// 	$(".card").mouseenter(function(){
+// 		$("#hoveraudio")[0].play();
+// 	});
+
+// 	$(".card").mouseout(function(){
+// 		$("#hoveraudio")[0].pause();
+// 		$("#hoveraudio")[0].currentTime = 0;
+// 	});
+
+// 	$(".card").click(function(){
+// 		$("#hoveraudio")[0].pause();
+// 	 	$("#hoveraudio")[0].currentTime = 0;
+// 		$("#clickaudio")[0].play();
+// 	});
+
+// 	var run = setInterval(function() {
+// 		time --;
+// 		console.log(time);
+// 		document.getElementById("time").value = time;
+// 		document.getElementById("remains").innerHTML = time;
+// 		if (time == 10) {
+// 			$('.times').addClass("blink");
+// 		}
+
+// 		if (time == 5) {
+// 			$('.times').removeClass("blink").addClass("blinkfaster");
+// 		}
+
+// 		if (time == 0) {
+// 			clearInterval(run);
+// 			$('.card').css('pointer-events', 'none');
+// 			// alert("Loser!");
+// 		}
+// 		if (points == 6) {
+// 					clearInterval(run);
+// 					setTimeout(function() {
+// 					alert("Winner!");
+// 					}, 500);
+// 				}
+// 	}, 1000);
+// });
 
 
 function pick(x) {
@@ -149,28 +367,3 @@ function pick(x) {
 		}
 	}
 }
-
-// $(".card").click(function() {
-// 	$(this).find(".back").addClass("hide");
-// 	$(this).find(".back").removeClass("show");
-// 	$(this).find(".front").addClass("show");
-// 	$(this).find(".front").removeClass("hide");
-// 	$("#hoveraudio")[0].pause();
-// 	$("#hoveraudio")[0].currentTime = 0;
-// 	$("#clickaudio")[0].play();
-
-// 	if ($(this).find("front show")) {
-// 		$(this).hover(function(){
-// 			$(this).css("filter", "brightness(100%)");
-// 			$(this).css("cursor", "default");
-// 			$("#hoveraudio")[0].pause();
-// 			$("#hoveraudio")[0].currentTime = 0;
-// 		})
-// 		$(this).click(function(){
-// 			$(this).css("filter", "brightness(100%)");
-// 			$(this).css("cursor", "default");
-// 			$("#clickaudio")[0].pause();
-// 			$("#clickaudio")[0].currentTime = 0;
-// 		})
-// 	}
-// });
