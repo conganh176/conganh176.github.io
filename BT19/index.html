@@ -9,95 +9,106 @@
 	</head>
 	<body>
 		<div class = "black"></div>
-		<div class = "start">
-			<h1>Arcana Memory Game</h1>
-			<h2>"I am thou... Thou art I...<br/>
-				Thou hast acquired thy life challenge<br/>
-				Thou shalt connect bonds of arcana<br/>
-				Thy life journey shalt be decided."</h2>
-			<div class = "difficulty"><p onclick="start(); easy()">Easy</p></div>
-			<div class = "difficulty"><p onclick="start(); medium()">Medium</p></div>
-			<div class = "difficulty"><p onclick="start(); hard()">Hard</p></div>
-		</div>
-		<div class = "times">
-			<progress id = "time" value="100" max="100"></progress>
-			<p class="timedetail">
-   				<span id = "remains"></span>&nbsp;/&nbsp;<span id = "maxs"></span>
-  			</p>
-		</div>
-		<div class = "body">
-			<!-- <div class = "card">
-				<div class = "front hide"></div>
-				<div class = "back show"></div>
+		<div class = "wrap">
+			<div class = "start">
+				<h1>Arcana Memory Game</h1>
+				<h2>"I am thou... Thou art I...<br/>
+					Thou hast acquired thy life challenge<br/>
+					Thou shalt connect bonds of arcana<br/>
+					Thy fate thens shalt be decided."</h2>
+				<div class = "difficulty"><p onclick="start(); easy()">Easy</p></div>
+				<div class = "difficulty"><p onclick="start(); medium()">Medium</p></div>
+				<div class = "difficulty"><p onclick="start(); hard()">Hard</p></div>
 			</div>
-			<div class = "card">
-				<div class = "front hide"></div>
-				<div class = "back show"></div>
+			<div class = "times">
+				<progress id = "time" value="100" max="100"></progress>
+				<p class="timedetail">
+	   				<span id = "remains"></span>&nbsp;/&nbsp;<span id = "maxs"></span>
+	  			</p>
 			</div>
-			<div class = "card">
-				<div class = "front hide"></div>
-				<div class = "back show"></div>
+			<div class = "body">
+				<!-- <div class = "card">
+					<div class = "front hide"></div>
+					<div class = "back show"></div>
+				</div>
+				<div class = "card">
+					<div class = "front hide"></div>
+					<div class = "back show"></div>
+				</div>
+				<div class = "card">
+					<div class = "front hide"></div>
+					<div class = "back show"></div>
+				</div>
+				<div class = "card">
+					<div class = "front hide"></div>
+					<div class = "back show"></div>
+				</div>
+				<div class = "card">
+					<div class = "front hide"></div>
+					<div class = "back show"></div>
+				</div>
+				<div class = "card">
+					<div class = "front hide"></div>
+					<div class = "back show"></div>
+				</div>
+				<div class = "card">
+					<div class = "front hide"></div>
+					<div class = "back show"></div>
+				</div>
+				<div class = "card">
+					<div class = "front hide"></div>
+					<div class = "back show"></div>
+				</div>
+				<div class = "card">
+					<div class = "front hide"></div>
+					<div class = "back show"></div>
+				</div>
+				<div class = "card"">
+					<div class = "front hide"></div>
+					<div class = "back show"></div>
+				</div>
+				<div class = "card">
+					<div class = "front hide"></div>
+					<div class = "back show"></div>
+				</div>
+				<div class = "card">
+					<div class = "front hide"></div>
+					<div class = "back show"></div>
+				</div> -->
 			</div>
-			<div class = "card">
-				<div class = "front hide"></div>
-				<div class = "back show"></div>
+			<div class = "lose" id = "easy">
+				<p>Life is truth, and never a dream... All souls know this from birth...</p><br/>
+				<p>The truth is something that is chosen and grasped...</p><br/>
+				<p>Something discovered with one's vision and will.</p><br/>
+				<p>Only by gaining that does the seeker become truth himself, a cord that connects past and future.</p><br/> 
+				<p>But now, our guest's destiny has been severed, and the truth languishes with the hollow, fog-filled forest...</p>
+				<br></br>
+				<p>Thou shalt find the destiny again?</p><br/>
+				<img src = "img/again.png" onclick = "again()">
+			</div><br/>
+			<div class = "lose" id = "medium">
+				<p>Death is not a hunter unbeknowst to its prey.</p><br/> 
+				<p>One is always aware that it lies in wait.</p><br/> 
+				<p>Though life is merely a journey to the grave, it must not be undertaken without hope.</p><br/>
+				<p>Only then will a traveler's story live on, treasured by those who bid him farewell.</p><br/>
+				<p>But alas, my guest's life has now ended, his tale left unwritten...</p>
+				<br></br>
+				<p>Thou shalt find the destiny again?</p><br/>
+				<img src = "img/again.png" onclick = "again()">
+			</div><br/>
+			<div class = "lose" id = "hard">
+				<p>As proof of one's life, there exists the danger of death.</p><br/>
+				<p>This proof exists as a flame, painfully burning one's life away.</p><br/>
+				<p>Yet though a life crumbles to dust, time moves ever onward.</p><br/>
+				<p>He who had been your proof, your life itself...</p><br/>
+				<p>The answer has been lost, never to be found again...</p>
+				<br></br>
+				<p>Thou shalt find the destiny again?</p><br/>
+				<img class = "again" src = "img/again.png" onclick = "again()">
 			</div>
-			<div class = "card">
-				<div class = "front hide"></div>
-				<div class = "back show"></div>
+			<div class = "video">
+				<video id="openvideo" src="video/video.mp4" type="video/mp4"></video>
 			</div>
-			<div class = "card">
-				<div class = "front hide"></div>
-				<div class = "back show"></div>
-			</div>
-			<div class = "card">
-				<div class = "front hide"></div>
-				<div class = "back show"></div>
-			</div>
-			<div class = "card">
-				<div class = "front hide"></div>
-				<div class = "back show"></div>
-			</div>
-			<div class = "card">
-				<div class = "front hide"></div>
-				<div class = "back show"></div>
-			</div>
-			<div class = "card"">
-				<div class = "front hide"></div>
-				<div class = "back show"></div>
-			</div>
-			<div class = "card">
-				<div class = "front hide"></div>
-				<div class = "back show"></div>
-			</div>
-			<div class = "card">
-				<div class = "front hide"></div>
-				<div class = "back show"></div>
-			</div> -->
-		</div>
-		<div class = "lose" id = "easy">
-			<p>Life is truth, and never a dream... All souls know this from birth...</p> 
-			<p>The truth is something that is chosen and grasped...</p> 
-			<p>Something discovered with one's vision and will.</p> 
-			<p>Only by gaining that does the seeker become truth himself, a cord that connects past and future.</p> 
-			<p>But now, our guest's destiny has been severed, and the truth languishes with the hollow, fog-filled forest...</p>
-		</div><br/>
-		<div class = "lose" id = "medium">
-			<p>Death is not a hunter unbeknowst to its prey.</p> 
-			<p>One is always aware that it lies in wait.</p> 
-			<p>Though life is merely a journey to the grave, it must not be undertaken without hope.</p>
-			<p>Only then will a traveler's story live on, treasured by those who bid him farewell.</p>
-			<p>But alas, my guest's life has now ended, his tale left unwritten...</p>
-		</div><br/>
-		<div class = "lose" id = "hard">
-			<p>As proof of one's life, there exists the danger of death.</p> 
-			<p>This proof exists as a flame, painfully burning one's life away.</p>
-			<p>Yet though a life crumbles to dust, time moves ever onward.</p>
-			<p>He who had been your proof, your life itself...</p>
-			<p>The answer has been lost, never to be found again...</p>
-		</div>
-		<div class = "video">
-			<video id="openvideo" src="video/video.mp4" type="video/mp4"></video>
 		</div>
 		<audio id="hoveraudio" src="sound/hover.mp3" type="audio/mpeg"></audio>
 		<audio id="clickaudio" src="sound/click.mp3" type="audio/mpeg"></audio>
