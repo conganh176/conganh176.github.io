@@ -2,18 +2,49 @@ var current = null;
 var points = 0;
 var time;
 var html = '';
+var cards;
 
 var front = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
-front = front.sort(function() { return 0.5 - Math.random() });
 
-var cards = front.slice(0,6);
-cards = cards.concat(cards);
+
+$(".difficulty").mouseenter(function(){
+	$("#menuhover")[0].play();
+});
+
+$(".difficulty").mouseout(function(){
+	$("#menuhover")[0].pause();
+	$("#menuhover")[0].currentTime = 0;
+});
+
+$(".difficulty").click(function(){
+	$("#menuhover")[0].pause();
+ 	$("#menuhover")[0].currentTime = 0;
+	$("#menuselect")[0].play();
+});
+
+$(".again").mouseenter(function(){
+	$("#menuhover")[0].play();
+});
+
+$(".again").mouseout(function(){
+	$("#menuhover")[0].pause();
+	$("#menuhover")[0].currentTime = 0;
+});
+
+$(".again").click(function(){
+	$("#menuhover")[0].pause();
+ 	$("#menuhover")[0].currentTime = 0;
+	$("#menuselect")[0].play();
+});
 
 function easy() {
-	time = 3;
+	time = 60;
 	document.getElementById("time").max = time;
 	document.getElementById("maxs").innerHTML = time;
 	document.getElementById("remains").innerHTML = time;
+	setTimeout(function(){
+		$('#backgroundeasy')[0].play();
+	}, 1250);
 	setTimeout(function(){
 		$(function() {
 			var run = setInterval(function() {
@@ -30,6 +61,10 @@ function easy() {
 				}
 
 				if (time == 0) {
+					setTimeout(function(){
+						$('#backgroundeasy')[0].pause();
+						$('#backgroundeasy')[0].currentTime = 0;
+					}, 500);
 					clearInterval(run);
 					gameover();
 					loseeasy();
@@ -46,10 +81,13 @@ function easy() {
 };
 
 function medium() {
-	time = 2;
+	time = 30;
 	document.getElementById("time").max = time;
 	document.getElementById("maxs").innerHTML = time;
 	document.getElementById("remains").innerHTML = time;
+	setTimeout(function(){
+		$('#backgroundmedium')[0].play();
+	}, 1250);
 	setTimeout(function(){
 		$(function() {
 			var run = setInterval(function() {
@@ -66,6 +104,10 @@ function medium() {
 				}
 
 				if (time == 0) {
+					setTimeout(function(){
+						$('#backgroundmedium')[0].pause();
+						$('#backgroundmedium')[0].currentTime = 0;
+					}, 500);
 					clearInterval(run);
 					gameover();
 					losemedium();
@@ -82,10 +124,13 @@ function medium() {
 };
 
 function hard() {
-	time = 1;
+	time = 15;
 	document.getElementById("time").max = time;
 	document.getElementById("maxs").innerHTML = time;
 	document.getElementById("remains").innerHTML = time;
+	setTimeout(function(){
+		$('#gameover')[0].play();
+	}, 1250);
 	setTimeout(function(){
 		$(function() {
 			var run = setInterval(function() {
@@ -132,26 +177,27 @@ function fiveseconds() {
 
 
 function start() {
-	
+	$('#background')[0].pause();
+	$('#background')[0].currentTime = 0;
+	front = front.sort(function() { return 0.5 - Math.random() });
+	cards = front.slice(0,6);
+	cards = cards.concat(cards);
+	cards = cards.sort(function() { return 0.5 - Math.random() });
+
 
 	$(".black").css("display", "block");
-	$(".black").css("visibility", "visible");
 	setTimeout(function(){
 		$(".black").css("opacity", "1");
 		$('.start').css("opacity", "0");
 		$('video').css("display", "block");
-		$('video').css("visibility", "visible")
 	});
 
 	setTimeout(function() {
 		$('body').css('background', 'url("img/background.png")');
 		$(".black").css("opacity", "0");
-		$('.start').css("visibility", "hidden");
     	$('.start').css("display", "none");
     	$('.body').css("display", "block");
-		$('.body').css("visibility", "visible");
 		$('.times').css("display", "block");
-		$('.times').css("visibility", "visible");
 		$('video').css("opacity", "1")
 		$('#openvideo')[0].play();
 	}, 1000);
@@ -161,8 +207,8 @@ function start() {
 	}, 2000);
 
 	setTimeout(function() {
+		$('video').css("opacity", "0");
 		$('video').css("display", "none");
-		$('video').css("visibility", "hidden")
 		$(".black").css("opacity", "0");
 	}, 3000);
 
@@ -170,12 +216,9 @@ function start() {
 		$('.body').css("opacity", "1");
 		$('.times').css("opacity", "1");
 		$(".black").css("display", "none");
-		$(".black").css("visibility", "hidden");
 
 		$(function() {
-		
-			cards = cards.sort(function() { return 0.5 - Math.random() });
-		
+			
 			for (var i = 0; i < cards.length; i++ ) {
 				html += '<div class = "card" data-name ="' + cards[i] + '" onclick = "pick(this)">' +
 					'<div class = "front"><img src="img/front' + cards[i] + '.png" alt="front' + cards[i] + '"></div>' +
@@ -208,23 +251,20 @@ function gameover() {
 		$('.wrap').css('filter', 'grayscale(100%');
 		$('.wrap').css("transition", "filter 0.5s ease-in-out");
 		$(".black").css("display", "block");
-		$(".black").css("visibility", "visible");
 	setTimeout(function() {	
 		$('.black').css("opacity", "1");
 		$('.black').css('transition', 'opacity 1s ease-in-out');
 		$('.body').css("opacity", "0");
 		$('.times').css("opacity", "0");
-	});
+	}, 500);
 	setTimeout(function() {
+		$('#gameover')[0].play();
 		$('.black').css("opacity", "0");
 		$('.body').css("display", "none");
-		$('.body').css("visibility", "hidden");
 		$('.times').css("display", "none");
-		$('.times').css("visibility", "hidden");
 	}, 1500);
 	setTimeout(function() {
 		$('.black').css("display", "none");
-		$('.black').css("visibility", "hidden");
 	}, 2000);
 }
 
@@ -232,9 +272,8 @@ function loseeasy() {
 	setTimeout(function() {
 		$('body').css('background', 'url("img/gameover1.png") no-repeat center center fixed');
 		$('body').css('background-color', 'black');
-		$('#easy').css('visibility', 'visible');
 		$('#easy').css('display', 'block');
-	}, 1000);
+	}, 1500);
 	setTimeout(function() {
 		$('#easy').css('opacity', "1");
 		$('#easy').css('transition', 'opacity 3s ease-in-out');
@@ -245,9 +284,8 @@ function losemedium() {
 	setTimeout(function() {
 		$('body').css('background', 'url("img/gameover3.png") no-repeat center center fixed');
 		$('body').css('background-color', 'black');
-		$('#medium').css('visibility', 'visible');
 		$('#medium').css('display', 'block');
-	}, 1000);
+	}, 1500);
 	setTimeout(function() {
 		$('#medium').css('opacity', "1");
 		$('#medium').css('transition', 'opacity 3s ease-in-out');
@@ -258,9 +296,8 @@ function losehard() {
 	setTimeout(function() {
 		$('body').css('background', 'url("img/gameover2.jpg") no-repeat center center fixed');
 		$('body').css('background-color', 'black');
-		$('#hard').css('visibility', 'visible');
 		$('#hard').css('display', 'block');
-	}, 1000);
+	}, 1500);
 	setTimeout(function() {
 		$('#hard').css('opacity', "1");
 		$('#hard').css('transition', 'opacity 3s ease-in-out');
@@ -270,8 +307,13 @@ function losehard() {
 function again() {
 	points = 0;
 	$(".black").css("display", "block");
-	$(".black").css("visibility", "visible");
+	$(".body").empty();
+	cards = [];
+	current = null;
+	html = '';
 	setTimeout(function() {
+		$('#gameover')[0].pause();
+		$('#gameover')[0].currentTime = 0;
 		$('.wrap').css('filter', 'grayscale(0');
 		$('.black').css("opacity", "1");
 		$('#easy').css('opacity', "0");
@@ -285,21 +327,16 @@ function again() {
 		$('body').css('background', 'url("img/background2.jpg") no-repeat center center fixed');
 		$('body').css('background-color', 'black');
 		$('#easy').css("display", "none");
-		$('#easy').css("visibility", "hidden");
 		$('#medium').css("display", "none");
-		$('#medium').css("visibility", "hidden");
 		$('#hard').css("display", "none");
-		$('#hard').css("visibility", "hidden");
 		$('.black').css("opacity", "0");
 		$('.start').css("display", "block");
-		$('.start').css("visibility", "visible");
 	}, 1000);
 	setTimeout(function() {
+		$('#background')[0].play();
 		$('.start').css('opacity', '1');
 		$('.start').css('transition', 'opacity 1s ease-in-out');
-		$('.start').css
 		$('.black').css("display", "none");
-		$('.black').css("visibility", "hidden");
 	}, 2000);
 }
 
