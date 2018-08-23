@@ -15,7 +15,7 @@
 				<h2>"I am thou... Thou art I...<br/>
 					Thou hast acquired thy life challenge<br/>
 					Thou shalt connect bonds of arcana<br/>
-					Thy fate thens shalt be decided."</h2>
+					Thy fate then shalt be decided."</h2>
 				<div class = "difficulty"><p onclick="start(); easy()">Easy</p></div>
 				<div class = "difficulty"><p onclick="start(); medium()">Medium</p></div>
 				<div class = "difficulty"><p onclick="start(); hard()">Hard</p></div>
@@ -27,6 +27,30 @@
 	  			</p>
 			</div>
 			<div class = "body"></div>
+			<div class = "win" id = "easymode">
+				<p>"The bonds of arcana has been found. Congratulation.</p><br/>
+				<p>Going easy way is not foolish, it is the slow way of getting better."</p><br/>
+				<p>Thou shalt face the challenge again?</p><br/>
+				<img class = "again" src = "img/again.png" onclick = "again()">
+			</div>
+			<div class = "win" id = "mediummode">
+				<p>"Through thy life challenge there is</p><br/>
+				<p>The danger between life and death</p><br/>
+				<p>Howbeit thy bravery let thou see</p><br/>
+				<p>To what place called Answer of Life..."</p>
+				<br></br>
+				<p>Thou shalt face the challenge again?</p><br/>
+				<img class = "again" src = "img/again.png" onclick = "again()">
+			</div>
+			<div class = "win" id = "hardmode">
+				<p>"Thou hast found Answer of Life</p><br/>
+				<p>Thus journey hast came to end</p><br/>
+				<p>Through hardship then through life's challenge</p><br/>
+				<p>Thy sacrifice shalt not come blind..."</p>
+				<br></br>
+				<p>Thou shalt face the challenge again?</p><br/>
+				<img class = "again" src = "img/again.png" onclick = "again()">
+			</div>
 			<div class = "lose" id = "easy">
 				<p>"Life is truth, and never a dream... All souls know this from birth...</p><br/>
 				<p>The truth is something that is chosen and grasped...</p><br/>
@@ -59,7 +83,7 @@
 			</div>
 		</div>
 		<div class = "video">
-				<video id="openvideo" src="video/video.mp4" type="video/mp4"></video>
+			<video id="openvideo" src="video/video.mp4" type="video/mp4"></video>
 		</div>
 		<audio id="menuselect" src="sound/menuselect.mp3" type="audio/mpeg"></audio>
 		<audio id="menuhover" src="sound/menuhover.mp3" type="audio/mpeg"></audio>
@@ -72,6 +96,9 @@
 		<audio id="background" src="sound/background.mp3" type="audio/mpeg" autoplay loop></audio>
 		<audio id="backgroundeasy" src="sound/backgroundeasy.mp3" type="audio/mpeg"></audio>
 		<audio id="backgroundmedium" src="sound/backgroundmedium.mp3" type="audio/mpeg"></audio>
+		<audio id="wineasy" src="sound/wineasy.mp3" type="audio/mpeg"></audio>
+		<audio id="winmedium" src="sound/winmedium.mp3" type="audio/mpeg"></audio>
+		<audio id="winhard" src="sound/winhard.mp3" type="audio/mpeg"></audio>
 		<script src="js/jquery-3.3.1.min.js"></script>
 		<script src="js/script.js"></script>
 	</body>

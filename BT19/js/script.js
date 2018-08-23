@@ -49,7 +49,6 @@ function easy() {
 		$(function() {
 			var run = setInterval(function() {
 				time --;
-				console.log(time);
 				document.getElementById("time").value = time;
 				document.getElementById("remains").innerHTML = time;
 				if (time == 10) {
@@ -70,10 +69,13 @@ function easy() {
 					loseeasy();
 				}
 				if (points == 6) {
-							clearInterval(run);
-							setTimeout(function() {
-							alert("Winner!");
+							setTimeout(function(){
+								$('#backgroundeasy')[0].pause();
+								$('#backgroundeasy')[0].currentTime = 0;
 							}, 500);
+							clearInterval(run);
+							win();
+							wineasy();
 						}
 				}, 1000);
 		});
@@ -92,7 +94,6 @@ function medium() {
 		$(function() {
 			var run = setInterval(function() {
 				time --;
-				console.log(time);
 				document.getElementById("time").value = time;
 				document.getElementById("remains").innerHTML = time;
 				if (time == 10) {
@@ -113,10 +114,13 @@ function medium() {
 					losemedium();
 				}
 				if (points == 6) {
-							clearInterval(run);
-							setTimeout(function() {
-							alert("Winner!");
+							setTimeout(function(){
+								$('#backgroundmedium')[0].pause();
+								$('#backgroundmedium')[0].currentTime = 0;
 							}, 500);
+							clearInterval(run);
+							win();
+							winmedium();
 						}
 				}, 1000);
 		});
@@ -135,7 +139,6 @@ function hard() {
 		$(function() {
 			var run = setInterval(function() {
 				time --;
-				console.log(time);
 				document.getElementById("time").value = time;
 				document.getElementById("remains").innerHTML = time;
 				if (time == 10) {
@@ -152,10 +155,13 @@ function hard() {
 					losehard();
 				}
 				if (points == 6) {
-							clearInterval(run);
-							setTimeout(function() {
-							alert("Winner!");
+							setTimeout(function(){
+								$('#gameover')[0].pause();
+								$('#gameover')[0].currentTime = 0;
 							}, 500);
+							clearInterval(run);
+							win();
+							winhard();
 						}
 				}, 1000);
 		});
@@ -220,7 +226,7 @@ function start() {
 		$(function() {
 			
 			for (var i = 0; i < cards.length; i++ ) {
-				html += '<div class = "card" data-name ="' + cards[i] + '" onclick = "pick(this)">' +
+				html += '<div class = "card" data-name ="' + cards[i] + '" onclick = "pick(this)" style = "cursor: pointer;">' +
 					'<div class = "front"><img src="img/front' + cards[i] + '.png" alt="front' + cards[i] + '"></div>' +
 					'<div class = "back pick"><img src="img/back.png" alt = "back"></div></div>'
 			};
@@ -243,6 +249,66 @@ function start() {
 
 		});
 	}, 3500);
+}
+
+function win() {
+	$('.card').css('pointer-events', 'none');
+	$('.times').removeClass("blinkfaster");
+	$('.times').removeClass("blink");
+	$(".black").css("display", "block");
+	setTimeout(function() {	
+		$('.black').css("opacity", "1");
+		$('.black').css('transition', 'opacity 1s ease-in-out');
+		$('.body').css("opacity", "0");
+		$('.times').css("opacity", "0");
+	}, 500);
+	setTimeout(function() {
+		$('.black').css("opacity", "0");
+		$('.body').css("display", "none");
+		$('.times').css("display", "none");
+	}, 1500);
+	setTimeout(function() {
+		$('.black').css("display", "none");
+	}, 2000);
+}
+
+function wineasy() {
+	setTimeout(function() {
+		$('#wineasy')[0].play();
+		$('body').css('background', 'url("img/wineasy.png") no-repeat center center fixed');
+		$('body').css('background-color', 'black');
+		$('#easymode').css('display', 'block');
+	}, 1500);
+	setTimeout(function() {
+		$('#easymode').css('opacity', "1");
+		$('#easymode').css('transition', 'opacity 3s ease-in-out');
+	}, 3000);
+}
+
+function winmedium() {
+	setTimeout(function() {
+		$('#winmedium')[0].play();
+		$('body').css('background', 'url("img/winmedium.jpg") no-repeat center center fixed');
+		$('body').css('background-color', 'black');
+		$('#mediummode').css('display', 'block');
+	}, 1500);
+	setTimeout(function() {
+		$('#mediummode').css('opacity', "1");
+		$('#mediummode').css('transition', 'opacity 3s ease-in-out');
+	}, 3000);
+}
+
+function winhard() {
+	setTimeout(function() {
+		$('#winhard')[0].play();
+		$('body').css('background', 'url("img/winhard.png") no-repeat center center fixed');
+		$('body').css('background-color', 'black');
+		$('#hardmode').css('display', 'block');
+	}, 1500);
+	setTimeout(function() {
+		$('#hardmode').css('opacity', "1");
+		$('#hardmode').css('transition', 'opacity 3s ease-in-out');
+	}, 3000);
 }
 
 function gameover() {
@@ -312,10 +378,23 @@ function again() {
 	current = null;
 	html = '';
 	setTimeout(function() {
+		$('#wineasy')[0].pause();
+		$('#wineasy')[0].currentTime = 0;
+		$('#winmedium')[0].pause();
+		$('#winmedium')[0].currentTime = 0;
+		$('#winhard')[0].pause();
+		$('#winhard')[0].currentTime = 0;
 		$('#gameover')[0].pause();
 		$('#gameover')[0].currentTime = 0;
-		$('.wrap').css('filter', 'grayscale(0');
+		$('.wrap').css('filter', 'grayscale(0)');
 		$('.black').css("opacity", "1");
+		$('.black').css('transition', 'opacity 1s ease-in-out')
+		$('#easymode').css('opacity', "0");
+		$('#easymode').css('transition', 'opacity 1s ease-in-out');
+		$('#mediummode').css('opacity', "0");
+		$('#mediummode').css('transition', 'opacity 1s ease-in-out');
+		$('#hardmode').css('opacity', "0");
+		$('#hardmode').css('transition', 'opacity 1s ease-in-out');
 		$('#easy').css('opacity', "0");
 		$('#easy').css('transition', 'opacity 1s ease-in-out');
 		$('#medium').css('opacity', "0");
@@ -326,6 +405,9 @@ function again() {
 	setTimeout(function() {
 		$('body').css('background', 'url("img/background2.jpg") no-repeat center center fixed');
 		$('body').css('background-color', 'black');
+		$('#easymode').css("display", "none");
+		$('#mediummode').css("display", "none");
+		$('#hardmode').css("display", "none");
 		$('#easy').css("display", "none");
 		$('#medium').css("display", "none");
 		$('#hard').css("display", "none");
@@ -362,12 +444,14 @@ function pick(x) {
 				current.find(".front").toggleClass("pick");
 				current.find(".back").toggleClass("pick");
 				$('.card').css('pointer-events', 'auto');
-				current = null; 
+				current = null;
+				
 			}, 500);
+			
 		}
 		else {
+			points += 1;
 			setTimeout(function() {
-				points += 1;
 				$("#hoveraudio")[0].pause();
 				$("#hoveraudio")[0].currentTime = 0;
 				$("#clickaudio")[0].pause();
@@ -383,12 +467,10 @@ function pick(x) {
 				current.css("cursor", "default");
 				$(x).removeAttr('onclick');
 				current.removeAttr('onclick');
-				$(x).unbind("mouseenter mouseout click");
-				current.unbind("mouseenter mouseout click");
+				$(x).css('pointer-events', 'none');
+				current.css('pointer-events', 'none');
 				current = null;
-				
 			}, 500);
-
 		}
 	}
 }
