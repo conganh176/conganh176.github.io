@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Register Form</title>
+		<meta charset="utf-8">
+		<link rel="icon" type="image/png" href="img/icon.ico">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	</head>
+	<body>
+		<form action="success.html">
+			<input type="text" name="firstname" placeholder="First name"/>
+			<input type="text" name="lastname" placeholder="Last name"/><br/>
+			<input type="text" name="email" placeholder="Email"/><br/>
+			<input type="password" name="password" placeholder="Password"/><br/>
+			<p>Date of birth:</p>
+			<select id="year" name="year"><option>Year</option></select>
+			<select id="month" name="month"><option>Month</option></select>
+			<select id="day" name="day"><option>Day</option></select><br/>
+			<input type="radio" name="gender" id="male" value="male"/><label for="male">Male</label>
+			<input type="radio" name="gender" id="male" value="female"/><label for="female">Female</label><br/>
+			<input type="text" name="address" placeholder="Address"/><br/>
+			<input type="number" name="number" placeholder="Phone number"/><br/>
+			<input type="submit" value="Register"/><br/>
+		</form>
+	</body>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/script.js"></script>
+</html>
