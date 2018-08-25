@@ -105,3 +105,11 @@ span {
 	margin-bottom: 1%;
 	font-size: 2em;
 }
+
+#selectdate {
+	font-weight: bold;
+}
+
+#success p {
+	font-weight: normal;
+}

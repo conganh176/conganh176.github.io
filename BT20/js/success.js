@@ -20,13 +20,37 @@ gender=gender.substring(7,gender.length);
 address=address.substring(8,address.length);
 number=number.substring(7,number.length);
 
-var sex;
+var dayofbirth;
+if (day==1 || day==21 || day==31) {
+	dayofbirth="<sup>st</sup>";
+}
 
+else if (day==2 || day == 22) {
+	dayofbirth="<sup>nd</sup>";
+}
+
+else if (day==3 || day==23) {
+	dayofbirth="<sup>rd<sup>"
+}
+
+else {
+	dayofbirth="<sup>th</sup>";
+}
+
+var sex;
 if (gender=="male") {
 	sex = "lads";
 }
-else {
+else if (gender=="female") {
 	sex = "lass";
 }
 
-document.getElementById("success").innerHTML = "<p>We hearby, our " + sex + ", " + firstname + " " + lastname + ", has become one of our adventurers.</p>";
+else {
+	sex="";
+}
+
+document.getElementById("success").innerHTML = "<p>We hearby, our " + sex + ", " + firstname + " " + lastname + 
+". Who is borned from " + month + " " + day + dayofbirth + " " + year +
+". Who lives in " + address + ". Has become one of our adventurers. It will be the honor for us to have you.</p>" + 
+"<p>From this on, we and other adventurers will contact you by " +
+"the email " + email + " or by your number " + number + ".</p>";
