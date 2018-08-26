@@ -29,6 +29,10 @@ input[type=text], input[type=password], input[type=number], input[type=submit] {
 	font-weight: bold;
 }
 
+input[type=submit]:hover {
+	color: red;
+}
+
 input[type=text]#firstname, input[type=text]#lastname {
 	width: 49%;
 	background-color: rgba(255, 228, 176, 0);
@@ -63,6 +67,7 @@ label {
 	font-size: 1.25em;
 	margin-right: 1%;
 	cursor: pointer;
+	font-weight: bold;
 }
 
 input[type=text]#firstname {
@@ -95,7 +100,7 @@ body {
 	background-image: url("../img/paper.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	font-weight: bold;
+	color: #383b3e;
 }
 
 span {
@@ -104,12 +109,15 @@ span {
 	width: 100%;
 	margin-bottom: 1%;
 	font-size: 2em;
+	font-weight: bold;
 }
 
 #selectdate {
 	font-weight: bold;
+	font-size: 1.25em;
 }
 
-#success p {
-	font-weight: normal;
+a{
+	font-weight: bold;
+	color: #383b3e;
 }

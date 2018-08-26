@@ -10,6 +10,7 @@ var day=user.substring(user.search("day"),user.search("&gender"));
 var gender=user.substring(user.search("gender"),user.search("&address"));
 var address=user.substring(user.search("address"),user.search("&number"));
 var number=user.substring(user.search("number"),user.search("&submit"));
+
 firstname=firstname.substring(10,firstname.length);
 lastname=lastname.substring(9,lastname.length);
 email=email.substring(6,email.length);
@@ -33,6 +34,8 @@ else if (day==3 || day==23) {
 	dayofbirth="<sup>rd<sup>"
 }
 
+else if (day=="Day"){dayofbirth=""}
+
 else {
 	dayofbirth="<sup>th</sup>";
 }
@@ -49,8 +52,8 @@ else {
 	sex="";
 }
 
-document.getElementById("success").innerHTML = "<p>We hearby, our " + sex + ", " + firstname + " " + lastname + 
-". Who is borned from " + month + " " + day + dayofbirth + " " + year +
-". Who lives in " + address + ". Has become one of our adventurers. It will be the honor for us to have you.</p>" + 
-"<p>From this on, we and other adventurers will contact you by " +
-"the email " + email + " or by your number " + number + ".</p>";
+document.getElementById("success").innerHTML = "<p>We hearby, our <b>" + sex + "</b>, <b>" + firstname + " " + lastname + 
+"</b>. Who was borned in <b>" + month + " " + day + dayofbirth + " " + year +
+"</b>. Who lives in <b>" + address + "</b>. Has become one of our adventurers. It will be the honor for us to have you.</p>" + 
+"<p>From this on, we and the other adventurers shall contact you by " +
+"the email <b>" + email + "</b> or by your number <b>" + number + "</b>.</p><p>You are now having the permission to test your knowledge <a href='https://conganh176.github.io/BT15/index.html'>here</a>.</p>"
