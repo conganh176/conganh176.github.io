@@ -78,7 +78,7 @@ $('#registerform').on('submit', function(){
 
 	if ($('#email').val().match(/^([a-zA-Z0-9]+(?:[.-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:[.-]?[a-zA-Z0-9]+)*\.[a-zA-Z]{2,7})$/) == null) {
 		$('#email').val('');
-		$('#email').attr("placeholder", "Email is invalid");
+		$('#email').attr("placeholder", "Email is invalid (Eg: yourmom@isfat.com)	");
 		$('#email').addClass('inputerror');
 		$('#email').css('border', '3px solid #ac3235');
 		valid = false;
@@ -90,12 +90,12 @@ $('#registerform').on('submit', function(){
 
 	if ($('#facebook').val().match(/https:\/\/www.facebook.com/) == null) {
 		$('#facebook').val('');
-		$('#facebook').attr("placeholder", 'Invalid Faceboook (Eg: https://www.facebook.com/conganh176)');
+		$('#facebook').attr("placeholder", 'Invalid Faceboook (Eg: https://www.facebook.com/youraccount)');
 		$('#facebook').addClass('inputerror');
 		$('#facebook').css('border', '3px solid #ac3235');
 		valid = false;
 	} else {
-		$('#facebook').attr("placeholder", "Facebook (Eg: https://www.facebook.com/conganh176)");
+		$('#facebook').attr("placeholder", "Facebook (Eg: https://www.facebook.com/youraccount)");
 		$('#facebook').removeClass('inputerror');
 		$('#facebook').css('border', '3px solid rgb(71, 42, 12)');
 	}
@@ -123,7 +123,7 @@ $('#registerform').on('submit', function(){
 	}
 
 	if ($('#number').val().match(/^(\+){0,1}\d{1,15}$/) == null) {
-		$('#number').attr("placeholder", "Phone number is invalid");
+		$('#number').attr("placeholder", "Phone number is invalid (Eg: 0420696969)");
 		$('#number').addClass('inputerror');
 		$('#number').css('border', '3px solid #ac3235');
 		valid = false;
