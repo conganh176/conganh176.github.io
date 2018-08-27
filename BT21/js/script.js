@@ -123,6 +123,7 @@ $('#registerform').on('submit', function(){
 	}
 
 	if ($('#number').val().match(/^(\+){0,1}\d{1,15}$/) == null) {
+		$('#number').val('');
 		$('#number').attr("placeholder", "Phone number is invalid (Eg: 0420696969)");
 		$('#number').addClass('inputerror');
 		$('#number').css('border', '3px solid #ac3235');
