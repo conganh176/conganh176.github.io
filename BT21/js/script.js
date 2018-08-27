@@ -55,7 +55,7 @@ $('#registerform').on('submit', function(){
 	var valid = true;
 
 	if ($('#firstname').val().trim() == '') {
-		$('#firstname').attr("placeholder", "First name is required");
+		$('#firstname').attr("placeholder", "First name is required (Steve)");
 		$('#firstname').addClass('inputerror');
 		$('#firstname').css('border', '3px solid #ac3235');
 		valid = false;
@@ -66,7 +66,7 @@ $('#registerform').on('submit', function(){
 	}
 
 	if ($('#lastname').val().trim() == '') {
-		$('#lastname').attr("placeholder", "Last name is required");
+		$('#lastname').attr("placeholder", "Last name is required (Gates)");
 		$('#lastname').addClass('inputerror');
 		$('#lastname').css('border', '3px solid #ac3235');
 		valid = false;
@@ -101,7 +101,7 @@ $('#registerform').on('submit', function(){
 	}
 
 	if ($('#password').val().trim() == '') {
-		$('#password').attr("placeholder", "Password is required");
+		$('#password').attr("placeholder", "Password is required (123456)");
 		$('#password').addClass('inputerror');
 		$('#password').css('border', '3px solid #ac3235');
 		valid = false;
@@ -112,7 +112,7 @@ $('#registerform').on('submit', function(){
 	}
 
 	if ($('#address').val().trim() == '') {
-		$('#address').attr("placeholder", "Address is required");
+		$('#address').attr("placeholder", "Address is required (1234 Street Street, USA)");
 		$('#address').addClass('inputerror');
 		$('#address').css('border', '3px solid #ac3235');
 		valid = false;
