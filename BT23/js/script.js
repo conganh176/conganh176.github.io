@@ -1,21 +1,36 @@
-function playSound(hoveraudio) {
-	var audio1=document.getElementById(hoveraudio);
-	audio1.play();
+
+
+function playSound() {
+	$("#hoveraudio")[0].play();
 }
 
-function stopSound(hoveraudio) {
-	var audio1=document.getElementById(hoveraudio);
-	audio1.pause();
-	audio1.currentTime = 0;
+function stopSound() {
+	$("#hoveraudio")[0].pause();
+	$("#hoveraudio")[0].currentTime = 0;
 }
 
-function play(clickaudio) {
-	var audio2=document.getElementById(clickaudio);
-	audio2.play();
+function clicksound() {
+	$("#clickaudio")[0].play();
 }
 
-document.getElementById("playpause").onclick = function() {
-    var audio = document.getElementById("background");
-    if (audio.paused) audio.play();
-    else audio.pause();
+$("#playpause")[0].onclick = function() {
+    if ($("#background")[0].paused) {
+    	$("#background")[0].play();
+    	$("#playpause").css("filter", "brightness(100%)");
+    }
+    else {
+    	$("#background")[0].pause();
+    	$("#playpause").removeClass("active");
+    	$("#playpause").css("filter", "brightness(50%)");
+    }
 };
+
+window.onscroll = function() {
+	if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        document.getElementById("backtotop").style.transform = "translateX(0)";
+    } else {
+        document.getElementById("backtotop").style.transform = "translateX(100%)";
+    }
+};
+
+

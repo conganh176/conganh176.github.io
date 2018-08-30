@@ -12,12 +12,12 @@
 	<body>
 		<audio id="hoveraudio" src="sound/hover.mp3" type="audio/mpeg"></audio>
 		<audio id="clickaudio" src="sound/click.mp3" type="audio/mpeg"></audio>
-		<audio id="background" src="sound/background.mp3" type="audio/mpeg"></audio>
+		<audio id="background" src="sound/background.mp3" type="audio/mpeg" loop autoplay></audio>
 		<header>
 			<div id="banner">
 				<img style="margin:auto;" src="img/banner1.png" class="img-responsive"/>
 			</div>
-			<nav class="navbar navbar-default">
+			<nav class="navbar navbar-inverse">
 			  <div class="container-fluid">
 			    <!-- Brand and toggle get grouped for better mobile display -->
 			    <div class="navbar-header">
@@ -32,12 +32,12 @@
 			    <!-- Collect the nav links, forms, and other content for toggling -->
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      <ul class="nav navbar-nav">
-			        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-			        <li><a href="#">About</a></li>
-			        <li><a href="#">Arcana</a></li>
+			        <li class="active"><a href="index.html" onmouseenter="playSound()" onmouseout="stopSound()" onclick="clicksound()">Home<span class="sr-only">(current)</span></a></li>
+			        <li><a href="#" onmouseenter="playSound()" onmouseout="stopSound()" onclick="clicksound()">About</a></li>
+			        <li><a href="https://conganh176.github.io/BT19/index.html" onmouseenter="playSound()" onmouseout="stopSound()" onclick="clicksound()">Arcana</a></li>
 			      </ul>
 			      <ul class="nav navbar-nav navbar-right">
-			        <li><a href="#">♫</a></li>
+			        <li><a id="playpause" style="cursor:pointer" onmouseenter="playSound()" onmouseout="stopSound()" onclick="clicksound()">&nbsp;♫&nbsp;</a></li>
 			      </ul>
 			    </div><!-- /.navbar-collapse -->
 			  </div><!-- /.container-fluid -->
@@ -46,42 +46,47 @@
 
 		<section class="container">
 			<div class="row">
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<img src="img/1-1.png" alt="Yu Narukami" title="Yu Narukami" class="img-responsive">
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+					<img src="img/1-1.png" alt="Yu Narukami" title="Yu Narukami" class="img-responsive" onmouseenter="playSound()" onmouseout="stopSound()" onclick="clicksound()">
 				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<img src="img/2-1.png" alt="Rise Kujikawa" title="Rise Kujikawa" class="img-responsive">
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+					<img src="img/2-1.png" alt="Rise Kujikawa" title="Rise Kujikawa" class="img-responsive" onmouseenter="playSound()" onmouseout="stopSound()" onclick="clicksound()">
 				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<img src="img/3-1.png" alt="Kanami Mashita" title="Kanami Mashita" class="img-responsive">
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+					<img src="img/3-1.png" alt="Kanami Mashita" title="Kanami Mashita" class="img-responsive" onmouseenter="playSound()" onmouseout="stopSound()" onclick="clicksound()">
 				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<img src="img/4-1.png" alt="Yosuke Hanamura" title="Yosuke Hanamura" class="img-responsive">
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+					<img src="img/4-1.png" alt="Yosuke Hanamura" title="Yosuke Hanamura" class="img-responsive" onmouseenter="playSound()" onmouseout="stopSound()" onclick="clicksound()">
 				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<img src="img/5-1.png" alt="Kanji Tatsumi" title="Kanji Tatsumi" class="img-responsive">
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+					<img src="img/5-1.png" alt="Kanji Tatsumi" title="Kanji Tatsumi" class="img-responsive" onmouseenter="playSound()" onmouseout="stopSound()" onclick="clicksound()">
 				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<img src="img/6-1.png" alt="Chie Satonaka" title="Chie Satonaka" class="img-responsive">		
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+					<img src="img/6-1.png" alt="Chie Satonaka" title="Chie Satonaka" class="img-responsive" onmouseenter="playSound()" onmouseout="stopSound()" onclick="clicksound()">		
 				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<img src="img/7-1.png" alt="Naoto Shirogane" title="Naoto Shirogane" class="img-responsive">
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+					<img src="img/7-1.png" alt="Naoto Shirogane" title="Naoto Shirogane" class="img-responsive" onmouseenter="playSound()" onmouseout="stopSound()" onclick="clicksound()">
 				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<img src="img/8-1.png" alt="Yukiko Amagi" title="Yukiko Amagi" class="img-responsive">
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+					<img src="img/8-1.png" alt="Yukiko Amagi" title="Yukiko Amagi" class="img-responsive" onmouseenter="playSound()" onmouseout="stopSound()" onclick="clicksound()">
 				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<img src="img/9-1.png" alt="Teddie" title="Teddie" class="img-responsive">
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+					<img src="img/9-1.png" alt="Teddie" title="Teddie" class="img-responsive" onmouseenter="playSound()" onmouseout="stopSound()" onclick="clicksound()">
 				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<img src="img/10-1.png" alt="Nanako Dojima" title="Nanako Dojima" class="img-responsive">
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+					<img src="img/10-1.png" alt="Nanako Dojima" title="Nanako Dojima" class="img-responsive" onmouseenter="playSound()" onmouseout="stopSound()" onclick="clicksound()">
 				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<img src="img/11-1.png" alt="Margaret" title="Margaret" class="img-responsive">
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+					<img src="img/11-1.png" alt="Margaret" title="Margaret" class="img-responsive" onmouseenter="playSound()" onmouseout="stopSound()" onclick="clicksound()">
 				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<img src="img/12-1.png" alt="Marie" title="Marie" class="img-responsive">
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+					<img src="img/12-1.png" alt="Marie" title="Marie" class="img-responsive" onmouseenter="playSound()" onmouseout="stopSound()" onclick="clicksound()">
 				</div>
+			</div>
+			<div id="top">
+				<a href="index.html#banner">
+				<img id="backtotop" src="img/13.png" alt="top" title="Back to Top" onmouseenter="playSound()" onmouseout="stopSound()" onclick="clicksound()">
+				</a>
 			</div>
 		</section>
 
