@@ -6,8 +6,17 @@
 
 body{
 	background: url("../img/background.jpg")/* no-repeat center center fixed*/;
-	font-family: 'MedievalSharp', cursive;
+	font-family: ;
 	margin: auto;
 	max-width: 1000px;
 	font-size: 1.25em;
+}
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 10px;
 }
