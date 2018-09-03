@@ -5,11 +5,15 @@
 }
 
 body{
-	background: url("../img/background.jpg")/* no-repeat center center fixed*/;
+	/*background: url("../img/background.png") no-repeat center center fixed;*/
 	font-family: ;
 	margin: auto;
 	max-width: 1000px;
 	font-size: 1.25em;
+}
+
+table {
+	width: 100%;
 }
 
 table, th, td {
@@ -17,6 +21,58 @@ table, th, td {
 	border-collapse: collapse;
 }
 
+td img{
+	width: 100%;
+	border-radius: 50%;
+	border: 1px solid black;
+}
+
 th, td {
 	padding: 10px;
+}
+
+th {
+	cursor: pointer;
+}
+
+td {
+	text-align: center;
+}
+
+tbody tr:hover {
+	background-color: rgba(0,0,0,0.1);
+	cursor: default;
+}
+
+tbody img {
+	transition: transform 0.5s ease-in-out;
+}
+
+tbody img:hover {
+	transform: scale(2,2);
+	animation: rotate 20s infinite linear;
+	animation-delay: 0.5s;
+}
+
+@keyframes rotate {
+	0% {transform: scale(2,2) rotateZ(0deg);}
+	100% {transform: scale(2,2) rotateZ(360deg);}
+}
+
+.noselect {
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.fa-sort {
+	color: gray;
+	-webkit-transition: all 0.5s ease-in-out;
+}
+
+.fa-sort-up, .fa-sort-down {
+	-webkit-transition: all 0.5s ease-in-out;
 }
