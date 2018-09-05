@@ -367,11 +367,11 @@ var audio=["vy1", "diva", "yuzuki", "luka", "gakupo", "miki", "nekomura", "flowe
 		"megpoid", "dex", "daina", "rana", "rin", "len", "unity", "fukase", "xingchen", "otomachi", "miku", "tohoku", "songman", "macne",
 		"uni", "tone", "yumemi", "yuezheng", "azuki", "matcha", "lumi", "xinhua", "luo", "kizuna", "mirai", "zhiyu", "moqingxian"];
 
-var myAudio = $('#background')[0];
+
 
 for (var i=0; i<singer.length; i++) {
 	$('tbody').append('<tr onmouseenter="$(\'#hover\')[0].play()" onmouseout="$(\'#hover\')[0].pause();$(\'#hover\')[0].currentTime=0">'+
-			'<td class="image"><img src="img/'+singer[i].image+'.png" alt="Singer '+(i+1)+'" onmouseenter="$(\'#'+audio[i]+'\')[0].play(); $(\'#background\')[0].pause()" onmouseout="$(\'#'+audio[i]+'\')[0].pause(); $(\'#'+audio[i]+'\')[0].currentTime=0; $(\'#background\')[0].play()" ></td>'+
+			'<td class="image"><img src="img/'+singer[i].image+'.png" alt="Singer '+(i+1)+'" onmouseenter="choose(\''+audio[i]+'\')" onmouseout="cancel(\''+audio[i]+'\')"></td>'+
 			'<td>'+singer[i].name+'</td>'+
 			'<td>'+singer[i].sex+'</td>'+
 			'<td>'+singer[i].developer+'</td>'+
@@ -456,63 +456,74 @@ function sortTable(n) {
   }
 }
 
-function loadmusic() {
 
-	
-	var context = new (window.AudioContext || window.webkitAudioContext)();
-	var src = context.createMediaElementSource(myAudio);
-	var analyser = context.createAnalyser();
 
-	var canvas = document.getElementById("canvas");
-	    canvas.width = window.innerWidth;
-	    canvas.height = window.innerHeight;
-	var ctx = canvas.getContext("2d");
 
-	    src.connect(analyser);
-	    analyser.connect(context.destination);
 
-	    analyser.fftSize = 256;
+window.onload = function() {
 
-	var bufferLength = analyser.frequencyBinCount;
-	    console.log(bufferLength);
+var myAudio = $('#background')[0];
+$('#background')[0].play();
+var context = new (window.AudioContext || window.webkitAudioContext)();
+var src = context.createMediaElementSource(myAudio);
+var analyser = context.createAnalyser();
 
-	var dataArray = new Uint8Array(bufferLength);
+var canvas = document.getElementById("canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight/3;
+var ctx = canvas.getContext("2d");
 
-	var WIDTH = canvas.width;
-	var HEIGHT = canvas.height;
+    src.connect(analyser);
+    analyser.connect(context.destination);
 
-	var barWidth = (WIDTH / bufferLength) * 2.5;
-	var barHeight;
-	var x = 0;
+    analyser.fftSize = 1024;
 
-	function renderFrame() {
-	    requestAnimationFrame(renderFrame);
+var bufferLength = analyser.frequencyBinCount;
+    console.log(bufferLength);
 
-	    x = 0;
+var dataArray = new Uint8Array(bufferLength);
 
-	    analyser.getByteFrequencyData(dataArray);
+var WIDTH = canvas.width;
+var HEIGHT = canvas.height;
 
-	    ctx.fillStyle = "#000";
-	    ctx.fillRect(0, 0, WIDTH, HEIGHT);
+var barWidth = (WIDTH / bufferLength) * 5;
+var barHeight;
+var x = 0;
 
-	    for (var i = 0; i < bufferLength; i++) {
-		    barHeight = dataArray[i];
+function renderFrame() {
+    requestAnimationFrame(renderFrame);
+    x = 0;
+
+    analyser.getByteFrequencyData(dataArray);
+
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+    for (var i = 0; i < bufferLength; i++) {
+	    barHeight = dataArray[i];
 	        
-	        var r = barHeight + (25 * (i/bufferLength));
-	        var g = 250 * (i/bufferLength);
-	        var b = 50;
+        var r = barHeight + (25 * (i/bufferLength));
+        var g = 250 * (i/bufferLength);
+        var b = 50;
 
-	        ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
-	        ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+        ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+        ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
-	        x += barWidth + 1;
-	      }
-	}
-
+        x += barWidth + 1;
+      }
+}
 	renderFrame();
 
 };
 
-loadmusic();
 
-audio.crossOrigin="anonymous";
+function choose(choice) {
+	document.getElementById(choice).play();
+	$('#background')[0].pause();
+}
+
+function cancel(choice) {
+	document.getElementById(choice).pause();
+	document.getElementById(choice).currentTime=0;
+	$('#background')[0].play();
+}
