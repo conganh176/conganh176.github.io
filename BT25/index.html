@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title></title>
+		<title>Kanban Board</title>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
@@ -9,6 +9,7 @@
 		<link rel="icon" type="image/png" href="img/icon.ico"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
 	</head>
 	<body>
 		<header>
@@ -20,37 +21,54 @@
 		</header>
 		<section class="container">
 			<div class="row">
-				<div class="col m4">
-					<div class="card">
-						<h5>TO DO</h5>
-						<div class="collection sorted-list">
-        					<a href="#!" class="collection-item">1</a>
-        					<a href="#!" class="collection-item">2</a>
-        					<a href="#!" class="collection-item">3</a>
-        					<a href="#!" class="collection-item">4</a>
-        					<a href="#!" class="collection-item">5</a>
-      					</div>
+				<form class="col s12">
+					<div class="col m4">
+						<div class="card" id="todo">
+							<div class="header">
+								<h5>TO DO</h5>
+							</div>
+							<div class="collection sorted-list">
+	        					<a href="#!" class="collection-item">thử tiếng việt<span class="remove"></span></a>
+	        					<a href="#!" class="collection-item">2<span class="remove"></span></a>
+	        					<a href="#!" class="collection-item">3<span class="remove"></span></a>
+	        					<a href="#!" class="collection-item">4<span class="remove"></span></a>
+	        					<a href="#!" class="collection-item">5<span class="remove"></span></a>
+	      					</div>
+	      					<div class="input-field">
+          						<input style="height: 1em; margin-top: 0; margin-bottom: 0;font-size: 1em; width: 80%" id="newtodo" type="text" class="validate"><span><i title="Add" class="fas fa-plus"></i></span>
+        					</div>
+						</div>
 					</div>
-				</div>
-				<div class="col m4">
-					<div class="card">
-						<h5>DOING</h5>
-						<div class="collection sorted-list">
-        					<a href="#!" class="collection-item">One</a>
-      					</div>
+					<div class="col m4">
+						<div class="card" id="doing">
+							<div class="header">
+								<h5>DOING</h5>
+							</div>
+							<div class="collection sorted-list">
+	        					<a href="#!" class="collection-item">One<span class="remove"></span></a>
+	      					</div>
+	      					<div class="input-field">
+          						<input style="height: 1em; margin-top: 0; margin-bottom: 0;font-size: 1em; width: 80%" id="newtodo" type="text" class="validate"><span><i title="Add" class="fas fa-plus"></i></span>
+        					</div>
+						</div>
 					</div>
-				</div>
-				<div class="col m4">
-					<div class="card">
-						<h5>DONE</h5>
-						<div class="collection sorted-list">
-        					<a href="#!" class="collection-item">Uno</a>
-        					<a href="#!" class="collection-item">Dos</a>
-        					<a href="#!" class="collection-item">Tres</a>
-        					<a href="#!" class="collection-item">Quadro</a>
-      					</div>
+					<div class="col m4">
+						<div class="card" id="done">
+							<div class="header">
+								<h5>DONE</h5>
+							</div>
+							<div class="collection sorted-list">
+	        					<a href="#!" class="collection-item">Uno<span class="remove"></span></a>
+	        					<a href="#!" class="collection-item">Dos<span class="remove"></span></a>
+	        					<a href="#!" class="collection-item">Tres<span class="remove"></span></a>
+	        					<a href="#!" class="collection-item">Cuatro<span class="remove"></span></a>
+	      					</div>
+	      					<div class="input-field">
+          						<input style="height: 1em; margin-top: 0; margin-bottom: 0;font-size: 1em; width: 80%" id="newtodo" type="text" class="validate"><span><i title="Add" class="fas fa-plus"></i></span>
+        					</div>
+						</div>
 					</div>
-				</div>
+				</form>
 			</div>
 		</section>
 
