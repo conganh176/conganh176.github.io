@@ -107,7 +107,7 @@ input {
 }
 
 .collection-item:hover {
-	background-color: rgba(0,0,0,0.1);
+	background-color: rgba(0,0,0,0.25);
 }
 
 .card {
@@ -144,7 +144,7 @@ input {
 }
 
 .ui-state-highlight {
-	background-color: rgba(0,0,0,0.25);
+	background-color: rgba(0,0,0,0.1);
 	height: calc(1.5rem + 20px);
 }
 
@@ -152,4 +152,12 @@ input {
 	-ms-transform: rotate(5deg);
 	-webkit-transform: rotate(5deg)
 	transform: rotate(5deg);
+}
+
+.btn {
+
+}
+
+.modal-close .btn-flat {
+	background-color: #E57373;	
 }

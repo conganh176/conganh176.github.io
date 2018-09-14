@@ -10,9 +10,36 @@ var app = {
 		}
 	},
 	addJobToList: function (type, jobName) {
-		var item = '<div href="#!" class="collection-item" onmouseover="appear(this)" onmouseout="disappear(this)">'+ jobName + '<span class="remove"><i onclick="remove()" title="Remove" class="fas fa-eraser" style="opacity: 0;"></i></span></div>';
+		var item = '<div href="#!" class="collection-item" onmouseover="appear(this)" onmouseout="disappear(this)">'+ jobName + '<span class="remove"><i onclick="app.deleteJob(this)" title="Remove" class="fas fa-eraser" style="opacity: 0;"></i></span></div>';
 
 		$('#' + type).append(item);
+	},
+	deleteJob: function (span) {
+		var modal = $('#modal-confirm');
+		var item = $(span).parent().parent();
+			
+		modal.modal();
+		modal.modal('open');
+
+		$('#btn-delete').on('click', function() {
+			item.css("opacity", "0");
+			item.css("transition", "opacity 0.5s ease-in-out");
+			modal.modal('close');
+			setTimeout(function() {
+			item.remove();
+			}, 500);
+		});
+
+	}
+
+}
+
+function plus(z) {
+	// var item = '<div href="#!" class="collection-item" onmouseover="appear(this)" onmouseout="disappear(this)">'+ z.parent().val() + '<span class="remove"><i onclick="app.deleteJob(this)" title="Remove" class="fas fa-eraser" style="opacity: 0;"></i></span></div>';
+	item=z.parentElement.querySelector('input').value;
+	if (item.trim() !== '') {
+		z.parentElement.parentElement.querySelector('.collection').innerHTML+='<div href="#!" class="collection-item" onmouseover="appear(this)" onmouseout="disappear(this)">'+ item + '<span class="remove"><i onclick="app.deleteJob(this)" title="Remove" class="fas fa-eraser" style="opacity: 0;"></i></span></div>';
+		z.parentElement.querySelector('input').value="";
 	}
 }
 
@@ -37,7 +64,7 @@ $( function() {
 
 window.onload=function() {
 	for (var i=0; i< $('.remove').length; i++) {
-		document.getElementsByClassName("remove")[i].innerHTML="<i onclick=\"remove()\" title=\"Remove\" class=\"fas fa-eraser\"></i>";
+		document.getElementsByClassName("remove")[i].innerHTML="<i onclick=\"app.deleteJob(this)\" title=\"Remove\" class=\"fas fa-eraser\"></i>";
 	}
 }
 
@@ -51,9 +78,9 @@ window.onload=function() {
 // }, 500);
 
 window.setInterval(function() {
-	for (var i=0; i< $('.header').length; i++) {
-		document.getElementsByClassName("header")[i].innerHTML="";
-	}
+	// for (var i=0; i< $('.header').length; i++) {
+	// 	document.getElementsByClassName("header")[i].innerHTML="";
+	// }
 	document.getElementsByClassName("header")[0].innerHTML="<h5>TO DO (" + document.getElementsByClassName("collection")[0].children.length +")</h5>";
 	document.getElementsByClassName("header")[1].innerHTML="<h5>DOING (" + document.getElementsByClassName("collection")[1].children.length +")</h5>";
 	document.getElementsByClassName("header")[2].innerHTML="<h5>DONE (" + document.getElementsByClassName("collection")[2].children.length +")</h5>";
