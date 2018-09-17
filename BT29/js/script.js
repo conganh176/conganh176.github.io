@@ -39,6 +39,15 @@ var app = {
 			DB.setData(list);
 			this.addJobToList(type, jobName);
 			$(input).val('');
+
+			document.getElementsByClassName("header")[0].innerHTML="<h5>TO DO (" + document.getElementsByClassName("collection")[0].children.length +")</h5>";
+			document.getElementsByClassName("header")[1].innerHTML="<h5>DOING (" + document.getElementsByClassName("collection")[1].children.length +")</h5>";
+			document.getElementsByClassName("header")[2].innerHTML="<h5>DONE (" + document.getElementsByClassName("collection")[2].children.length +")</h5>";
+			if ($('#doing')[0].children.length >= 3) {
+		    	document.getElementsByClassName("input-field")[1].style.opacity="0";
+		    	document.getElementsByClassName("input-field")[1].style.transition="opacity 0.5s ease-in-out";
+		    	document.getElementsByClassName("input-field")[1].style.pointerEvents="none";
+		    }
 		}
 	},
 	addJobToList: function (type, jobName) {
@@ -69,7 +78,15 @@ var app = {
 			item.css("transition", "opacity 0.5s ease-in-out");
 			modal.modal('close');
 			setTimeout(function() {
-			item.remove();
+				item.remove();
+				document.getElementsByClassName("header")[0].innerHTML="<h5>TO DO (" + document.getElementsByClassName("collection")[0].children.length +")</h5>";
+				document.getElementsByClassName("header")[1].innerHTML="<h5>DOING (" + document.getElementsByClassName("collection")[1].children.length +")</h5>";
+				document.getElementsByClassName("header")[2].innerHTML="<h5>DONE (" + document.getElementsByClassName("collection")[2].children.length +")</h5>";
+				if ($('#doing')[0].children.length < 3) {
+			    	document.getElementsByClassName("input-field")[1].style.opacity="1";
+			    	document.getElementsByClassName("input-field")[1].style.transition="opacity 0.5s ease-in-out";
+			    	document.getElementsByClassName("input-field")[1].style.pointerEvents="auto";
+			    }
 			}, 500);
 		});
 
@@ -85,7 +102,15 @@ function plus(z) {
 		DB.setData(list);
 		z.parentElement.parentElement.querySelector('.collection').innerHTML+='<div href="#!" class="collection-item" onmouseover="appear(this)" onmouseout="disappear(this)">'+ item + '<span class="remove"><i onclick="app.deleteJob(this)" title="Remove" class="fas fa-eraser" style="opacity: 0;"></i></span></div>';
 		z.parentElement.querySelector('input').value="";
-		console.log();
+
+		document.getElementsByClassName("header")[0].innerHTML="<h5>TO DO (" + document.getElementsByClassName("collection")[0].children.length +")</h5>";
+		document.getElementsByClassName("header")[1].innerHTML="<h5>DOING (" + document.getElementsByClassName("collection")[1].children.length +")</h5>";
+		document.getElementsByClassName("header")[2].innerHTML="<h5>DONE (" + document.getElementsByClassName("collection")[2].children.length +")</h5>";
+		if ($('#doing')[0].children.length >= 3) {
+		    document.getElementsByClassName("input-field")[1].style.opacity="0";
+		    document.getElementsByClassName("input-field")[1].style.transition="opacity 0.5s ease-in-out";
+		    document.getElementsByClassName("input-field")[1].style.pointerEvents="none";
+		}
 	}
 }
 
@@ -94,7 +119,7 @@ $( function() {
 		var columnType = list[type] || [];
 		columnType.forEach(function(jobName) {
 			app.addJobToList(type, jobName);
-		})
+		});
 	});
 
 	// var doing = list['doing'] || [];
@@ -103,33 +128,59 @@ $( function() {
 	// 	app.addJobToList('doing', job);
 	// });
 
-    $( '.sorted-list' ).sortable({
+    $('.sorted-list').sortable({
       connectWith: '.sorted-list',
       placeholder: 'ui-state-highlight',
       start: function (event, ui) {
       	$(ui.item[0]).addClass('dragging');
-
-      	// ui.item.oldColumnType = ui.item.context.parentElement.getAttribute('id');
-      	// ui.item.oldItemPosition = ui.item.index();
+      	ui.item.oldColumnType = ui.item[0].parentElement.getAttribute('id')
+      	ui.item.oldItemPosition = ui.item.index();
       },
       stop: function (event, ui) {
       	$(ui.item[0]).removeClass('dragging');
 
-      	// var item=ui.item;
-      	// var oldColumnType = item.oldColumnType;
-      	// var oldItemPosition = item.oldItemPosition;
-      	// var newColumnType = item.context.parentElement.getAttribute('id');
-      	// var newItemPosition = item.index();
+      	var item=ui.item;
+      	var oldColumnType = item.oldColumnType;
+      	var oldItemPosition = item.oldItemPosition;
+      	var newColumnType = item[0].parentElement.getAttribute('id');
+      	var newItemPosition = item.index();
 
-      	// list[oldColumnType].splice(oldItemPosition, 1);
+      	if ($('#doing')[0].children.length > 3) {
+      		alert('You can only put at maximum of 3 in DOING list');
+      		$('#doing').sortable('cancel');
+      		$('#todo').sortable('cancel');
+      		$('#done').sortable('cancel');
 
-      	// list[newColumnType].splice(newItemPosition, 0, item[0].innerText);
+		    document.getElementsByClassName("input-field")[1].style.opacity="0";
+		    document.getElementsByClassName("input-field")[1].style.transition="opacity 0.5s ease-in-out";
+		    document.getElementsByClassName("input-field")[1].style.pointerEvents="none";
+		}
 
-      	// DB.setData(list);
-
+		else if ($('#doing')[0].children.length === 3) {
+			document.getElementsByClassName("input-field")[1].style.opacity="0";
+		    document.getElementsByClassName("input-field")[1].style.transition="opacity 0.5s ease-in-out";
+		    document.getElementsByClassName("input-field")[1].style.pointerEvents="none";
+		    document.getElementsByClassName("header")[0].innerHTML="<h5>TO DO (" + document.getElementsByClassName("collection")[0].children.length +")</h5>";
+			document.getElementsByClassName("header")[1].innerHTML="<h5>DOING (" + document.getElementsByClassName("collection")[1].children.length +")</h5>";
+			document.getElementsByClassName("header")[2].innerHTML="<h5>DONE (" + document.getElementsByClassName("collection")[2].children.length +")</h5>";
+		    list[oldColumnType].splice(oldItemPosition, 1);
+      		list[newColumnType].splice(newItemPosition, 0, item[0].innerText);
+      		DB.setData(list);
+		}
+		else {
+		    	document.getElementsByClassName("input-field")[1].style.opacity="1";
+		    	document.getElementsByClassName("input-field")[1].style.transition="opacity 0.5s ease-in-out";
+		    	document.getElementsByClassName("input-field")[1].style.pointerEvents="auto";
+				document.getElementsByClassName("header")[0].innerHTML="<h5>TO DO (" + document.getElementsByClassName("collection")[0].children.length +")</h5>";
+				document.getElementsByClassName("header")[1].innerHTML="<h5>DOING (" + document.getElementsByClassName("collection")[1].children.length +")</h5>";
+				document.getElementsByClassName("header")[2].innerHTML="<h5>DONE (" + document.getElementsByClassName("collection")[2].children.length +")</h5>";
+				list[oldColumnType].splice(oldItemPosition, 1);
+      			list[newColumnType].splice(newItemPosition, 0, item[0].innerText);
+      			DB.setData(list);
+		}
       }
     });
-  } );
+});
 
 // window.onload= function() {
 // 	for (var i=0; i< $('.collection').length; i++) {
@@ -138,8 +189,15 @@ $( function() {
 // }
 
 window.onload=function() {
+	for (var i=0; i< $('.collection').length; i++) {
+		$('h5')[i].append(" (" + $('.collection')[i].children.length + ")");
+	}
 	for (var i=0; i< $('.remove').length; i++) {
 		document.getElementsByClassName("remove")[i].innerHTML="<i onclick=\"app.deleteJob(this)\" title=\"Remove\" class=\"fas fa-eraser\"></i>";
+	}
+	if ($('#doing')[0].children.length >= 3) {
+		    	document.getElementsByClassName("input-field")[1].style.opacity="0";
+		    	document.getElementsByClassName("input-field")[1].style.pointerEvents="none";
 	}
 }
 
@@ -152,14 +210,11 @@ window.onload=function() {
 // 	}
 // }, 500);
 
-window.setInterval(function() {
-	// for (var i=0; i< $('.header').length; i++) {
-	// 	document.getElementsByClassName("header")[i].innerHTML="";
-	// }
-	document.getElementsByClassName("header")[0].innerHTML="<h5>TO DO (" + document.getElementsByClassName("collection")[0].children.length +")</h5>";
-	document.getElementsByClassName("header")[1].innerHTML="<h5>DOING (" + document.getElementsByClassName("collection")[1].children.length +")</h5>";
-	document.getElementsByClassName("header")[2].innerHTML="<h5>DONE (" + document.getElementsByClassName("collection")[2].children.length +")</h5>";
-}, 0);
+// window.setInterval(function() {
+// 	document.getElementsByClassName("header")[0].innerHTML="<h5>TO DO (" + document.getElementsByClassName("collection")[0].children.length +")</h5>";
+// 	document.getElementsByClassName("header")[1].innerHTML="<h5>DOING (" + document.getElementsByClassName("collection")[1].children.length +")</h5>";
+// 	document.getElementsByClassName("header")[2].innerHTML="<h5>DONE (" + document.getElementsByClassName("collection")[2].children.length +")</h5>";
+// }, 0);
 
 // function appear() {
 // 	for (var i=0; i<$('.collection-item').length; i++) {

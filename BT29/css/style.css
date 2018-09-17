@@ -58,7 +58,6 @@ nav .brand-logo{
 }
 
 .fas {
-	z-index: 2;
 	float: right;
 	color: gray;
 	font-size: 1.25em;
@@ -150,7 +149,7 @@ input {
 
 .card .collection .collection-item.dragging {
 	-ms-transform: rotate(5deg);
-	-webkit-transform: rotate(5deg)
+	-webkit-transform: rotate(5deg);
 	transform: rotate(5deg);
 }
 
