@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+	font-family: 'playfair_display';
+	src: url('../font/PlayfairDisplay-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'inconsolata';
+	src: url('../font/Inconsolata-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body{
+	font-family: 'playfair_display';
+	font-size: 14px;
+	color: #626262;
+	background-image: url("../img/background.jpg");
+}
+
+.navbar {
+	text-transform: uppercase;
+}
+
+.navbar-brand {
+	font-family: 'inconsolata';
+	text-transform: uppercase;
+}
