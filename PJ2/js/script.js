@@ -2,9 +2,7 @@ var canvas = document.getElementById("myCanvas");
 
 function resizeCanvas() {
 	canvas.style.width = window.innerWidth + "px";
-  	setTimeout(function() {
-    	canvas.style.height = window.innerHeight + "px";
-  	}, 0);
+    canvas.style.height = window.innerHeight + "px";
 };
 
 // Webkit/Blink will fire this on load, but Gecko doesn't.
@@ -43,12 +41,20 @@ for(var c=0; c<brickColumnCount; c++) {
         bricks[c][r] = { x: 0, y: 0, status: 1 };
     }
 }
+var colors = ['rgb(255,0,0)','rgb(0,255,0)','rgb(0,0,255)','rgb(255,255,0)']
 var score = 0;
 var lives = 3;
+var gameIsRunning = false;
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
-document.addEventListener("mousemove", mouseMoveHandler, false);
+// document.addEventListener("mousemove", mouseMoveHandler, false);
+
+function drawScore() {
+    ctx.font = "15px PressStart";
+    ctx.fillStyle = "#white";
+    ctx.fillText("Score: "+score, 10, 20);
+}
 
 function keyDownHandler(e) {
     if(e.keyCode == 39) {
@@ -114,11 +120,14 @@ function collisionDetection() {
                 	if (dy <0) {
                 		dy -= 0.1;
                 	}
+                	document.getElementById("brick").pause();
+                	document.getElementById("brick").currentTime=0;
+                	document.getElementById("brick").play();
                     dy = -dy;
                     b.status = 0;
                     score++;
                     if(score == brickRowCount*brickColumnCount) {
-                        alert("YOU WIN, CONGRATULATIONS!");
+                        alert("YOU WIN!\n\n Your score: " + score + "\n Your lives: " + lives);
                         document.location.reload();
                     }
                 }
@@ -133,12 +142,12 @@ function drawScore() {
     ctx.fillText("Score: "+score, 10, 20);
 }
 
-function mouseMoveHandler(e) {
-    var relativeX = e.clientX - canvas.offsetLeft;
-    if(relativeX > 0 && relativeX < canvas.width) {
-        paddleX = relativeX - paddleWidth/2;
-    }
-}
+// function mouseMoveHandler(e) {
+//     var relativeX = e.clientX - canvas.offsetLeft;
+//     if(relativeX > 0 && relativeX < canvas.width) {
+//         paddleX = relativeX - paddleWidth/2;
+//     }
+// }
 
 function drawLives() {
     ctx.font = "15px PressStart";
@@ -156,20 +165,30 @@ function draw() {
     drawLives();
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
 	    dx = -dx;
+	    document.getElementById("wall").pause();
+        document.getElementById("wall").currentTime=0;
+        document.getElementById("wall").play();
 	}
 	if(y + dy < ballRadius) {
+		document.getElementById("wall").pause();
+        document.getElementById("wall").currentTime=0;
+        document.getElementById("wall").play();
 	    dy = -dy;
 	} else if(y + dy > canvas.height-ballRadius) {
 	    if(x > paddleX && x < paddleX + paddleWidth) {
+	    	document.getElementById("wall").pause();
+            document.getElementById("wall").currentTime=0;
+            document.getElementById("wall").play();
 	        dy = -dy;
 	    }
 	    else {
 	        lives--;
 			if(!lives) {
-			    alert("GAME OVER");
+			    alert("GAME OVER! YOU LOSE!\n\nYour score: "+score);
 			    document.location.reload();
 			}
 			else {
+				document.getElementById("death").play();
 			    x = canvas.width/2;
 			    y = canvas.height-30;
 			    dx = dx = [-3, 3][Math.floor(Math.random()*[-3, 3].length)];
