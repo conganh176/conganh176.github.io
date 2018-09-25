@@ -164,6 +164,12 @@ function draw() {
     drawScore();
     drawLives();
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+    	if (dx > 0) {
+                		dx += 0.1;
+                	}
+                	if (dy <0) {
+                		dx -= 0.1;
+                	}
 	    dx = -dx;
 	    document.getElementById("wall").pause();
         document.getElementById("wall").currentTime=0;
@@ -173,12 +179,24 @@ function draw() {
 		document.getElementById("wall").pause();
         document.getElementById("wall").currentTime=0;
         document.getElementById("wall").play();
+        if (dy > 0) {
+                		dy += 0.1;
+                	}
+                	if (dy <0) {
+                		dy -= 0.1;
+                	}
 	    dy = -dy;
 	} else if(y + dy > canvas.height-ballRadius) {
 	    if(x > paddleX && x < paddleX + paddleWidth) {
 	    	document.getElementById("wall").pause();
             document.getElementById("wall").currentTime=0;
             document.getElementById("wall").play();
+            if (dy > 0) {
+                		dy += 0.1;
+                	}
+                	if (dy <0) {
+                		dy -= 0.1;
+                	}
 	        dy = -dy;
 	    }
 	    else {
