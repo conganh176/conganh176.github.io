@@ -214,10 +214,3 @@ new Vue({
         }
     }
 });
-
-// Webkit/Blink will fire this on load, but Gecko doesn't.
-// window.onresize = resizeCanvas;
-
-// So we fire it manually...
-
-// setInterval(draw, 10);
