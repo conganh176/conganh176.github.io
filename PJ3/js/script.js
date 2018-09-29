@@ -39,34 +39,62 @@ var enemy,
     paddle;
 
 enemy = new Image();
-enemy.src = 'img/8bit_enemy.png';
+enemy.src = 'img/fairy.gif';
 paddle = new Image();
 paddle.src = 'img/111.png';
 paddleright = new Image();
 paddleright.src = 'img/112.png';
 paddleleft = new Image();
 paddleleft.src = 'img/113.png';
+laser = new Image();
+laser.src = 'img/bullet.png'
 
-var laserTotal = 4,
+var laserTotal = 9,
     lasers = [];
 
+var starfield,
+    starX = 0,
+    starY = 0,
+    starY2 = -720;
+
+starfield = new Image();
+starfield.src = 'img/background.png';
+
+var gameStarted = false;
 var score = 0;
 var lives = 3;
 var alive = true;
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener('keydown', gameStart, false);
+
+function gameStart(e) {
+    if (e.keyCode == 13) {
+        gameStarted = true;
+        document.removeEventListener('keydown', gameStart, false);
+    }
+}
 
 function drawScore() {
     ctx.font = "15px PressStart";
     ctx.fillStyle = "white";
     ctx.fillText("Score: "+score, 10, 20);
+    if (!gameStarted) {
+      ctx.font = '40px PressStart';
+      ctx.fillText('Marisa Scroll Shooter', canvas.width / 2 - 400, canvas.height / 2);
+      ctx.font = '20px PressStart';
+      ctx.fillText('Press Enter to play', canvas.width / 2 - 175, canvas.height / 2 + 40);
+      ctx.fillText('Use Arrow Keys to move', canvas.width / 2 - 200, canvas.height / 2 + 80);
+      ctx.fillText('Use the Z key to shoot', canvas.width / 2 - 200, canvas.height / 2 + 120);
+    }
     if (!alive) {
+        ctx.font = "20px PressStart";
         ctx.fillText('Game Over!', canvas.width/2-80, canvas.height / 2);
-        // ctx.fillRect((width / 2) - 53, (height / 2) + 10,100,40);
+        // ctx.fillRect((canvas.width / 2) - 53, (canvas.height / 2) + 10,100,40);
         ctx.fillStyle = 'white';
-        // ctx.fillText('Continue?', 252, (height / 2) + 35);
-        canvas.addEventListener('keydown', continueButton, false);
+        ctx.fillText('Press Enter to play again!', canvas.width/2-250, (canvas.height / 2) + 40);
+        document.addEventListener('keydown', continueButton, false);
     }
 }
 
@@ -90,7 +118,7 @@ function keyDownHandler(e) {
         downPressed = true;
     }
     if (e.keyCode == 90 && lasers.length <= laserTotal) {
-        lasers.push([paddleX + 17, paddleY - 10, 5, 20]);
+        lasers.push([paddleX + 14, paddleY -10, 8, 17]);
     }
 }
 
@@ -107,6 +135,19 @@ function keyUpHandler(e) {
     else if (e.keyCode == 40) {
         downPressed = false;
     }
+}
+
+function drawStarfield() {
+  ctx.drawImage(starfield,starX,starY);
+  ctx.drawImage(starfield,starX,starY2);
+  if (starY > 720) {
+    starY = -719;
+  }
+  if (starY2 > 720) {
+    starY2 = -719;
+  }
+  starY += 1;
+  starY2 += 1;
 }
 
 function drawPaddle() {
@@ -157,8 +198,7 @@ function moveEnemies() {
 function drawLaser() {
   if (lasers.length)
     for (var i = 0; i < lasers.length; i++) {
-      ctx.fillStyle = '#f00';
-      ctx.fillRect(lasers[i][0],lasers[i][1],lasers[i][2],lasers[i][3],lasers[i][4],lasers[i][5])
+      ctx.drawImage(laser, lasers[i][0] ,lasers[i][1]);
     }
 }
 
@@ -218,6 +258,16 @@ function checkLives() {
     }
 }
 
+function continueButton(e) {
+    if (e.keyCode == 13) {
+        alive = true;
+        lives = 3;
+        score = 0;
+        reset();
+        document.removeEventListener('keydown', continueButton, false);
+    }
+}
+
 function reset() {
     var enemy_reset_x = 50;
     paddleHeight = 88, paddleWidth = 40, paddleX = (canvas.width-paddleWidth)/2, paddleY = canvas.height-paddleHeight;
@@ -228,18 +278,10 @@ function reset() {
     }
 }
 
-function continueButton(e) {
-    if (e.keycode == 13) {
-        alive = true;
-        lives = 3;
-        reset();
-    canvas.removeEventListener('keydown', continueButton, false);
- }
-}
-
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    if (alive && lives >0) {
+    drawStarfield()
+    if (alive && gameStarted && lives > 0) {
         hitTest();
         paddleCollision();
         drawPaddle();
@@ -247,9 +289,9 @@ function draw() {
         moveEnemies();
         moveLaser();
         drawLaser();
+        drawLives();
     }
     drawScore();
-    drawLives();
 }
 
 setInterval(draw, 20);
