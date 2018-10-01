@@ -13,7 +13,7 @@ resizeCanvas();
 
 var ctx = canvas.getContext("2d");
 
-var paddleHeight = 88;
+var paddleHeight = 82;
 var paddleWidth = 40;
 var paddleX = (canvas.width-paddleWidth)/2;
 var paddleY = canvas.height-paddleHeight;
@@ -25,29 +25,39 @@ var downPressed = false;
 
 var enemyTotal = 18,
     enemies = [],
-    enemy_x = 20,
-    enemy_y = -45,
+    enemy_x = Math.floor(Math.random() * (1280 + 1) + 0),
+    enemy_y = -50,
     enemy_w = 50,
     enemy_h = 50,
     speed = 5;
-for (var i = 0; i < enemyTotal; i++) {
-  enemies.push([enemy_x, enemy_y, enemy_w, enemy_h, speed]);
-  enemy_x += enemy_w + 20;
+// for (var i = 0; i < enemyTotal; i++) {
+//   enemies.push([enemy_x, enemy_y, enemy_w, enemy_h, speed]);
+//   enemy_x += enemy_w + 20;
+// }
+
+var n = 0;
+function drawEnemy() {           
+  setTimeout(function () {
+    enemies.push([enemy_x, enemy_y, enemy_w, enemy_h, speed]);
+    enemy_x = Math.floor(Math.random() * (1280 + 1) + 0);
+    n++;
+    if (n < 18) {
+      drawEnemy();
+    }
+  }, 500)
 }
 
 var enemy,
     paddle;
 
 enemy = new Image();
-enemy.src = 'img/fairy.gif';
+enemy.src = 'img/fairy.png';
 paddle = new Image();
-paddle.src = 'img/111.png';
-paddleright = new Image();
-paddleright.src = 'img/112.png';
-paddleleft = new Image();
-paddleleft.src = 'img/113.png';
+paddle.src = 'img/marisa.png';
 laser = new Image();
 laser.src = 'img/bullet.png'
+barrier = new Image();
+barrier.src = 'img/barrier.png'
 
 var laserTotal = 9,
     lasers = [];
@@ -62,8 +72,9 @@ starfield.src = 'img/background.png';
 
 var gameStarted = false;
 var score = 0;
-var lives = 3;
+var lives = 4;
 var alive = true;
+var invicible = false;
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -72,6 +83,7 @@ document.addEventListener('keydown', gameStart, false);
 function gameStart(e) {
     if (e.keyCode == 13) {
         gameStarted = true;
+        drawEnemy();
         document.removeEventListener('keydown', gameStart, false);
     }
 }
@@ -101,7 +113,7 @@ function drawScore() {
 function drawLives() {
     ctx.font = "15px PressStart";
     ctx.fillStyle = "white";
-    ctx.fillText("Lives: "+lives, canvas.width-130, 20);
+    ctx.fillText("Barriers: "+(lives-1), canvas.width-180, 20);
 }
 
 function keyDownHandler(e) {
@@ -150,14 +162,24 @@ function drawStarfield() {
   starY2 += 1;
 }
 
+var paddleTotalFrames = 8;
+var paddleCurrentFrame = 0;
+var paddleShift = 0;
+
+function updatePaddleFrame() {
+  paddleCurrentFrame = ++ paddleCurrentFrame % paddleTotalFrames;
+  paddleShift = paddleCurrentFrame * 40;
+}
+
 function drawPaddle() {
+    updatePaddleFrame();
     if(rightPressed && paddleX < canvas.width-paddleWidth) {
         paddleX += 5;
-        ctx.drawImage(paddleright, paddleX, paddleY);
+        // ctx.drawImage(paddleright, paddleX, paddleY);
     }
     else if(leftPressed && paddleX > 0) {
         paddleX -= 5;
-        ctx.drawImage(paddleleft, paddleX, paddleY);
+        // ctx.drawImage(paddleleft, paddleX, paddleY);
     }
     if (upPressed && paddleY > 0) {
         paddleY -= 5;
@@ -167,20 +189,29 @@ function drawPaddle() {
     } 
     // ctx.rect(paddleX, paddleY, paddleWidth, paddleHeight);
     // ctx.fillStyle = "white";
-    ctx.drawImage(paddle, paddleX, paddleY);
+    ctx.drawImage(paddle, paddleShift, 0, 40, 82, paddleX, paddleY, 40, 82);
+}
+
+var enemyTotalFrames = 6;
+var enemyCurrentFrame = 0;
+var enemyShift = 0;
+
+function updateEnemyFrame() {
+  enemyCurrentFrame = ++ enemyCurrentFrame % enemyTotalFrames;
+  enemyShift = enemyCurrentFrame * 50;
 }
 
 function drawEnemies() {
-
+    updateEnemyFrame();
     for (var i = 0; i < enemies.length; i++) {
-        // var random = Math.floor(Math.random() * (18 + 1) + 0);
-        ctx.drawImage(enemy, enemies[i][0], enemies[i][1]);
+        ctx.drawImage(enemy, enemyShift, 0, 50, 50, enemies[i][0], enemies[i][1], 50, 50);
     }
 }
 
 function moveEnemies() {
   for (var i = 0; i < enemies.length; i++) {
     if (enemies[i][1] < canvas.height) {
+
       enemies[i][1] += enemies[i][4];
       if (enemies[i][0] < paddleX) {
         enemies[i][0] +=1;
@@ -220,7 +251,7 @@ function hitTest() {
         remove = true;
         score += 10;
         enemies.splice(j, 1);
-        enemies.push([(Math.random() * 1280) + 50, -45, enemy_w, enemy_h, speed]);
+        enemies.push([Math.floor(Math.random() * (1280 + 1) + 0), -50, enemy_w, enemy_h, speed]);
       }
     }
     if (remove == true) {
@@ -235,46 +266,68 @@ function paddleCollision() {
       paddleYH = paddleY + paddleHeight;
   for (var i = 0; i < enemies.length; i++) {
     if (paddleX > enemies[i][0] && paddleX < enemies[i][0] + enemy_w && paddleY > enemies[i][1] && paddleY < enemies[i][1] + enemy_h) {
-      checkLives();
+      invicible = true;
+      setTimeout(function(){
+        checkLives();
+      },0)
+      
     }
     if (paddleXW < enemies[i][0] + enemy_w && paddleXW > enemies[i][0] && paddleY > enemies[i][1] && paddleY < enemies[i][1] + enemy_h) {
-      checkLives();
+      invicible = true;
+      setTimeout(function(){
+        checkLives();
+      },0)
     }
     if (paddleYH > enemies[i][1] && paddleYH < enemies[i][1] + enemy_h && paddleX > enemies[i][0] && paddleX < enemies[i][0] + enemy_w) {
-      checkLives();
+      invicible = true;
+      setTimeout(function(){
+        checkLives();
+      },0)
     }
     if (paddleYH > enemies[i][1] && paddleYH < enemies[i][1] + enemy_h && paddleXW < enemies[i][0] + enemy_w && paddleXW > enemies[i][0]) {
-      checkLives();
+      invicible = true;
+      setTimeout(function(){
+        checkLives();
+      },0)
     }
   }
 }
 
 function checkLives() {
+    var myBarrier = setInterval(function() {
+      ctx.drawImage(barrier, paddleX-41, paddleY-41/2);
+    },24);
     lives -= 1;
     if (lives > 0) {
-        paddleHeight = 88, paddleWidth = 40, paddleX = (canvas.width-paddleWidth)/2, paddleY = canvas.height-paddleHeight;
-    } else if (lives == 0) {
+        
+        setTimeout(function(){
+          clearInterval(myBarrier);
+          invicible = false;
+        }, 3000);
+        // paddleHeight = 88, paddleWidth = 40, paddleX = (canvas.width-paddleWidth)/2, paddleY = canvas.height-paddleHeight;
+    } else if (lives <= 0) {
         alive = false;
+        clearInterval(myBarrier);
     }
 }
 
 function continueButton(e) {
     if (e.keyCode == 13) {
         alive = true;
-        lives = 3;
+        invicible = false;
+        lives = 4;
         score = 0;
-        reset();
-        document.removeEventListener('keydown', continueButton, false);
-    }
-}
+        n = 0;
+        enemies = [];
+        lasers = [];
+        enemy_x = Math.floor(Math.random() * (1280 + 1) + 0);
+        drawEnemy();
+        for (var i = 0; i < enemies.length; i++) {
+          enemies[i][1] = -50;
+        }
 
-function reset() {
-    var enemy_reset_x = 50;
-    paddleHeight = 88, paddleWidth = 40, paddleX = (canvas.width-paddleWidth)/2, paddleY = canvas.height-paddleHeight;
-    for (var i = 0; i < enemies.length; i++) {
-        enemies[i][0] = enemy_reset_x;
-        enemies[i][1] = -45;
-        enemy_reset_x = enemy_reset_x + enemy_w + 20;
+        paddleHeight = 88, paddleWidth = 40, paddleX = (canvas.width-paddleWidth)/2, paddleY = canvas.height-paddleHeight;
+        document.removeEventListener('keydown', continueButton, false);
     }
 }
 
@@ -283,7 +336,7 @@ function draw() {
     drawStarfield()
     if (alive && gameStarted && lives > 0) {
         hitTest();
-        paddleCollision();
+        // paddleCollision();
         drawPaddle();
         drawEnemies();
         moveEnemies();
@@ -291,7 +344,17 @@ function draw() {
         drawLaser();
         drawLives();
     }
+    if (alive && gameStarted && lives > 0 && !invicible) {
+      // hitTest();
+      paddleCollision();
+      // drawPaddle();
+      // drawEnemies();
+      // moveEnemies();
+      // moveLaser();
+      // drawLaser();
+      // drawLives();
+    }
     drawScore();
 }
 
-setInterval(draw, 20);
+setInterval(draw, 24);
