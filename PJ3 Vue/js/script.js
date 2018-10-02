@@ -279,7 +279,6 @@ new Vue({
               clearInterval(myBarrier);
               this.invicible = false;
             }, 3000);
-            // paddleHeight = 88, paddleWidth = 40, paddleX = (canvas.width-paddleWidth)/2, paddleY = canvas.height-paddleHeight;
         } else if (this.lives <= 0) {
             this.$refs.dead.play();
             this.alive = false;
