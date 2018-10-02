@@ -48,7 +48,9 @@ function drawEnemy() {
 }
 
 var enemy,
-    paddle;
+    paddle,
+    barrier,
+    marisa;
 
 enemy = new Image();
 enemy.src = 'img/fairy.png';
@@ -58,6 +60,8 @@ laser = new Image();
 laser.src = 'img/bullet.png'
 barrier = new Image();
 barrier.src = 'img/barrier.png'
+marisa = new Image();
+marisa.src = 'img/marisa2.png'
 
 var laserTotal = 9,
     lasers = [];
@@ -68,7 +72,7 @@ var starfield,
     starY2 = -720;
 
 starfield = new Image();
-starfield.src = 'img/background.png';
+starfield.src = 'img/background2.png';
 
 var gameStarted = false;
 var score = 0;
@@ -83,6 +87,10 @@ document.addEventListener('keydown', gameStart, false);
 function gameStart(e) {
     if (e.keyCode == 13) {
         gameStarted = true;
+        document.getElementById("ok").play();
+        document.getElementById("background").pause();
+        document.getElementById("background").currentTime=0;
+        document.getElementById("game").play();
         drawEnemy();
         document.removeEventListener('keydown', gameStart, false);
     }
@@ -93,6 +101,7 @@ function drawScore() {
     ctx.fillStyle = "white";
     ctx.fillText("Score: "+score, 10, 20);
     if (!gameStarted) {
+      ctx.drawImage(marisa,paddleX-(1159/2),paddleY-600);
       ctx.font = '40px PressStart';
       ctx.fillText('Marisa Scroll Shooter', canvas.width / 2 - 400, canvas.height / 2);
       ctx.font = '20px PressStart';
@@ -130,6 +139,10 @@ function keyDownHandler(e) {
         downPressed = true;
     }
     if (e.keyCode == 90 && lasers.length <= laserTotal) {
+        document.getElementById("laser").volume=0.2;
+        document.getElementById("laser").pause();
+        document.getElementById("laser").currentTime=0;
+        document.getElementById("laser").play();
         lasers.push([paddleX + 14, paddleY -10, 8, 17]);
     }
 }
@@ -248,6 +261,10 @@ function hitTest() {
   for (var i = 0; i < lasers.length; i++) {
     for (var j = 0; j < enemies.length; j++) {
       if (lasers[i][1] <= (enemies[j][1] + enemies[j][3]) && lasers[i][0] >= enemies[j][0] && lasers[i][0] <= (enemies[j][0] + enemies[j][2])) {
+        document.getElementById("hit").volume=0.5;
+        document.getElementById("hit").pause();
+        document.getElementById("hit").currentTime=0;
+        document.getElementById("hit").play();
         remove = true;
         score += 10;
         enemies.splice(j, 1);
@@ -267,28 +284,19 @@ function paddleCollision() {
   for (var i = 0; i < enemies.length; i++) {
     if (paddleX > enemies[i][0] && paddleX < enemies[i][0] + enemy_w && paddleY > enemies[i][1] && paddleY < enemies[i][1] + enemy_h) {
       invicible = true;
-      setTimeout(function(){
         checkLives();
-      },0)
-      
     }
     if (paddleXW < enemies[i][0] + enemy_w && paddleXW > enemies[i][0] && paddleY > enemies[i][1] && paddleY < enemies[i][1] + enemy_h) {
       invicible = true;
-      setTimeout(function(){
         checkLives();
-      },0)
     }
     if (paddleYH > enemies[i][1] && paddleYH < enemies[i][1] + enemy_h && paddleX > enemies[i][0] && paddleX < enemies[i][0] + enemy_w) {
       invicible = true;
-      setTimeout(function(){
         checkLives();
-      },0)
     }
     if (paddleYH > enemies[i][1] && paddleYH < enemies[i][1] + enemy_h && paddleXW < enemies[i][0] + enemy_w && paddleXW > enemies[i][0]) {
       invicible = true;
-      setTimeout(function(){
         checkLives();
-      },0)
     }
   }
 }
@@ -299,13 +307,14 @@ function checkLives() {
     },24);
     lives -= 1;
     if (lives > 0) {
-        
+        document.getElementById("barrier").play();
         setTimeout(function(){
           clearInterval(myBarrier);
           invicible = false;
         }, 3000);
         // paddleHeight = 88, paddleWidth = 40, paddleX = (canvas.width-paddleWidth)/2, paddleY = canvas.height-paddleHeight;
     } else if (lives <= 0) {
+        document.getElementById("dead").play();
         alive = false;
         clearInterval(myBarrier);
     }
@@ -313,6 +322,9 @@ function checkLives() {
 
 function continueButton(e) {
     if (e.keyCode == 13) {
+        document.getElementById("game").pause();
+        document.getElementById("game").currentTime=0;
+        document.getElementById("game").play();
         alive = true;
         invicible = false;
         lives = 4;
