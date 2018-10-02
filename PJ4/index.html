@@ -16,7 +16,7 @@
 		      <li>Shopping Cart</li>
 		    </ul>
 		    
-		    <span class="count">{{ sumProducts() }} items in the bag</span>
+		    <span class="count">{{ sumProducts() }} item(s) in the bag</span>
 		  </header>
 
 		  <section class="container">
@@ -37,7 +37,7 @@
 
 		        <div class="col right">
 		          <div class="quantity">
-		            <input type="number" class="quantity" step="1" min="1" max="100" :value="product.quantity" v-model="product.quantity"/>
+		            <input type="number" class="quantity" step="1" min="1" max="100" :value="product.quantity" v-model="product.quantity" />
 		          </div>
 		          
 		          <div class="remove">
@@ -57,8 +57,8 @@
 		    <div class="summary">
 		      <ul>
 		        <li>Subtotal: <span>${{ sumPrices() }}</span></li>
-		        <li>Promotion Price: <span> okay </span></li>
-		        <li>Subtotal After Promotion: <span> okay </span></li>
+		        <li v-show="isPromotion">Promotion Price: <span>${{ sumPromotions() }}</span></li>
+		        <li v-show="isPromotion">Subtotal After Promotion: <span>${{ sumRemainPrices() }}</span></li>
 		        <li>Tax: <span>${{ sumTax() }}</span></li>
 		        <li class="total">Total: <span>${{ sumLastPrices() }}</span></li>
 		      </ul>

@@ -32,7 +32,8 @@ new Vue({
         discount: '30%'
       }
     ],
-    thePromotion: ''
+    thePromotion: '',
+    isPromotion: false
   },
   methods: {
     sumProducts: function() {
@@ -64,22 +65,29 @@ new Vue({
       var sumPromotion = 0;
       for (var i = 0; i < this.promotions.length; i++) {
         if (this.thePromotion == this.promotions[i].code) {
+          this.isPromotion = true;
           sumPromotion = parseFloat(this.promotions[i].discount)/100*parseFloat(this.sumPrices())         
         }
         if (this.thePromotion == "") {
+          this.isPromotion = false;
           sumPromotion = 0;
         }
       }
       return sumPromotion.toFixed(2);
     },
+    sumRemainPrices: function() {
+      var remainPrices = 0;
+      remainPrices = parseFloat(this.sumPrices()) - parseFloat(this.sumPromotions());
+      return remainPrices.toFixed(2);
+    },
     sumTax: function() {
       var sumTax = 0;
-      sumTax = (parseFloat(this.sumPrices()) - parseFloat(this.sumPromotions()))*this.tax/100
+      sumTax = parseFloat(this.sumPrices())*this.tax/100
       return sumTax.toFixed(2);
     },
     sumLastPrices: function() {
       var lastPrices = 0;
-      lastPrices = parseFloat(this.sumPrices()) - parseFloat(this.sumPromotions()) + parseFloat(this.sumTax());
+      lastPrices = parseFloat(this.sumRemainPrices()) + parseFloat(this.sumTax());
       return lastPrices.toFixed(2);
     }
   }
