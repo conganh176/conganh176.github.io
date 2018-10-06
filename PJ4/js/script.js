@@ -89,6 +89,12 @@ new Vue({
       var lastPrices = 0;
       lastPrices = parseFloat(this.sumRemainPrices()) + parseFloat(this.sumTax());
       return lastPrices.toFixed(2);
+    },
+    removeItem: function(theProduct) {
+      this.products.splice(this.products.indexOf(theProduct),1);
+    },
+    checkPromotion: function() {
+      console.log(this.$refs.promocode.value);
     }
   }
 });
