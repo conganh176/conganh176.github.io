@@ -1,6 +1,6 @@
-# vue-cli
+# name
 
-> A Vue.js project
+> description
 
 ## Build Setup
 
