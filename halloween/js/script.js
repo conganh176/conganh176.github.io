@@ -1,4 +1,5 @@
 function openDoor() {
+	document.getElementById("body").style.display="block";
 	document.getElementById("backgroundMusic").play();
 	document.getElementById("doorOpen").play();
 	document.getElementById("ambience").play();
@@ -8,6 +9,9 @@ function openDoor() {
 		document.getElementById("door1").style.display="none";
 		document.getElementById("door2").style.opacity=0;
 	}, 3000);
+	setTimeout(function(){
+		document.getElementById("doorOpen").volume=0;
+	}, 4000);
 	setTimeout(function(){
 		document.getElementById("dying").querySelector("img").style.animation="blood 12s linear";
 		document.getElementById("dying").querySelector("img").style.opacity=1;
@@ -40,6 +44,15 @@ function openDoor() {
 		document.getElementById("ghost6").style.opacity=1;
 		document.getElementById("ghost6").style.animation="fade 3s linear";
 	}, 25000);
+	setInterval(function(){
+		document.getElementById("thunder").play();
+		document.getElementById("ghost8").querySelector("img").style.opacity=1;
+		setTimeout(function(){
+			document.getElementById("ghost8").querySelector("img").style.opacity=0;
+		}, 500)
+	}, 35000);
 }
 
-console.log()
+setTimeout(function(){
+	openDoor();
+}, 10000);

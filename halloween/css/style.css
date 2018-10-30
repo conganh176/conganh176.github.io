@@ -30,6 +30,7 @@ body{
 #body{
 	max-width: 1000px;
 	margin: auto;
+	display: none;
 	opacity: 0;
 	transition: opacity 2s ease-in-out;
 }
@@ -81,7 +82,6 @@ body{
 }
 
 #text1 {
-	/*animation: fade 6s linear;*/
 	font-family: 'Frijole', cursive;
 	font-weight: bold;
 	color: gray;
@@ -92,7 +92,6 @@ body{
 }
 
 #text2 {
-	/*animation: fade 6s linear;*/
 	font-family: 'Frijole', cursive;
 	font-weight: bold;
 	color: gray;
@@ -438,7 +437,6 @@ p{
 
 #ghost6{
 	opacity: 0;
-	/*animation: fade 25s linear;*/
 }
 
 #ghost6 img{
@@ -473,6 +471,16 @@ p{
 	top: 50%;
     left: 50%;
     opacity: 0;
+}
+
+#ghost8 img{
+	width: auto;
+	transform: translate(-50%, -50%);
+	position: fixed;
+	top: 50%;
+    left: 50%;
+    opacity: 0;
+    z-index: 1;
 }
 
 #door1{
