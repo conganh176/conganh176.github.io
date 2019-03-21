@@ -1,0 +1,17 @@
+table {
+	margin: 0 auto;
+}
+
+td {
+	padding: 50px;
+}
+
+td.vertical {
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
+td.horizontal {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
