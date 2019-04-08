@@ -18,6 +18,13 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'ubuntu-light';
+	src: url('../font/Ubuntu-Light.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
 body{
 	font-family: 'playfair_display';
 	font-size: 14px;
@@ -25,11 +32,136 @@ body{
 	background-image: url("../img/background.jpg");
 }
 
+header {
+	margin-top: 70px;
+	margin-bottom: 100px;
+}
+
+section.container,
+section.container-fluid,
+footer.container {
+	width: 930px;
+	margin-bottom: 25px;
+}
+
 .navbar {
 	text-transform: uppercase;
+}
+
+.navbar .container-fluid {
+	padding: 0;
+}
+
+.navbar-default {
+	background-color: #ffffff;
+	border-color: #ffffff;
 }
 
 .navbar-brand {
 	font-family: 'inconsolata';
 	text-transform: uppercase;
+	font-size: 30px;
+}
+
+.navbar-default .navbar-brand {
+	color: #000000;
+}
+
+.nav > li > a {
+	padding: 10px 50px;
+}
+
+.nav > li:last-child > a {
+	padding-right: 0;
+}
+
+h2 {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+h3 {
+	font-family: 'ubuntu-light';
+	font-size: 14px;
+	color: #b4ad9e;
+	text-transform: uppercase;
+}
+
+.col-md-6:nth-child(odd) {
+	padding-left: 0;
+	padding-right: 25px;
+}
+
+.col-md-6:nth-child(even) {
+	padding-left: 25px;
+	padding-right: 0;
+}
+
+p {
+	line-height: 25px;
+}
+
+.description {
+	margin-bottom: 135px;
+}
+
+.row {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.thumbnail {
+	padding: 0;
+	border: none;
+}
+
+.item {
+	margin-bottom: 125px;
+}
+
+.item p {
+	line-height: 24px;
+	height: 72px;
+	overflow: hidden;
+}
+
+section.newsletter {
+	background: #f0f0f0;
+	width: 100%;
+	margin-bottom: 100px;
+}
+
+.newsletter h2 {
+	text-align: center;
+	margin-top: 75px;
+	margin-bottom: 75px;
+}
+
+.newsletter input.form-control {
+	width: 400px;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid gray;
+	background: none;
+	margin: auto;
+	padding-left: 3px;
+	padding-bottom: 12px;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.newsletter input.form-control:focus {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border-bottom-color: black;
+}
+
+.newsletter .form-group {
+	margin-bottom: 75px;
+}
+
+@media (min-width: 1200px) {
+	.container {
+		width: 1062px;
+	}
 }
