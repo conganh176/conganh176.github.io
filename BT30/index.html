@@ -29,7 +29,7 @@
 			    <!-- Collect the nav links, forms, and other content for toggling -->
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      <ul class="nav navbar-nav navbar-right">
-			        <li class="active"><a href="#">Lifestyle<span class="sr-only"></span></a></li>
+			        <li><a href="#">Lifestyle<span class="sr-only"></span></a></li>
 			        <li><a href="#">Photodiary</a></li>
 			        <li><a href="#">Music</a></li>
 			        <li><a href="#">Travel</a></li>
@@ -52,10 +52,10 @@
 			
 			<div class="posts">
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-sm-6">
 						<div class="item">
 							<div class="thumbnail">
-								<img src="img/img1.png"/>
+								<img src="img/img1.png" alt="img1" class="img-responsive"/>
 							</div>
 							<h3>Lifestyle</h3>
 							<h2>More than just a music festival</h2>
@@ -63,10 +63,10 @@
 						</div>
 					</div>
 
-					<div class="col-md-6">
+					<div class="col-sm-6">
 						<div class="item">
 							<div class="thumbnail">
-								<img src="img/img2.png"/>
+								<img src="img/img2.png" alt="img2" class="img-responsive"/>
 							</div>
 							<h3>Lifestyle</h3>
 							<h2>Life tastes better with coffee</h2>
@@ -74,10 +74,10 @@
 						</div>
 					</div>
 
-					<div class="col-md-6">
+					<div class="col-sm-6">
 						<div class="item">
 							<div class="thumbnail">
-								<img src="img/img3.jpg"/>
+								<img src="img/img3.jpg" alt="img3" class="img-responsive"/>
 							</div>
 							<h3>Photodiary</h3>
 							<h2>American dream</h2>
@@ -85,10 +85,10 @@
 						</div>
 					</div>
 
-					<div class="col-md-6">
+					<div class="col-sm-6">
 						<div class="item">
 							<div class="thumbnail">
-								<img src="img/img4.jpg"/>
+								<img src="img/img4.jpg" alt="img4" class="img-responsive"/>
 							</div>
 							<h3>Photodiary</h3>
 							<h2>A day exploring the Alps</h2>
@@ -102,8 +102,11 @@
 		<section class="container-fluid newsletter">
 			<h2>Sign up for our newsletter!</h2>
 			<form>
-				<div class="form-group">
+				<div class="input-group">
 					<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter a valid email address">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button"><i class="fas fa-paper-plane"></i></button>
+					</span>
 				</div>
 			</form>
 		</section>
@@ -111,10 +114,10 @@
 		<section class="container">
 			<div class="posts">
 				<div class="row">
-						<div class="col-md-6">
+						<div class="col-sm-6">
 								<div class="item">
 									<div class="thumbnail">
-										<img src="img/img5.jpg"/>
+										<img src="img/img5.jpg" alt="img5" class="img-responsive"/>
 									</div>
 									<h3>Lifestyle</h3>
 									<h2>Top 10 song for running</h2>
@@ -122,10 +125,10 @@
 								</div>
 						</div>
 
-						<div class="col-md-6">
+						<div class="col-sm-6">
 								<div class="item">
 									<div class="thumbnail">
-										<img src="img/img6.jpg"/>
+										<img src="img/img6.jpg" alt="img6" class="img-responsive"/>
 									</div>
 									<h3>Lifestyle</h3>
 									<h2>Cold winter days</h2>
@@ -134,10 +137,23 @@
 						</div>
 				</div>
 			</div>
+
+			<button type="button" class="btn btn-default load-button">Load more</button>
 		</section>
 		
-		<footer class="container">
-
+		<footer>
+			<div class="container">
+				<ul class="nav navbar-nav navbar-left">
+					<li><a href="#">Terms and conditions</a></li>
+					<li><a href="#">Privacy</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Follow</a></li>
+					<li class="follow-button"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+					<li class="follow-button"><a href="#"><i class="fab fa-twitter"></i></a></li>
+					<li class="follow-button"><a href="#"><i class="fab fa-instagram"></i></a></li>
+				</ul>
+			</div>
 		</footer>
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
