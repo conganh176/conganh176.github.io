@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+	background: url("../img/background2.jpg") no-repeat center center fixed;
+	margin: auto;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 1000px;
+}
+
+.card {
+	margin-left: 37.5px;
+	margin-right: 37.5px;
+	float: left;
+	position: relative;
+	margin-bottom: 3%;
+	cursor: pointer;
+}
+
+.card img {
+	margin: auto;
+	display: block;
+}
+
+.front {
+	transform: rotateY(180deg);
+	position: absolute;
+	top: 0;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.card:hover {
+	filter: brightness(125%);
+}
+
+.card:active {
+	filter: brightness(150%);
+}
+
+/*.card:hover .back {
+	transform: rotateY(180deg);
+}
+
+.card:hover .front {
+	transform: rotateY(0deg);
+}*/
+
+/*.front, .back {
+	transition: transform 0.5s ease-in-out;
+	backface-visibility: hidden;
+}*/
+
+.hide {
+	opacity: 0;
+	visibility: hidden;
+	transform: rotateY(180deg);
+	backface-visibility: hidden;
+	transition: all 0.5s ease-in-out;
+}
+
+.show {
+	opacity: 1;
+	visibility: visible;
+	transform: rotateY(0deg);
+	backface-visibility: hidden;
+	transition: all 0.5s ease-in-out;
+}
