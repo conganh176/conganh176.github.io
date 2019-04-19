@@ -50,7 +50,6 @@ nav li {
 }
 
 .dropdown-menu {
-    width: 100%;
     background-image: url("../img/scroll3.png");
 	background-size: 115% 100%;
 	background-position: center;
@@ -61,27 +60,6 @@ nav li {
     transition: max-height 0.75s;
     overflow: hidden;
     max-height: 0;
-}
-
-.navbar-nav .dropdown-menu {
-    /* position: absolute; */
-}
-
-.dropdown-menu.show {
-    max-height: 100vh;
-}
-
-.dropdown-menu a {
-    color: #383b3e;
-}
-
-.dropdown-item:focus, 
-.dropdown-item:hover {
-    color: #ed2939;
-    background-color: transparent;
-}
-
-.dropdown-menu {
     left: 0;
     right: 0;
     margin-left: auto;
@@ -93,12 +71,23 @@ nav li {
     display: block;
 }
 
+.dropdown-menu.show {
+    max-height: 100vh;
+}
+
+.dropdown-item:focus, 
+.dropdown-item:hover {
+    color: #ed2939;
+    background-color: transparent;
+}
+
 .dropdown-menu a {
     text-align: center;
     padding-left: 0;
     padding-right: 0;
     padding-top: 1em;
     padding-bottom: 1em;
+    color: #383b3e;
 }
 
 .navbar-light .navbar-toggler {
