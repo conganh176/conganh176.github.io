@@ -27,3 +27,14 @@ function toggleSlide() {
 function transformSlide() {
     $('#carousel-items').css('transform', 'translateX(' + -25*currentSlide + '%)');
 }
+
+$('#carouselExampleIndicators').on('slide.bs.carousel', function () {
+    let currentCarousel = $('#carouselExampleIndicators li.active').index();
+    // console.log($('.mid-four .quote')[currentCarousel]);
+    $($('.mid-four .quote')[currentCarousel]).removeClass('active');
+});
+
+$('#carouselExampleIndicators li').on('click', function() {
+    let currentNewCarousel = $(this).attr('data-slide-to');
+    $($('.mid-four .quote')[currentNewCarousel]).addClass('active');
+});
