@@ -246,7 +246,7 @@ section .container.high-mid {
 }
 
 .mid-one .carousel-item {
-    opacity: 0.5;
+    opacity: 0;
     transition: all 0.7s ease-in-out;
 }
 
@@ -553,6 +553,10 @@ footer .footer-left a.nav-link {
         font-size: 16px;
     }
 
+    header .navbar-nav {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
     #navbarSupportedContent {
         position: absolute;
         top: 80px;
@@ -561,7 +565,7 @@ footer .footer-left a.nav-link {
 
     #navbarSupportedContent li:not(:last-child) {
         width: 100%;
-        text-align: center;
+        text-align: end;
         padding: 10px;
     }
 
@@ -581,7 +585,7 @@ footer .footer-left a.nav-link {
         border: none;
         margin: 0;
         width: 100%;
-        text-align: center;
+        text-align: end;
     }
 
     header li.nav-item.dropdown.show ~ li.nav-item {
@@ -635,6 +639,10 @@ footer .footer-left a.nav-link {
 
     #carousel-one .captions {
         min-height: 150px;
+    }
+
+    section .container h2 {
+        font-size: 30px;
     }
 }
 
