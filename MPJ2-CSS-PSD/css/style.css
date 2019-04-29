@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    /* background: url("../img/background.jpeg") no-repeat center bottom fixed; */
+    background-color: #232428;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-family: 'lucida_grande';
+    color: #ffffff;
+}
+
+@font-face {
+    font-family: 'lucida_grande';
+    src: url('../font/Lucida_Grande.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bodoni_72';
+    src: url('../font/Bodoni-72-Book.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'glober_semibold';
+    src: url('../font/Glober SemiBold Free.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, h2 {
+    font-family: 'bodoni_72';
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 72px;
+}
+
+h2 {
+    font-size: 40px;
+    line-height: 48px;
+}
+
+h3, h4 {
+    font-family: 'glober_semibold';
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 30px;
+    line-height: 36px;
+}
+
+h4 {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+header {
+    background: url("../img/header-1.png") no-repeat center top;
+    background-size: 100%;
+    max-height: 652px;
+}
+
+nav.bg-dark {
+    background-color: transparent !important;
+    padding-top: 50px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff;
+    padding: 0;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.navbar-dark .navbar-nav .nav-link.navbar-brand {
+    margin-left: 65px;
+    margin-right: 65px;
+}
+
+header .row {
+    padding-top: 185px;
+    padding-bottom: 225px;
+}
+
+section a {
+    color: #ffffff;
+}
+
+section a:hover {
+    color: rgba(255,255,255,.75);
+    text-decoration: none;
+}
+
+.sections {
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 1199px) {
+    header {
+        background: url("../img/header.png") no-repeat center top;
+        background-size: auto;
+    }
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 575px) {
+
+}
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}
+
