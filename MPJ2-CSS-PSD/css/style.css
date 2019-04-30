@@ -17,6 +17,7 @@ body {
     font-size: 15px;
     font-family: 'lucida_grande';
     color: #ffffff;
+    line-height: 20px;
 }
 
 @font-face {
@@ -72,7 +73,7 @@ h4 {
 
 header {
     background: url("../img/header-1.png") no-repeat center top;
-    background-size: 100%;
+    background-size: cover;
     max-height: 652px;
 }
 
@@ -114,19 +115,124 @@ section a:hover {
     transform: translate(-50%, -50%);
 }
 
+.sections-2 {
+    padding-top: 125px;
+    padding-bottom: 125px;
+    background: url('../img/section-background.png') no-repeat center top;
+    background-size: cover;
+}
+
+.sections-2 .section-content {
+    border-left: 5px solid #BD836D;
+}
+
+.follows img.img-fluid {
+    filter: brightness(45%);
+    transition: all 0.5s ease-in-out;
+}
+
+.follows a:hover img.img-fluid {
+    filter: brightness(100%);
+}
+
+.follows img.position-absolute {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.subscribe {
+    padding-top: 90px;
+    padding-bottom: 90px;
+    background-color: #2E2F34;
+}
+
+.subscribe input.form-control,
+.subscribe button.btn {
+    border: none;
+    background: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.subscribe button.btn {
+    padding: 10px;
+    color: transparent;
+}
+
+.subscribe .input-group {
+    border-bottom: 1.5px solid #FFFFFF;
+    font-family: 'glober_semibold';
+}
+
+.subscribe .input-group input {
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 600;
+    line-height: 48px;
+}
+
+.subscribe .input-group input::placeholder {
+    color: #6F717C;
+    text-align: center;
+}
+
+footer p {
+    font-weight: 600;
+    line-height: 18px;
+    color: #6F717C;
+    font-family: 'glober_semibold';
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+footer .row {
+    margin: 0;
+}
+
 @media (max-width: 1199px) {
-    header {
-        background: url("../img/header.png") no-repeat center top;
-        background-size: auto;
-    }
+
 }
 
 @media (max-width: 767px) {
+    #navbarSupportedContent {
+        position: absolute;
+        width: 100%;
+        top: 100px;
+        background-color: rgba(0,0,0,0.25);
+        line-height: 30px;
+    }
 
+    .subscribe button.btn {
+        color: #ffffff;
+    }
 }
 
 @media (max-width: 575px) {
+    h1 {
+        font-size: 2.5rem;
+        line-height: 45px;
+    }
 
+    h2 {
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    h3, h4 {
+        font-family: 'glober_semibold';
+        font-weight: 600;
+    }
+
+    h3 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    h4 {
+        font-size: 15px;
+        line-height: 18px;
+    }
 }
 
 @media (min-width: 576px) {
@@ -142,6 +248,8 @@ section a:hover {
 }
 
 @media (min-width: 1200px) {
-
+    .sections-2 .row > div.col-11 {
+        margin-left: 200px!important;
+    }
 }
 
