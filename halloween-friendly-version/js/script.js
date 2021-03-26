@@ -44,13 +44,6 @@ function openDoor() {
 		document.getElementById("ghost6").style.opacity=1;
 		document.getElementById("ghost6").style.animation="fade 3s linear";
 	}, 25000);
-	// setInterval(function(){
-	// 	document.getElementById("thunder").play();
-	// 	document.getElementById("ghost8").querySelector("img").style.opacity=1;
-	// 	setTimeout(function(){
-	// 		document.getElementById("ghost8").querySelector("img").style.opacity=0;
-	// 	}, 500)
-	// }, 35000);
 }
 
 setTimeout(function(){
